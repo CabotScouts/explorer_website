@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('frontpage');
 });
 
+Route::get('/calendar/', function () {
+    return view('calendar');
+});
+
+Route::get('/units/', function () {
+    return view('units');
+});
+
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
