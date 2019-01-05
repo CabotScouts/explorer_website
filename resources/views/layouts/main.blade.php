@@ -14,7 +14,7 @@
 				<div class="container grid-lg hide-sm">
 					<section class="navbar-section">
 						<a href="/">Home</a>
-						<a href="/calendar/" class="active">Calendar</a>
+						<a href="/calendar/">Calendar</a>
 						<a href="/units/">Units</a>
 						<a href="/awards/">Top Awards</a>
 						<a href="/join/">Joining</a>
