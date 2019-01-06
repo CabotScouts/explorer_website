@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Units')
 @section('content')
 <section class="units container grid-lg pad">
 	<div class="columns">

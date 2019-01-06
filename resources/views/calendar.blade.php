@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Calendar')
 @section('content')
 <section class="calendar pad">
 <!-- Will eventually replace this with an native implementation, but this'll do for now... -->
