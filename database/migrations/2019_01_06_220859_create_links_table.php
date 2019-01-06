@@ -16,6 +16,13 @@ class CreateLinksTable extends Migration
         Schema::create('links', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+						$table->string('name');
+						$table->string('description');
+						$table->boolean('local')->default(true);
+						$table->string('url');
+						$table->boolean('external')->default(false);
+						$table->string('set');
+						$table->integer('order')->default(100);
         });
     }
 
