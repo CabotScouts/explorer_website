@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<link rel="stylesheet" href="{{ asset('assets/main.css') }}">
-		<title>Cabot Explorer Scouts</title>
+		<title>@yield('title') - Cabot Explorer Scouts</title>
 	</head>
 
 	<body>
@@ -19,7 +19,7 @@
 					</p>
 				</div>
 			</div>
-			
+
 			<div class="navbar">
 				<div class="container grid-lg hide-sm">
 					<section class="navbar-section">
