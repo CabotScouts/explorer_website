@@ -9,7 +9,17 @@
 	</head>
 
 	<body>
-	  <header>
+		<header>
+			<div class="ribbon">
+				<div class="container grid-lg">
+					<p>
+						<b>Hello There</b>
+						I'm not sure how you found this, but it's a site under development!
+						Please don't rely on any information here to be correct, accurate, or even logical.
+					</p>
+				</div>
+			</div>
+			
 			<div class="navbar">
 				<div class="container grid-lg hide-sm">
 					<section class="navbar-section">
