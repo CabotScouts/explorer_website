@@ -26,7 +26,7 @@
 			<div class="navtoggle show-sm">
 				<a href=""><i class="icon icon-menu"></i></a>
 			</div>
-	  </header>
+		</header>
 
 		<main>
 @yield('content')
