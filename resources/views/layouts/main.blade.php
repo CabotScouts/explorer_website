@@ -1,3 +1,6 @@
+<?php
+$navbarlinks = App\Links::where('set', 'navbar')->orderBy('order', 'asc');
+?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -23,12 +26,15 @@
 			<div class="navbar">
 				<div class="container grid-lg hide-sm">
 					<section class="navbar-section">
-						<a href="/">Home</a>
+						@foreach($navbarlinks as $link)
+							$link->link(false, true);
+						@endforeach
+						{{--<a href="/">Home</a>
 						<a href="/calendar/">Calendar</a>
 						<a href="/units/">Units</a>
 						<a href="/awards/">Top Awards</a>
 						<a href="/join/">Joining</a>
-						<a href="/join/leaders">Volunteer</a>
+						<a href="/join/leaders">Volunteer</a>--}}
 			    </section>
 				</div>
 			</div>
