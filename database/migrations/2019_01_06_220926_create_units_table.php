@@ -18,7 +18,7 @@ class CreateUnitsTable extends Migration
             $table->timestamps();
 						$table->string('name');
 						$table->string('shortname');
-						$table->integer('day');
+						$table->integer('day'); // 0 = 1 -> Monday
 						$table->longtext('blurb')->nullable();
 						//$table->foreign('postcat')->references('id')->on('postcategories');
         });

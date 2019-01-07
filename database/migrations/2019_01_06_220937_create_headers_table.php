@@ -16,6 +16,11 @@ class CreateHeadersTable extends Migration
         Schema::create('headers', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+						$table->string('name');
+						$table->string('description')->nullable();
+						$table->string('link')->nullable();
+						$table->boolean('static');
+						$table->enum('position', ['left', 'right'])
         });
     }
 
