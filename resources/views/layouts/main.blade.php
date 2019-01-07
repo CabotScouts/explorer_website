@@ -1,5 +1,5 @@
 <?php
-$navbarlinks = App\Links::where('set', 'navbar')->orderBy('order', 'asc');
+$navbarlinks = App\Link::where('set', 'navbar')->orderBy('order', 'asc');
 ?>
 <!doctype html>
 <html lang="en">
