@@ -28,9 +28,9 @@ $navbarlinks = App\Link::where('set', 'navbar')->orderBy('order', 'asc')->get();
 					<section class="navbar-section">
 						<?php
 						foreach($navbarlinks as $link) {
-							$url = ($link->local) ? $_ENV['APP_URL'] + $link->url : $link->url;
+							$url = ($link->local) ? $_ENV['APP_URL'] . $link->url : $link->url;
 							$active = ($url == url()->current() && $link->name != 'home') ? " class=\"active\"" : "";
-							print("<a href=\"" + $url + "\"" + $active + ">" + ucfirst($link->name) + "</a>");
+							print("<a href=\"" . $url . "\"" . $active . ">" . ucfirst($link->name) . "</a>");
 						}
 						?>
 						{{--<a href="/">Home</a>
