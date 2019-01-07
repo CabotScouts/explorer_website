@@ -16,6 +16,11 @@ class CreateUnitsTable extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+						$table->string('name');
+						$table->string('shortname');
+						$table->integer('day');
+						$table->longtext('blurb')->nullable();
+						//$table->foreign('postcat')->references('id')->on('postcategories');
         });
     }
 
