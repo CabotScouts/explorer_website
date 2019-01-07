@@ -29,9 +29,7 @@ $navbarlinks = App\Link::where('set', 'navbar')->orderBy('order', 'asc')->get();
 						<?php
 						foreach($navbarlinks as $link) {
 							$url = ($link->local) ? $_ENV['APP_URL'] . $link->url : $link->url;
-							$active = ($url == url()->full() && $link->name != 'home') ? " class=\"active\"" : "";
-							print($url);
-							print(url()->full());
+							$active = ($url == (url()->current() . "/") && $link->name != 'home') ? " class=\"active\"" : "";
 							print("<a href=\"" . $url . "\"" . $active . ">" . ucwords($link->name) . "</a>");
 						}
 						?>
