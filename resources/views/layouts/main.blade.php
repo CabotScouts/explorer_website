@@ -30,15 +30,10 @@ $navbarlinks = App\Link::where('set', 'navbar')->orderBy('order', 'asc')->get();
 						foreach($navbarlinks as $link) {
 							$url = ($link->local) ? $_ENV['APP_URL'] . $link->url : $link->url;
 							$active = ($url == (url()->current() . "/") && $link->name != 'home') ? " class=\"active\"" : "";
-							print("<a href=\"" . $url . "\"" . $active . ">" . ucwords($link->name) . "</a>");
+							print("<a href=\"" . $url . "\"" . $active . ">" . ucwords($link->name) . "</a>
+							");
 						}
 						?>
-						{{--<a href="/">Home</a>
-						<a href="/calendar/">Calendar</a>
-						<a href="/units/">Units</a>
-						<a href="/awards/">Top Awards</a>
-						<a href="/join/">Joining</a>
-						<a href="/join/leaders">Volunteer</a>--}}
 			    </section>
 				</div>
 			</div>
