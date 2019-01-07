@@ -27,7 +27,7 @@ $navbarlinks = App\Link::where('set', 'navbar')->orderBy('order', 'asc');
 				<div class="container grid-lg hide-sm">
 					<section class="navbar-section">
 						@foreach($navbarlinks as $link)
-							$link->link(false, true);
+							print($link->link(false, true));
 						@endforeach
 						{{--<a href="/">Home</a>
 						<a href="/calendar/">Calendar</a>
