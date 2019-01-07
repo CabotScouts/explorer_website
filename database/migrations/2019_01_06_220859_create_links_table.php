@@ -17,7 +17,7 @@ class CreateLinksTable extends Migration
             $table->increments('id');
             $table->timestamps();
 						$table->string('name');
-						$table->string('description');
+						$table->string('description')->nullable();
 						$table->boolean('local')->default(true);
 						$table->string('url');
 						$table->boolean('external')->default(false);
