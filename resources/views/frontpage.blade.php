@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Cabot Explorers')
 @section('content')
 <section class="frontpage-wide">
 	<div class="container grid-lg">
