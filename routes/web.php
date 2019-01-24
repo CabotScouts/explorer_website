@@ -10,20 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('frontpage');
-});
-
-Route::get('/calendar/', function () {
-    return view('calendar');
-});
-
-Route::get('/units/', function () {
-    return view('units');
-});
-
-
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+// Home
+Route::get('/', function () {
+    return view('frontpage');
+})->name('home');
+
+// Calendar
+Route::get('/calendar/', function () {
+    return view('calendar');
+})->name('calendar');
+
+// Units
+Route::get('/units/{unit}', UnitController@showUnit)->name('units');
+
+// Catch-all route - look for post with that name
+Route::any('/{page?}', 'PageController@showPage');
