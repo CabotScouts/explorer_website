@@ -22,7 +22,7 @@ Route::get('/calendar/', function () {
 })->name('calendar');
 
 // Units
-Route::get('/units/{unit}', 'UnitController@showUnit')->name('units');
+Route::get('/units/{unit?}', 'UnitController@showUnit')->name('units');
 
 Auth::routes();
 
