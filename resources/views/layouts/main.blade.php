@@ -5,7 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<link rel="stylesheet" href="{{ asset('assets/main.css') }}">
+		@hasSection('title')
 		<title>@yield('title') - Cabot Explorer Scouts</title>
+		@else
+		<title>Cabot Explorer Scouts</title>
+		@endif
 	</head>
 
 	<body>

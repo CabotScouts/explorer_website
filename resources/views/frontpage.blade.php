@@ -1,5 +1,4 @@
 @extends('layouts.main')
-@section('title', 'Home')
 @section('content')
 <section class="frontpage-wide">
 	<div class="container grid-lg">
