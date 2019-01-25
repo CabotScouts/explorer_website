@@ -13,9 +13,7 @@ class UnitController extends Controller
 	}
 
   public function showUnit($name) {
-		$unit = Unit::where('shortname', $name)->get();
-		if($unit)	return view('unit.show', ['unit' => $unit]);
-		//return view('404');
-		return '404';
+		$unit = Unit::where('shortname', $name)->firstOrFail();
+		return view('unit.show', ['unit' => $unit]);
   }
 }
