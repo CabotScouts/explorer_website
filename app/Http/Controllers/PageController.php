@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function showPage()
+    public function showPage($page)
     {
-        return view('frontpage');
+        return $page;
     }
 }

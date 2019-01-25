@@ -10,7 +10,7 @@ class UnitController extends Controller
 		return view('units');
 	}
 
-  public function showUnit() {
-    
+  public function showUnit($unit) {
+    return $unit;
   }
 }
