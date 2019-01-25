@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
-    public function showUnit()
-    {
-        return view('frontpage');
-    }
+	public function index() {
+		return view('units');
+	}
+
+  public function showUnit() {
+    
+  }
 }
