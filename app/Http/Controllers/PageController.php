@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Page;
 
 class PageController extends Controller
 {
-    public function showPage($page)
+    public function showPage($name)
     {
-        return $page;
+        $page = Page::where('url', $name)->firstOrFail();
     }
 }
