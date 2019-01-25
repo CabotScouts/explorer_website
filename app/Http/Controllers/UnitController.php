@@ -9,7 +9,7 @@ class UnitController extends Controller
 {
 	public function index() {
 		$units = Unit::orderBy('day', 'asc')->get();
-		return view('unit.index');
+		return view('unit.index', $units);
 	}
 
   public function showUnit($name) {
