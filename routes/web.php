@@ -8,4 +8,4 @@ Route::get('/units/', 'UnitController@index')->name('units');
 Route::get('/units/{unit}', 'UnitController@showUnit');
 
 // Catch-all route - find a page which matches or 404
-Route::any('/{page?}', 'PageController@showPage')->where('page', '[.*/]+');
+Route::any('/{page}', 'PageController@showPage')->where('page', '.*');
