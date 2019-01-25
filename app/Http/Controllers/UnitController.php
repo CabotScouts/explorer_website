@@ -13,7 +13,7 @@ class UnitController extends Controller
 	}
 
   public function showUnit($name) {
-		$unit = Unit::where('name', $name)->get();
+		$unit = Unit::where('shortname', $name)->get();
     return view('unit.show', ['unit' => $unit]);
   }
 }
