@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<link rel="stylesheet" href="{{ asset('assets/main.css') }}">
 		<title>@yield('title') - Cabot Explorer Scouts</title>
@@ -10,16 +10,6 @@
 
 	<body>
 		<header>
-			<div class="ribbon">
-				<div class="container grid-lg">
-					<p>
-						<b>Hello There</b>
-						I'm not sure how you found this, but it's a site under development!
-						Please don't rely on any information here to be correct, accurate, or even logical.
-					</p>
-				</div>
-			</div>
-
 			<div class="navbar">
 				<div class="container grid-lg hide-sm">
 					<section class="navbar-section">
