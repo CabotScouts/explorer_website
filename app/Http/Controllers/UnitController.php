@@ -8,6 +8,6 @@ class UnitController extends Controller
 {
     public function showUnit()
     {
-        return view('home');
+        return view('frontpage');
     }
 }

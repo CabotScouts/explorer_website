@@ -8,6 +8,6 @@ class PageController extends Controller
 {
     public function showPage()
     {
-        return view('home');
+        return view('frontpage');
     }
 }
