@@ -4,8 +4,6 @@ function days($day) {
 	if($day >= 0 && $day < 7) return $days[$day];
 	return false;
 }
-
-$day = days($unit->day);
 ?>
 
 @extends('layouts.main')
@@ -21,6 +19,7 @@ $day = days($unit->day);
 			<div class="columns">
 				@if(count($units) > 0)
 					@foreach($units as $unit)
+					<?php $day = days($unit->day); ?>
 					<div class="column col-sm-12 col-md-6 col-12">
 						<a href="/units/{{ $unit->shortname }}/">
 							<div class="card">
