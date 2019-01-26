@@ -20,7 +20,7 @@ class CreateHeadersTable extends Migration
 						$table->string('description')->nullable();
 						$table->string('link')->nullable();
 						$table->boolean('static');
-						$table->enum('position', ['left', 'right'])
+						$table->enum('position', ['left', 'right']);
         });
     }
 
