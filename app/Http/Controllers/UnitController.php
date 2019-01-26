@@ -8,7 +8,7 @@ use App\Unit;
 class UnitController extends Controller
 {
 	public function index() {
-		$units = Unit::orderBy('day', 'asc')->get();
+		$units = Unit::orderBy('name', 'asc')->get();
 		return view('unit.index', ['units' => $units]);
 	}
 

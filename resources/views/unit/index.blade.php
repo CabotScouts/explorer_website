@@ -1,5 +1,11 @@
 <?php
-$days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+function days($day) {
+	$days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+	if($day >= 0 && $day < 7) return $days[$day];
+	return false;
+}
+
+$day = days($unit->day);
 ?>
 
 @extends('layouts.main')
@@ -20,8 +26,8 @@ $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
 							<div class="card">
 								<div class="card-header">
 									<div class="card-title">{{ $unit->name }}</div>
-									@if($unit->day >= 0)
-									<div class="card-subtitle">{{ $days[$unit->day] }}</div>
+									@if($day)
+									<div class="card-subtitle">{{ $day }}</div>
 									@endif
 								</div>
 							</div>
