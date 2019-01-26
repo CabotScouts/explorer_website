@@ -17,14 +17,7 @@
 			<div class="navbar">
 				<div class="container grid-lg hide-sm">
 					<section class="navbar-section">
-<?php
-// $navbarlinks = App\Link::where('set', 'navbar')->orderBy('order', 'asc')->get();
-// foreach($navbarlinks as $link) {
-// 	$url = ($link->local) ? env('APP_URL', '') . $link->url : $link->url;
-// 	$active = ($url == (url()->current() . "/") && $link->name != 'home') ? " class=\"active\"" : "";
-// 	print("<a href=\"" . $url . "\"" . $active . ">" . ucwords($link->name) . "</a>");
-// }
-?>
+						<?php print(menu('main', 'component.menu')); ?>
 			    </section>
 				</div>
 			</div>
