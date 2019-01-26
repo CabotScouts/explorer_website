@@ -13,18 +13,22 @@ $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
 
 		<div class="column col-4 col-md-12">
 			<div class="columns">
-				@foreach($units as $unit)
-				<div class="column col-sm-12 col-md-6 col-12">
-					<a href="/units/{{ $unit->shortname }}/">
-						<div class="card">
-							<div class="card-header">
-								<div class="card-title">{{ $unit->name }}</div>
-								<div class="card-subtitle">{{ $days[$unit->day] }}</div>
+				@if(count($units) > 0)
+					@foreach($units as $unit)
+					<div class="column col-sm-12 col-md-6 col-12">
+						<a href="/units/{{ $unit->shortname }}/">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">{{ $unit->name }}</div>
+									@if($unit->day >= 0)
+									<div class="card-subtitle">{{ $days[$unit->day] }}</div>
+									@endif
+								</div>
 							</div>
-						</div>
-					</a>
-				</div>
-				@endforeach
+						</a>
+					</div>
+					@endforeach
+				@endif
 			</div>
 		</div>
 	</div>

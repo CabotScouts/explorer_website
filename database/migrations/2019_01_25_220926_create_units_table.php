@@ -20,7 +20,6 @@ class CreateUnitsTable extends Migration
 						$table->string('shortname');
 						$table->integer('day'); // 0 = Monday
 						$table->longtext('blurb')->nullable();
-						//$table->foreign('postcat')->references('id')->on('postcategories');
         });
     }
 
