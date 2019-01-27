@@ -12,45 +12,52 @@ class CurrentUnitSeeder extends Seeder
     public function run()
     {
         DB::table("units")->insert([
-					'name' => 'Spaniorum',
+					'name'      => 'Spaniorum',
 					'shortname' => 'spaniorum',
-					'day' => 0
+					'day'       => 0,
+					'status'    => 'visible'
 				]);
 
 				DB::table("units")->insert([
-					'name' => 'Concorde',
+					'name'      => 'Concorde',
 					'shortname' => 'concorde',
-					'day' => 1
+					'day'       => 1,
+					'status'    => 'visible'
 				]);
 
 				DB::table("units")->insert([
-					'name' => 'Pirates',
+					'name'      => 'Pirates',
 					'shortname' => 'pirates',
-					'day' => 2
+					'day'       => 2,
+					'status'    => 'visible'
 				]);
 
 				DB::table("units")->insert([
-					'name' => 'Steama',
+					'name'      => 'Steama',
 					'shortname' => 'steama',
-					'day' => 2
+					'day'       => 2,
+					'status'    => 'visible'
 				]);
 
 				DB::table("units")->insert([
-					'name' => 'Brabazon',
+					'name'      => 'Brabazon',
 					'shortname' => 'brabazon',
-					'day' => 3
+					'day'       => 3,
+					'status'    => 'visible'
 				]);
 
 				DB::table("units")->insert([
-					'name' => 'Spitfire',
+					'name'      => 'Spitfire',
 					'shortname' => 'spitfire',
-					'day' => 4
+					'day'       => 4,
+					'status'    => 'visible'
 				]);
 
 				DB::table("units")->insert([
-					'name' => 'Young Leaders',
+					'name'      => 'Young Leaders',
 					'shortname' => 'young-leaders',
-					'day' => -1
+					'day'       => -1,
+					'status'    => 'visible'
 				]);
     }
 }

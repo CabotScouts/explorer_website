@@ -127,16 +127,21 @@ class UnitsBreadSeeder extends Seeder
                 'details'      => '',
                 'order'        => 4,
             ],
-						'hidden' => [
-                'type'         => 'checkbox',
-                'display_name' => 'Hidden',
+						'status' => [
+                'type'         => 'select_dropdown',
+                'display_name' => 'Status',
                 'required'     => 0,
                 'browse'       => 1,
                 'read'         => 1,
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => [
+									'options' => [
+										'visible' => 'Visible',
+										'hidden'  => 'Hidden'
+									]
+								],
                 'order'        => 5,
             ],
         ];
