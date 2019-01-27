@@ -1,8 +1,13 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,900");
 .voyager {
-	font-family: "Nunito Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
+	font-family: "Nunito Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto !important;
 	font-size: 14px;
+}
+
+.navbar-header .title, .navbar-nav .title {
+	font-family: "Nunito Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto !important;
+	text-transform: none !important;
 }
 
 /*!
