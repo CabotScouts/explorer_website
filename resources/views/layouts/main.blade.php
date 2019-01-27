@@ -15,11 +15,17 @@
 
 	<body>
 		<header>
-			<div class="navbar">
-				<div class="container grid-lg hide-sm">
+			<div class="container grid-lg hide-sm">
+				<div class="navbar">
 					<section class="navbar-section">
 						<?php print(menu('main', 'component.menu')); ?>
 			    </section>
+					@auth
+					<section class="navbar-section hide-md">
+						<a href="{{ route('voyager.dashboard') }}">Manage</a>
+						<a href="{{ route('voyager.logout') }}">Logout</a>
+					</section>
+					@endauth
 				</div>
 			</div>
 
