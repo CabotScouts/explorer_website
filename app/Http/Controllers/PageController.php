@@ -15,9 +15,12 @@ class PageController extends Controller
 		if(isset($search)) {
 			// TODO: Make this return a list of matches rather than one
 			$page = Page::where('title', 'like', $search)->first();
-			return redirect($page->slug);
-		}
-		else {
+			if($page) {
+				return redirect($page->slug);
+			} else {
+				return view('errors.404');
+			}
+		} else {
 			return view('errors.404');
 		}
 	}
