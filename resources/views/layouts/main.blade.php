@@ -23,7 +23,10 @@
 					@auth
 					<section class="navbar-section hide-md">
 						<a href="{{ route('voyager.dashboard') }}">Manage</a>
-						<a href="{{ route('voyager.logout') }}">Logout</a>
+						{{-- <form method="post" action="{{ route('voyager.logout') }}">
+							@csrf
+							<button class="btn btn-link">Logout</button>
+						</form> --}}
 					</section>
 					@endauth
 				</div>
