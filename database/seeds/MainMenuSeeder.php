@@ -12,7 +12,7 @@ class MainMenuSeeder extends Seeder
     public function run()
     {
 			$menu = DB::table('menus')->insertGetID(['name' => 'main']);
-      DB::table('menu-items')->insert([
+      DB::table('menu_items')->insert([
 				[
 					'menu_id' => $menu,
 					'title'   => 'Home',
