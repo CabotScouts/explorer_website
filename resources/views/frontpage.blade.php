@@ -24,17 +24,17 @@
 		<div class="columns">
 			<div class="column col-lg-4 col-sm-12">
 				<h4>For Explorers</h4>
-				<?php print(menu('front-explorers')); ?>
+				<?php print(menu('frontpage-explorers')); ?>
 			</div>
 
 			<div class="column col-lg-4 col-sm-12">
 				<h4>For Parents</h4>
-				<?php print(menu('front-parents')); ?>
+				<?php print(menu('frontpage-parents')); ?>
 			</div>
 
 			<div class="column col-lg-4 col-sm-12">
 				<h4>For Leaders</h4>
-				<?php print(menu('front-leaders')); ?>
+				<?php print(menu('frontpage-leaders')); ?>
 			</div>
 		</div>
 	</div>
