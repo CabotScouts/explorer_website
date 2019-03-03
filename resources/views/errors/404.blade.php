@@ -3,7 +3,7 @@
 @section('content')
 <section class="container grid-lg pad">
 	<div class="columns">
-		<div class="empty col-md-6 col-mx-auto">
+		<div class="empty col-lg-6 col-md-12 col-mx-auto">
 			<div class="empty-icon"><i class="icon icon-location icon-3x"></i></div>
 			<p class="empty-title h1">404 - Page Not Found</p>
 			<p class="empty-subtitle">The page you were looking for could not be found.</p>
