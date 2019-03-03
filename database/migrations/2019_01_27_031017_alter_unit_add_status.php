@@ -26,7 +26,7 @@ class AlterUnitAddStatus extends Migration
      */
     public function down()
     {
-			Schema::create('units', function (Blueprint $table) {
+			Schema::table('units', function (Blueprint $table) {
 					$table->dropColumn('status');
 			});
     }

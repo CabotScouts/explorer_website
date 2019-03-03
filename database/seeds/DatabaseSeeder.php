@@ -12,8 +12,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
     	$this->call([
+				VoyagerDatabaseSeeder::class,
 				CurrentUnitSeeder::class,
-				MainMenuSeeder::class
+				MainMenuSeeder::class,
+				FrontpageLinksSeeder::class,
+
+				UnitsBreadSeeder::class,
+				PageBreadSeeder::class
 			]);
     }
 }
