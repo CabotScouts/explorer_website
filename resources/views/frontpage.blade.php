@@ -1,15 +1,14 @@
 @extends('layouts.main')
 @section('content')
-<section class="frontpage-wide">
+<section class="page-header cover-vertical" style="background: url('/assets/img/expedition-opt.jpg'); background-size: cover;">
 	<div class="container grid-lg">
 		<div class="columns">
-			<div class="frontpage-intro column col-4 col-lg-5 col-md-12">
+			<div class="column col-5 col-lg-5 col-md-8 col-xs-12">
 				<div>
 					<h4>Ready for Adventure?</h4>
 				</div>
 				<div>
-					<p>Cabot Explorers blurb</p>
-					<p>What are our key points etc.</p>
+					<p>Cabot Explorers is the Scouting section for 14 - 18 year olds in Cabot District, providing new experiences, adventure, and skills to the young people of North West Bristol.</p>
 				</div>
 				<div class="tagline">
 					<p>We prepare young people with Skills For Life.</p>
@@ -19,7 +18,7 @@
 	</div>
 </section>
 
-<section class="links pad">
+<section class="links pad space">
 	<div class="container grid-lg">
 		<div class="columns">
 			<div class="column col-lg-4 col-sm-12">
