@@ -47,23 +47,23 @@ class FrontpageLinksSeeder extends Seeder {
 		DB::table('menu_items')->insert([
 			[
 				'menu_id' => $menu,
+				'title'   => 'Online Scout Manager - Parent Portal',
+				'url'     => 'https://www.onlinescoutmanager.co.uk/login.php',
+				'target'  => '_blank',
+				'order'   => 1
+			],
+			[
+				'menu_id' => $menu,
 				'title'   => 'Parent\'s Guide To Explorers',
 				'url'     => '/parents/guide/',
 				'target'  => '_self',
-				'order'   => 1
+				'order'   => 2
 			],
 			[
 				'menu_id' => $menu,
 				'title'   => 'Parents\' Committee',
 				'url'     => '/parents/committee/',
 				'target'  => '_self',
-				'order'   => 2
-			],
-			[
-				'menu_id' => $menu,
-				'title'   => 'Online Scout Manager - Parent Portal',
-				'url'     => 'https://www.onlinescoutmanager.co.uk/login.php',
-				'target'  => '_blank',
 				'order'   => 3
 			],
 			[
