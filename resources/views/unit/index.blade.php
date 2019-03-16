@@ -19,11 +19,12 @@ function days($day) {
 			<p>
 				For information on moving on from Scouts to Explorers, or on joining from outside the movement, please have a look at our <a href="/joining/">joining information page</a>.
 			</p>
+
+			<h4 class="hide-sm">Where are our Units?</h4>
 		</div>
 
 		<div class="column col-8 col-md-12">
 			<div class="hide-sm">
-				<h4>Where are our Units?</h4>
 				<iframe src="https://www.google.com/maps/d/embed?mid=1riftuTRxvy14w2F-BYw9wl8fXRnpFncc"></iframe>
 			</div>
 		</div>
