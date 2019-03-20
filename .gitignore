@@ -12,3 +12,4 @@ yarn-error.log
 *.sqlite
 .DS_Store
 *.css.map
+*.scssc
