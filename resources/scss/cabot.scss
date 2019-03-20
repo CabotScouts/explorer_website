@@ -35,6 +35,10 @@ h4 .h4 {
 	font-size: 1.1rem;
 }
 
+li {
+	list-style: square inside;
+}
+
 .btn:hover {
 	background: $primary-color-light;
 	color: $light-color;
@@ -206,7 +210,7 @@ main {
 
 		@media screen and (max-width: $size-lg) {
 			.page-sidebar {
-				padding-left: 0;
+				padding-left: .4rem;
 				padding-top: 20px;
 
 				.column {
