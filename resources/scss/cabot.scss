@@ -118,251 +118,252 @@ footer {
 	color: $light-color;
 	padding: 30px 30px 10px 30px;
 	font-size: 0.7rem;
-}
 
-footer a, footer a:hover, footer a:visited {
-	color: $footer-link-color;
-}
+	a, a:hover, a:visited {
+		color: $footer-link-color;
+	}
 
-footer p {
-	width: 90%;
-	margin: 0;
-	padding: 8px 0;
-}
+	p {
+		width: 90%;
+		margin: 0;
+		padding: 8px 0;
+	}
 
-footer .column, footer .columns {
-	padding: 0 0 10px 0;
-}
+	.column, .columns {
+		padding: 0 0 10px 0;
+	}
 
-footer .ce-logo img {
-	max-width: 220px;
-	width: 90%;
-	padding: 8px 0;
-}
+	.ce-logo img {
+		max-width: 220px;
+		width: 90%;
+		padding: 8px 0;
+	}
 
-footer .sm-logo a:hover {
-	text-decoration: none;
-}
+	.sm-logo {
+		a:hover {
+			text-decoration: none;
+		}
 
-footer .sm-logo svg {
-	height: 36px;
-	width: 36px;
-	fill: $light-color;
-	margin: 4px;
-}
+		svg {
+			height: 36px;
+			width: 36px;
+			fill: $light-color;
+			margin: 4px;
+		}
 
-footer .sm-logo a:hover svg {
-	fill: $footer-link-color;
+		a:hover svg {
+			fill: $footer-link-color;
+		}
+	}
 }
 
 // ==== Main Content ====
-// === Main Block ===
 main {
 	background: $gray-color-light;
 	width: 100%;
-}
 
-// == Space (adds top/bottom padding to content block)
-main .space {
-	padding-top: 20px;
-	padding-bottom: 30px;
-}
-
-// == Pad (adds left/right padding for small screens/mobile) ==
-main .pad {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-@media screen and (max-width: $size-lg) {
-	main .space {
+	// == Space (adds top/bottom padding to content block)
+	.space {
 		padding-top: 20px;
-		padding-bottom: 20px;
+		padding-bottom: 30px;
 	}
 
-	main .pad {
-		padding-left: 30px;
-		padding-right: 30px;
-	}
-}
-
-// == Page View Component ==
-main .page {
-	h1, h2, h3, h4 {
-		color: $primary-color;
+	// == Pad (adds left/right padding for small screens/mobile) ==
+	.pad {
+		padding-left: 0;
+		padding-right: 0;
 	}
 
-	.page-sidebar {
-		padding-left: 15px;
-
-		h5 {
-			font-weight: 700;
+	@media screen and (max-width: $size-lg) {
+		.space {
+			padding-top: 20px;
+			padding-bottom: 20px;
 		}
 
-		.column {
-			padding-bottom: 5px;
+		.pad {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+
+	// == Page View Component ==
+	.page {
+		h1, h2, h3, h4 {
+			color: $primary-color;
+		}
+
+		.page-sidebar {
+			padding-left: 15px;
+
+			h5 {
+				font-weight: 700;
+			}
+
+			.column {
+				padding-bottom: 5px;
+			}
+		}
+
+		@media screen and (max-width: $size-lg) {
+			.page-sidebar {
+				padding-left: 0;
+				padding-top: 20px;
+
+				.column {
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+
+	// == Full Width Page Header Component ==
+	.page-header {
+		h1, h2 {
+			color: $light-color;
+			text-shadow: 1px 1px 1px $dark-color;
+			margin: 0.4em 0;
+		}
+
+		.page-title {
+			background: rgba(0, 0, 0, 0.3);
+		}
+	}
+
+	@media screen and (max-width: $size-xs) {
+		.page-header.cover-vertical {
+			.column {
+				min-height: 30vh;
+			}
+		}
+
+		.page-header.cover-horizontal {
+			height: 30vh;
 		}
 	}
 
 	@media screen and (max-width: $size-lg) {
-		.page-sidebar {
-			padding-left: 0;
-			padding-top: 20px;
-
+		.page-header.cover-vertical {
 			.column {
-				padding-bottom: 0;
+				min-height: 55vh;
+			}
+		}
+
+		.page-header.cover-horizontal {
+			height: 55vh;
+		}
+	}
+
+	@media screen and (max-width: $size-lg) {
+		.page-header.cover-vertical {
+			.column {
+				min-height: 40vh;
+			}
+		}
+
+		.page-header.cover-horizontal {
+			height: 30vh;
+		}
+	}
+
+	.page-header.cover-horizontal {
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column;
+		height: 40vh;
+	}
+
+	.page-header.cover-vertical {
+		.column {
+			min-height: 40vh;
+			padding: 10px 0;
+			display: flex;
+			justify-content: space-evenly;
+			flex-direction: column;
+			background: rgba(0, 0, 0, 0.3);
+
+			div {
+				width: 100%;
+			}
+
+			p, h4 {
+				color: $light-color;
+				text-shadow: 1px 1px 1px $dark-color;
+				padding: 10px 30px;
+				margin: 0;
+			}
+
+			.tagline {
+				font-weight: 700;
+				font-size: 0.85rem;
 			}
 		}
 	}
-}
 
-// == Full Width Page Header Component ==
-main .page-header {
-	h1, h2 {
-		color: $light-color;
-		text-shadow: 1px 1px 1px $dark-color;
-		margin: 0.4em 0;
-	}
-
-	.page-title {
-		background: rgba(0, 0, 0, 0.3);
-	}
-}
-
-@media screen and (max-width: $size-xs) {
-	main .page-header.cover-vertical {
-		.column {
-			min-height: 30vh;
-		}
-	}
-
-	main .page-header.cover-horizontal {
-		height: 30vh;
-	}
-}
-
-@media screen and (max-width: $size-lg) {
-	main .page-header.cover-vertical {
-		.column {
-			min-height: 55vh;
-		}
-	}
-
-	main .page-header.cover-horizontal {
-		height: 55vh;
-	}
-}
-
-@media screen and (max-width: $size-lg) {
-	main .page-header.cover-vertical {
-		.column {
-			min-height: 40vh;
-		}
-	}
-
-	main .page-header.cover-horizontal {
-		height: 30vh;
-	}
-}
-
-main .page-header.cover-horizontal {
-	display: flex;
-	justify-content: flex-end;
-	flex-direction: column;
-	height: 40vh;
-}
-
-main .page-header.cover-vertical {
-	.column {
-		min-height: 40vh;
-		padding: 10px 0;
-		display: flex;
-		justify-content: space-evenly;
-		flex-direction: column;
-		background: rgba(0, 0, 0, 0.3);
-
-		div {
-			width: 100%;
-		}
-
-		p, h4 {
-			color: $light-color;
-			text-shadow: 1px 1px 1px $dark-color;
-			padding: 10px 30px;
-			margin: 0;
-		}
-
-		.tagline {
+	// == Links Column Component ==
+	.links {
+		h4 {
 			font-weight: 700;
-			font-size: 0.85rem;
-		}
-	}
-}
+		 }
 
-// == Links Column Component ==
-main .links {
-	h4 {
-		font-weight: 700;
-	 }
-
-	li {
-		margin-left: 8px;
-		list-style: square;
-	}
-}
-
-// == Unit Map Component ==
-main .units {
-	iframe {
-		border: 0;
-		width: 100%;
-		height: 600px;
-		max-height: 90vh;
-		margin: 0 0 20px 0;
-	}
-
-	@media screen and (min-width: $size-lg) {
-		.units-list {
-			padding-left: 15px;
+		li {
+			margin-left: 8px;
+			list-style: square;
 		}
 	}
 
-	.card {
-		margin-bottom: 10px;
+	// == Unit Map Component ==
+	.units {
+		iframe {
+			border: 0;
+			width: 100%;
+			height: 600px;
+			max-height: 90vh;
+			margin: 0 0 20px 0;
+		}
+
+		@media screen and (min-width: $size-lg) {
+			.units-list {
+				padding-left: 15px;
+			}
+		}
+
+		.card {
+			margin-bottom: 10px;
+		}
+
+		.card-title {
+			font-size: 1rem;
+			font-weight: 600;
+		}
+
+		a:hover {
+			text-decoration: none;
+		}
+
+		a:hover .card-title {
+			text-decoration: underline;
+		}
+
+		.card-subtitle {
+			color: $gray-color-dark;
+		}
+
+		.card-footer {
+			text-align: right;
+		}
 	}
 
-	.card-title {
-		font-size: 1rem;
-		font-weight: 600;
-	}
+	// == Calendar Component ==
+	.calendar {
+		h2 {
+			margin-bottom: 0;
+		}
 
-	a:hover {
-		text-decoration: none;
-	}
-
-	a:hover .card-title {
-		text-decoration: underline;
-	}
-
-	.card-subtitle {
-		color: $gray-color-dark;
-	}
-
-	.card-footer {
-		text-align: right;
-	}
-}
-
-// == Calendar Component ==
-main .calendar {
-	h2 {
-		margin-bottom: 0;
-	}
-
-	iframe {
-		width: 100%;
-		max-width: 100vw;
-		height: 80vh;
-		border: 0;
+		iframe {
+			width: 100%;
+			max-width: 100vw;
+			height: 80vh;
+			border: 0;
+		}
 	}
 }
