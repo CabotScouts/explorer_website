@@ -1,5 +1,5 @@
 @if(!isset($orientation) || $orientation == 'horizontal')
-<section class="page-header cover-horizontal" style="background: url('{{ $image }}'); background-size: cover;">
+<section class="page-header cover-horizontal" style="background: url('/storage/{{ $image }}'); background-size: cover;">
 	<div class="page-title">
 		<div class="container grid-lg">
 			<div class="columns pad">

@@ -5,7 +5,7 @@ use App\Page;
 class PageController extends Controller
 {
   public function showPage($name) {
-    $page = Page::where('slug', $name)->firstOrFail();
+    $page = Page::where('slug', $name)->where('status', 1)->firstOrFail();
 		return view('page', ['page' => $page]);
   }
 

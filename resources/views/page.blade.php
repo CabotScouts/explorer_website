@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('title', $page->title)
+
 @section('content')
 @if($page->image)
 @component('component.header', ['image' => $page->image])
@@ -20,7 +21,7 @@
 			</div>
 
 			<div class="page-sidebar column col-4 col-md-12">
-				<div class="columns">
+				{{-- <div class="columns">
 					<div class="column col-12 col-md-4 col-sm-12">
 						<h5>Sidebar 1</h5>
 						<p>
@@ -39,7 +40,7 @@
 							This is a place some extra links or information can be added...
 						</p>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>
