@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('content')
-{{--TODO: replace header image with voyager setting --}}
-@component('component.header', ['orientation' => 'vertical', 'image' => 'headers/expedition-opt.jpg'])
+@component('component.header', ['orientation' => 'vertical', 'image' => setting('site.front-header')])
 	<div>
 		<h4>Ready for Adventure?</h4>
 	</div>
