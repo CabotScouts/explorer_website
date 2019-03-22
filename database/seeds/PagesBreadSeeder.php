@@ -148,14 +148,14 @@ class PagesBreadSeeder extends Seeder
 								'display_name' => 'Content',
 								'required'     => 0,
 								'browse'       => 0,
-								'read'         => 1,
+								'read'         => 0,
 								'edit'         => 1,
 								'add'          => 1,
 								'delete'       => 0,
 								'details'      => '',
 								'order'        => 3,
 						],
-						'image' => [ // TODO: replace this with media manager option
+						'image' => [
 								'type'         => 'media_picker',
 								'display_name' => 'Header Image',
 								'required'     => 0,
@@ -198,8 +198,6 @@ class PagesBreadSeeder extends Seeder
 								'order'        => 5,
 						]
         ];
-
-				print(Page::STATUS_ACTIVE);
     }
 
     public function menuEntry()
