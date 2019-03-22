@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
-@component('component.header', ['orientation' => 'vertical', 'image' => '/assets/img/expedition-opt.jpg'])
+{{--TODO: replace header image with voyager setting --}}
+@component('component.header', ['orientation' => 'vertical', 'image' => 'headers/expedition-opt.jpg'])
 	<div>
 		<h4>Ready for Adventure?</h4>
 	</div>

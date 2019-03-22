@@ -11,7 +11,7 @@
 	</div>
 </section>
 @else
-<section class="page-header cover-vertical" style="background: url('{{ $image }}'); background-size: cover;">
+<section class="page-header cover-vertical" style="background: url('/storage/{{ $image }}'); background-size: cover;">
 	<div class="container grid-lg">
 		<div class="columns">
 			<div class="column col-5 col-lg-5 col-md-8 col-xs-12">
