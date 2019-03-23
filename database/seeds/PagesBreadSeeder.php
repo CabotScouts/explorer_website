@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use VoyagerBread\Traits\BreadSeeder;
-use TCG\Voyager\Models\Page;
 
 class PagesBreadSeeder extends Seeder
 {
@@ -155,6 +154,18 @@ class PagesBreadSeeder extends Seeder
 								'details'      => '',
 								'order'        => 3,
 						],
+						'sidebar' => [
+								'type'         => 'code_editor',
+								'display_name' => 'Sidebar Content',
+								'required'     => 0,
+								'browse'       => 0,
+								'read'         => 0,
+								'edit'         => 1,
+								'add'          => 1,
+								'delete'       => 0,
+								'details'      => '',
+								'order'        => 4,
+						],
 						'image' => [
 								'type'         => 'media_picker',
 								'display_name' => 'Header Image',
@@ -175,7 +186,7 @@ class PagesBreadSeeder extends Seeder
 									'max'          => 1,
 									'show_folders' => true
 									],
-								'order'        => 4,
+								'order'        => 5,
 						],
 						'status' => [
 								'type'         => 'checkbox',
@@ -195,7 +206,7 @@ class PagesBreadSeeder extends Seeder
 									'off'  => 'Hidden',
 									'checked' => false,
 								],
-								'order'        => 5,
+								'order'        => 6,
 						]
         ];
     }

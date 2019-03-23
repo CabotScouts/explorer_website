@@ -20,28 +20,13 @@
 				{!! $page->body !!}
 			</div>
 
-			<div class="page-sidebar column col-4 col-md-12">
-				{{-- <div class="columns">
-					<div class="column col-12 col-md-4 col-sm-12">
-						<h5>Sidebar 1</h5>
-						<p>
-							This is a place some extra links or information can be added...
-						</p>
+			@if($page->sidebar)
+				<div class="page-sidebar column col-4 col-md-12">
+					<div class="columns">
+					{!! $page->formattedSidebar !!}
 					</div>
-					<div class="column col-12 col-md-4 col-sm-12">
-						<h5>Sidebar 2</h5>
-						<p>
-							This is a place some extra links or information can be added...
-						</p>
-					</div>
-					<div class="column col-12 col-md-4 col-sm-12">
-						<h5>Sidebar 3</h5>
-						<p>
-							This is a place some extra links or information can be added...
-						</p>
-					</div>
-				</div> --}}
-			</div>
+				</div>
+			@endif
 		</div>
 	</div>
 </section>
