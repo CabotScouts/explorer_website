@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 				FrontpageLinksSeeder::class,
 
 				UnitsBreadSeeder::class,
-				PageBreadSeeder::class
+				PagesBreadSeeder::class
 			]);
     }
 }
