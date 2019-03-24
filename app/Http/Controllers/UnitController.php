@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Unit;
+use App\Page;
 
 class UnitController extends Controller
 {
@@ -13,7 +14,7 @@ class UnitController extends Controller
 	}
 
   public function showUnit($name) {
-		$unit = Unit::where('shortname', $name)->firstOrFail();
-		return view('unit.show', ['unit' => $unit]);
+		$page = Page::where('slug', ("units/" . $name))->where('status', 1)->firstOrFail();
+		return view('page', ['page' => $page]);
   }
 }
