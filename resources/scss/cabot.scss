@@ -205,7 +205,11 @@ main {
 			}
 
 			.column {
-				padding-bottom: 5px;
+				padding-bottom: 15px;
+			}
+
+			.column:last-of-type {
+				padding-bottom: 0;
 			}
 		}
 
@@ -214,8 +218,10 @@ main {
 				padding-left: .4rem;
 				padding-top: 20px;
 
-				.column {
-					padding-bottom: 0;
+				@media (min-width: $size-sm) {
+					.column {
+						padding-bottom: 0;
+					}
 				}
 			}
 		}
