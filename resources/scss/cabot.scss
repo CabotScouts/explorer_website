@@ -12,7 +12,7 @@ body {
 	background: $primary-color-light;
 	font-family: 'Nunito Sans', $base-font-family;
 }
-a, a:hover, a:visited {
+a, a:hover, a:visited, a.active {
 	color: $primary-color-light;
 }
 
