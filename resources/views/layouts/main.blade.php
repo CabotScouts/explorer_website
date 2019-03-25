@@ -60,9 +60,9 @@
 					</div>
 
 					<div class="column">
-						<p>Cabot Explorer Scouts are managed by <a href="https://bristolcabotscouts.org.uk">Cabot Scout District</a></p>
-						<p><a href="/sitemap">Sitemap</a> - <a href="/privacy">Privacy Policy</a></p>
-						<p>&copy; Cabot District Explorer Scouts 2018</p>
+						<p>Cabot Explorer Scouts are managed by <a href="https://bristolcabotscouts.org.uk" target="_blank">Cabot Scout District</a></p>
+						<p><a href="/privacy">Privacy Policy</a></p>
+						<p>&copy; Cabot District Explorer Scouts 2019</p>
 					</div>
 
 					<div class="sm-logo column col-1 col-sm-12 col-mr-auto">
