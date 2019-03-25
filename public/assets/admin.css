@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,900');
+
+body {
+	font-family: "Nunito Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
+
+.side-menu, .side-menu a {
+	font-family: "Nunito Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto !important;
+}
+
+.voyager, div.login-container p {
+	font-size: 14px !important;
+}
+
+.navbar-header .title, .navbar-nav .title, body.login .copy h1, div.login-container p {
+	text-transform: none !important;
+}
+
+.mce-ico {
+	font-family: 'tinymce', Arial !important;
+}
