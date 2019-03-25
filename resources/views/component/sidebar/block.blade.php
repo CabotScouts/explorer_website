@@ -2,5 +2,5 @@
 	@if($title)
 		<h5>{{ $title }}</h5>
 	@endif
-	{!! $block !!}
+	{!! $content !!}
 </div>
