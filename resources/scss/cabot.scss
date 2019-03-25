@@ -78,6 +78,7 @@ header {
 		@media screen and (max-width: $size-sm) {
 			// Navbar links for small screened devices (drop-down)
 			.navbar-section {
+				max-width: $size-sm;
 				float: left;
 				display: block;
 				margin: 5px 0;
