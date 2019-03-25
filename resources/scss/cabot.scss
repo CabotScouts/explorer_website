@@ -74,44 +74,73 @@ header {
 		}
 	}
 
-	.navtoggle {
-		margin: 2px 15px 4px 15px;
-		text-align: right;
-		font-size: 1.4rem;
-		line-height: 2.2rem;
-	}
-
 	.navbar {
-		@media screen and (max-width: $size-lg) {
-			padding: 0 20px;
+		@media screen and (max-width: $size-sm) {
+			// Navbar links for small screened devices (drop-down)
+			.navbar-section {
+				float: left;
+				display: block;
+				margin: 5px 0;
+				overflow-y: hidden;
+
+				a {
+					display: block;
+					padding: 15px 10px;
+					font-weight: 700;
+				}
+			}
+
+			.hidden {
+				height: 0;
+			}
 		}
 
-			a {
+		.nav-toggle {
 			display: inline-block;
-			padding: 12px;
-			margin: 2px 5px 2px 0;
-			font-weight: 700;
+			float: right;
+			margin: 2px 15px 4px 15px;
+			font-size: 1.4rem;
+			line-height: 2.2rem;
 		}
 
-		a:first-of-type {
-			padding-left: 0;
-		}
+		@media screen and (min-width: $size-sm) {
+			@media screen and (max-width: $size-lg) {
+				// Add padding to all sizes where content will reach the viewport edges
+				padding: 0 20px;
+			}
 
-		a:last-of-type {
-			margin: 2px 0;
-		}
+			.nav-toggle {
+				display: none;
+			}
 
-		a.active {
-			border-bottom: $primary-color-light solid 2px;
-			margin-bottom: -1px;
-			padding-bottom: 13px;
-			color: $primary-color-light;
-			text-decoration: none;
-		}
+			// Full width navbar links
+			a {
+				display: inline-block;
+				padding: 12px;
+				margin: 2px 5px 2px 0;
+				font-weight: 700;
+			}
 
-		.navbar-section {
-			display: block;
-			flex: none;
+			a:first-of-type {
+				padding-left: 0;
+			}
+
+			a:last-of-type {
+				margin: 2px 0;
+			}
+
+			a.active {
+				border-bottom: $primary-color-light solid 2px;
+				margin-bottom: -1px;
+				padding-bottom: 13px;
+				color: $primary-color-light;
+				text-decoration: none;
+			}
+
+			.navbar-section {
+				display: block;
+				flex: none;
+			}
 		}
 	}
 }

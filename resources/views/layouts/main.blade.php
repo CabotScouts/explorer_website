@@ -11,29 +11,40 @@
 		@else
 		<title>Cabot Explorer Scouts</title>
 		@endif
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/cash/3.1.0/cash.min.js"></script>
+		<script type="text/javascript">
+			$('body').ready(function() {
+				$('#menu').addClass('hidden');
+				$('#nav-toggle').on('click', function() {
+					$('#menu').toggleClass('hidden');
+				});
+			});
+		</script>
 	</head>
 
 	<body>
 		<header>
-			<div class="container grid-lg hide-sm">
+			<div class="container grid-lg">
 				<div class="navbar">
-					<section class="navbar-section">
+					<div class="navbar-section" id="menu">
 						<?php print(menu('main', 'component.menu')); ?>
-			    </section>
+			    </div>
+
+					<div class="nav-toggle">
+						<a href="#"><i class="icon icon-menu" id="nav-toggle"></i></a>
+					</div>
+
 					@auth
-					<section class="navbar-section hide-md">
+					<div class="navbar-section hide-md">
 						<a href="{{ route('voyager.dashboard') }}">Manage</a>
 						{{-- <form method="post" action="{{ route('voyager.logout') }}">
 							@csrf
 							<button class="btn btn-link">Logout</button>
 						</form> --}}
-					</section>
+					</div>
 					@endauth
 				</div>
-			</div>
-
-			<div class="navtoggle show-sm">
-				<a href=""><i class="icon icon-menu"></i></a>
 			</div>
 		</header>
 
