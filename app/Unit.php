@@ -5,9 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Unit extends Model
 {
-    public function getDayAttribute($value) {
+    public function getDayStringAttribute() {
 			$days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-			if($value >= 0 && $value < 7) return $days[$value];
-			return false;
+			if($this->day >= 0 && $this->day < 7) return $days[$this->day];
+			return '';
 		}
 }

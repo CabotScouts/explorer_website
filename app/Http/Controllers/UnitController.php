@@ -10,7 +10,7 @@ class UnitController extends Controller
 {
 	public function index() {
 		$units = Unit::where('status', 'visible')->orderBy('name', 'asc')->get();
-		return view('unit.index', ['units' => $units]);
+		return view('units', ['units' => $units]);
 	}
 
   public function showUnit($name) {
