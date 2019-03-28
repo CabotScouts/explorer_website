@@ -138,9 +138,12 @@ class UnitsBreadSeeder extends Seeder
                 'delete'       => 1,
                 'details'      => [
 									'options' => [
-										'visible' => 'Visible',
-										'hidden'  => 'Hidden'
-									]
+										1   => 'Visible',
+										0   => 'Hidden'
+									],
+									'on'   => 'Visible',
+									'off'  => 'Hidden',
+									'checked' => false,
 								],
                 'order'        => 5,
             ],

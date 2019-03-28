@@ -30,7 +30,7 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="card-title">{{ $unit->name }}</div>
-									@if($unit->day)
+									@if($unit->day > -1)
 									<div class="card-subtitle">{{ $unit->dayString }}</div>
 									@endif
 								</div>

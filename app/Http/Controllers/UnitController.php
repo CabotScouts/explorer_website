@@ -9,7 +9,7 @@ use App\Page;
 class UnitController extends Controller
 {
 	public function index() {
-		$units = Unit::where('status', 'visible')->orderBy('name', 'asc')->get();
+		$units = Unit::where('status', 1)->orderBy('name', 'asc')->get();
 		return view('units', ['units' => $units]);
 	}
 
