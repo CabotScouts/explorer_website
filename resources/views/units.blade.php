@@ -4,15 +4,9 @@
 <section class="page units container grid-lg pad space">
 	<div class="columns">
 		<div class="column col-12">
-			<h2>Explorer Units</h2>
-			<p>
-				Cabot has six core Explorer Units, which meet weekly across the District, as well as a Young Leaders Unit, which delivers training throughout the year for those who wish to volunteer with younger Scouting sections.
-			</p>
-			<p>
-				For information on moving on from Scouts to Explorers, or on joining from outside the movement, please have a look at our <a href="/joining/">joining information page</a>.
-			</p>
-
-			<h4 class="hide-sm">Where are our Units?</h4>
+			@if(isset($page))
+				{!! $page->body !!}
+			@endif
 		</div>
 
 		<div class="column col-8 col-md-12">
