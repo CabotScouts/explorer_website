@@ -1,5 +1,6 @@
 {{-- TODO: Add proper description columns to pages --}}
 {{-- TODO: Add post data type and structure (difference between a page and post?) --}}
+@if(App::environment('production'))
 <meta property="og:url" content="{{ url()->current() }}" />
 @if(isset($page))
 	<meta property="og:type" content="website" />
@@ -17,3 +18,4 @@
 	@endif
 @endif
 <meta property="og:locale" content="en_GB"  />
+@endif
