@@ -6,6 +6,7 @@ $primary-color: hsl(214, 100%, 25%);
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,900');
 
 $dark-highlight-color: lighten($secondary-color, 20%);
+$footer-link-color: $dark-highlight-color;
 
 // ==== Global Styling ====
 body {
@@ -66,6 +67,10 @@ header {
 		p, a {
 			color: $light-color;
 			margin: 0;
+		}
+
+		a, a:hover, a:visited {
+			color: $footer-link-color;
 		}
 
 		button {
@@ -147,7 +152,6 @@ header {
 }
 
 // ==== Global Footer ====
-$footer-link-color: $dark-highlight-color;
 footer {
 	border-top: $gray-color-dark solid 1px;
 	color: $light-color;
