@@ -29,7 +29,7 @@
 	<body>
 		<header>
 			@include('component.ribbon')
-			
+
 			<div class="container grid-lg">
 				<div class="navbar">
 					<div class="navbar-section" id="menu">
