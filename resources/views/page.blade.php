@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main', ['page' => $page])
 @section('title', $page->title)
 
 @section('content')
@@ -7,7 +7,6 @@
 	{{ $page->title }}
 @endcomponent
 @endif
-
 <section class="page pad space">
 	<div class="grid-lg container">
 		<div class="columns">

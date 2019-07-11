@@ -4,6 +4,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
+		@if(isset($page))
+			@include('component.opengraph', ['page' => $page])
+		@endif
 		<link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}"/>
 		<link rel="stylesheet" href="{{ asset('assets/main.css') }}">
 		@hasSection('title')
@@ -25,6 +28,8 @@
 
 	<body>
 		<header>
+			@include('component.ribbon')
+			
 			<div class="container grid-lg">
 				<div class="navbar">
 					<div class="navbar-section" id="menu">
