@@ -15,7 +15,7 @@ class PageController extends Controller
 
 		if(isset($search)) {
 			// TODO: Make this return a list of matches rather than one
-			$page = Page::where('title', 'like', $search)->where('status', 1)->first();
+			$page = Page::where('title', 'like', "%".$search."%")->where('status', 1)->first();
 			if($page) {
 				return redirect($page->slug);
 			} else {
