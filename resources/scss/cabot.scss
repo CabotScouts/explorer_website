@@ -316,7 +316,7 @@ main {
 
 	.page-header.cover-horizontal {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		flex-direction: column;
 		height: 40vh;
 	}
@@ -326,7 +326,7 @@ main {
 			min-height: 40vh;
 			padding: 10px 0;
 			display: flex;
-			justify-content: space-evenly;
+			justify-content: center;
 			flex-direction: column;
 			background: rgba(0, 0, 0, 0.3);
 
