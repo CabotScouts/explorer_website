@@ -19,7 +19,7 @@
 				{!! $page->body !!}
 			</div>
 
-			@if($page->sidebar)
+			@if($page->formattedSidebar)
 				<div class="page-sidebar column col-4 col-md-12">
 					<div class="columns">
 					{!! $page->formattedSidebar !!}

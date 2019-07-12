@@ -12,4 +12,4 @@ Route::get('/units/', 'UnitController@index')->name('units');
 Route::post('/search/', 'PageController@searchPages');
 
 // Catch-all route - find a page which matches or 404
-Route::any('/{page}', 'PageController@showPage')->where('page', '.*');
+Route::any('/{page}', 'PageController@showPage')->where('page', '.*')->name('page');
