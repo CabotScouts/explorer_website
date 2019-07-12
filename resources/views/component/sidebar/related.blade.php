@@ -16,6 +16,7 @@ $pages = Page::where('slug', 'like', $root."%")->where('status', 1)->orderBy('ti
 				<a href="{{ route('page', ['page' => $sibling->slug]) }}">{{ $sibling->title}}</a>
 			</li>
 			@endforeach
+			{!! $content !!}
 		</ul>
 	</div>
 @endif
