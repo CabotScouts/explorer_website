@@ -10,12 +10,10 @@
 <section class="page pad space">
 	<div class="grid-lg container">
 		<div class="columns">
-			@if(!$page->image)
-				<div class="column col-12">
-					<h2>{{ $page->title }}</h2>
-				</div>
-			@endif
 			<div class="column col-8 col-md-12">
+				@if(!$page->image)
+					<h2>{{ $page->title }}</h2>
+				@endif
 				{!! $page->body !!}
 			</div>
 
