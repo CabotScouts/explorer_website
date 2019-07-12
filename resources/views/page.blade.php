@@ -3,7 +3,7 @@
 
 @section('content')
 @if($page->image)
-@component('component.header', ['image' => $page->image])
+@component('component.header', ['image' => $page->image, 'position' => $page->headerposition])
 	{{ $page->title }}
 @endcomponent
 @endif
