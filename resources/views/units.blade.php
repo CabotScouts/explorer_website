@@ -20,7 +20,9 @@
 				@if(count($units) > 0)
 					@foreach($units as $unit)
 					<div class="column col-sm-12 col-md-6 col-12">
-						<a href="/units/{{ $unit->shortname }}/">
+						@if($unit->url)
+						<a href="{{ $unit->url }}/">
+						@endif
 							<div class="card">
 								<div class="card-header">
 									<div class="card-title">{{ $unit->name }}</div>
@@ -29,7 +31,9 @@
 									@endif
 								</div>
 							</div>
+						@if($unit->url)
 						</a>
+						@endif
 					</div>
 					@endforeach
 				@endif
