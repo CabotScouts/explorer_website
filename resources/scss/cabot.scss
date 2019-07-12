@@ -99,6 +99,10 @@ header {
 			.hidden {
 				height: 0;
 			}
+
+			.manage-link {
+				border-top: 1px solid $primary-color-light;
+			}
 		}
 
 		.nav-toggle {

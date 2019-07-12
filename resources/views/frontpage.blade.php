@@ -11,5 +11,5 @@
 		<p>We prepare young people with Skills For Life.</p>
 	</div>
 @endcomponent
-@include('component.quicklinks')
+@include('component.linkblocks')
 @endsection
