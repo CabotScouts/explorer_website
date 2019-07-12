@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-@component('component.header', ['orientation' => 'vertical', 'image' => setting('site.front-header')])
+@component('component.header', ['orientation' => 'vertical', 'image' => setting('site.front-header'), 'position' => setting('site.header-position')])
 	<div>
 		<h4>Ready for Adventure?</h4>
 	</div>
