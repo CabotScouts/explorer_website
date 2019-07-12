@@ -1,8 +1,8 @@
 <?php
 // Finds pages with a shared root and links them
+// TODO: Make this work out if it's the last child page, and show next level up
 use App\Page;
-$root = ($page->root) ? $page->root->slug : $page->slug;
-$pages = Page::where('slug', 'like', $root."%")->where('status', 1)->orderBy('title', 'asc')->get();
+$pages = Page::where('slug', 'like', $page->slug."%")->where('status', 1)->orderBy('title', 'asc')->get();
 ?>
 
 @if(count($pages) > 0)
