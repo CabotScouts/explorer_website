@@ -29,13 +29,16 @@ class Page extends Model
 				$page = Page::where('slug', $slug)->where('status', 1)->first();
 
 				if($page) {
-					$seperator = ($i < (count($parts) - 1)) ? " / " : "";
-					$breadcrumb = $breadcrumb . sprintf(
-						"<a href=%s>%s</a>%s",
-						route('page', ['page' => $page->slug]),
-						$page->title,
-						$seperator
-					);
+					if($page->id == $this->id) {
+						$breadcrumb = $breadcrumb . $page->title;
+					}
+					else {
+						$breadcrumb = $breadcrumb . sprintf(
+							"<a href=%s>%s</a> / ",
+							route('page', ['page' => $page->slug]),
+							$page->title
+						);
+					}
 				}
 				$slug = $slug . "/";
 			}
