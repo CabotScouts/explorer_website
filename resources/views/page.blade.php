@@ -7,6 +7,17 @@
 	{{ $page->title }}
 @endcomponent
 @endif
+@if($page->breadcrumb)
+	<section class="crumb">
+		<div class="grid-lg container">
+			<div class="columns">
+				<div class="column col-12">
+					{!! $page->breadcrumb !!}
+				</div>
+			</div>
+		</div>
+	</section>
+@endif
 <section class="page pad space">
 	<div class="grid-lg container">
 		<div class="columns">
@@ -15,7 +26,6 @@
 			@else
 				<div class="column col-12">
 			@endif
-
 				@if(!$page->image)
 					<h2>{{ $page->title }}</h2>
 				@endif

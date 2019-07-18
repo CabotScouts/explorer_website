@@ -16,6 +16,36 @@ class Page extends Model
 		return false;
 	}
 
+	public function getBreadcrumbAttribute() {
+		$parts = explode("/", $this->slug);
+		$num = count($parts);
+
+		if($num > 1) {
+			$breadcrumb = "";
+			$slug = "";
+
+			for($i = 0; $i < count($parts); $i++) {
+				$slug = $slug . $parts[$i];
+				$page = Page::where('slug', $slug)->where('status', 1)->first();
+
+				if($page) {
+					$seperator = ($i < (count($parts) - 1)) ? " / " : "";
+					$breadcrumb = $breadcrumb . sprintf(
+						"<a href=%s>%s</a>%s",
+						route('page', ['page' => $page->slug]),
+						$page->title,
+						$seperator
+					);
+				}
+				$slug = $slug . "/";
+			}
+
+			return $breadcrumb;
+		}
+
+		return false;
+	}
+
 	public function formatSidebar($sidebar) {
 		return preg_replace_callback('/(?<!@)@([a-zA-Z]*)(\(([^\n,.]*)\))?((.*?)(@end(\1))+)?/s', function ($matches) {
 			$view = 'component.sidebar.' . $matches[1];
