@@ -37,7 +37,7 @@ h4 .h4 {
 	font-size: 1.1rem;
 }
 
-li {
+ul {
 	list-style: square inside;
 }
 
@@ -99,10 +99,6 @@ header {
 			.hidden {
 				height: 0;
 			}
-
-			.manage-link {
-				border-top: 1px solid $primary-color-light;
-			}
 		}
 
 		.nav-toggle {
@@ -150,6 +146,15 @@ header {
 			.navbar-section {
 				display: block;
 				flex: none;
+			}
+
+			.menu {
+				padding: 0;
+			}
+
+			ul.menu li, ul.menu a {
+				padding: 4px 8px;
+				width: 100%;
 			}
 		}
 	}

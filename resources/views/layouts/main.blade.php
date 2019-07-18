@@ -29,7 +29,7 @@
 	<body>
 		<header>
 			@include('component.ribbon')
-			@include('component.navbar')
+			@include('component.navbar', ['page' => (isset($page) ? $page : false)])
 		</header>
 
 		<main>
