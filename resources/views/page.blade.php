@@ -8,7 +8,7 @@
 @endcomponent
 @endif
 @if($page->breadcrumb)
-	<section class="crumb">
+	<section class="crumb pad">
 		<div class="grid-lg container">
 			<div class="columns">
 				<div class="column col-12">

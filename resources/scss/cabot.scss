@@ -237,7 +237,8 @@ main {
 	// == Page View Component ==
 	.crumb {
 		font-size: 0.7rem;
-		padding: .4rem;
+		padding-top: .6rem;
+		padding-bottom: .4rem;
 		margin-bottom: .1rem;
 		background-color: darken($gray-color-light, 1%);
 		// border-bottom: 1px solid darken($gray-color-light, 5%);
@@ -269,6 +270,8 @@ main {
 			.page-sidebar {
 				padding-left: .4rem;
 				padding-top: 20px;
+				margin-top: 10px;
+				border-top: 1px solid $gray-color;
 
 				@media (min-width: $size-sm) {
 					.column {
