@@ -5,7 +5,7 @@
 <!-- Will eventually replace this with an native implementation, but this'll do for now... -->
 	<div class="container grid-lg">
 		<div class="column col-12">
-			<h2>District Explorer Calendar</h2>
+			<h1>District Explorer Calendar</h1>
 		</div>
 
 		<div class="column col-12">

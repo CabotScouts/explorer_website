@@ -27,7 +27,7 @@
 				<div class="column col-12">
 			@endif
 				@if(!$page->image)
-					<h2>{{ $page->title }}</h2>
+					<h1>{{ $page->title }}</h1>
 				@endif
 				{!! $page->body !!}
 			</div>

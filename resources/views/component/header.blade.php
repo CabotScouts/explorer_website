@@ -4,7 +4,7 @@
 		<div class="container grid-lg">
 			<div class="columns pad">
 				<div class="column col-12">
-					<h2>{{ $slot }}</h2>
+					<h1>{{ $slot }}</h1>
 				</div>
 			</div>
 		</div>
