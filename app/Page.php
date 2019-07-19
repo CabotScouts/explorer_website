@@ -34,7 +34,7 @@ class Page extends Model
 					}
 					else {
 						$breadcrumb = $breadcrumb . sprintf(
-							"<a href=%s>%s</a> / ",
+							"<a href=%s>%s</a> <span class=\"separator\">/</span> ",
 							route('page', ['page' => $page->slug]),
 							$page->title
 						);
