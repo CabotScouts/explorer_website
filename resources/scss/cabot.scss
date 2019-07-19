@@ -238,10 +238,9 @@ main {
 	.crumb {
 		font-size: 0.7rem;
 		padding-top: .6rem;
-		padding-bottom: .4rem;
+		padding-bottom: .6rem;
 		margin-bottom: .1rem;
 		background-color: darken($gray-color-light, 1%);
-		// border-bottom: 1px solid darken($gray-color-light, 5%);
 		box-shadow: 1px 1px 1px darken($gray-color-light, 4%);
 	}
 
