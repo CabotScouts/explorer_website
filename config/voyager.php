@@ -209,7 +209,7 @@ return [
     ],
 
     'additional_js' => [
-        //'js/custom.js',
+        'assets/js/voyager_tinymce.js',
     ],
 
     'googlemaps' => [
