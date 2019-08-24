@@ -5,16 +5,16 @@
 @if(isset($page))
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="{{ $page->title }}" />
-	<meta property="og:description" content="{{ $page->body }}" />
+	<meta property="og:description" content="{{ strip_tags($page->body) }}" />
 	@if($page->image)
-		<meta property="og:image" content="{{ $page->image }}" />
+		<meta property="og:image" content="{{ secure_asset($page->image) }}" />
 	@endif
 @elseif(isset($post))
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="{{ $post->title }}" />
-	<meta property="og:description" content="{{ $post->summary }}" />
+	<meta property="og:description" content="{{ strip_tags($post->summary) }}" />
 	@if($post->image)
-		<meta property="og:image" content="{{ $page->image }}" />
+		<meta property="og:image" content="{{ secure_asset($page->image) }}" />
 	@endif
 @endif
 <meta property="og:locale" content="en_GB"  />
