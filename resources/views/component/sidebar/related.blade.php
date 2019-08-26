@@ -4,17 +4,17 @@ $pages = Page::where([
 	['slug', 'like', $page->slug."%"],
 	['status', 1],
 	['id', '!=', $page->id]
-	])->orderBy('title', 'asc')->get();
+	])->orderBy('slug', 'asc')->get();
 ?>
 
 @if(count($pages) > 0)
-	<div class="block column col-12 col-md-4 col-sm-12">
+	<div class="block block-pages column col-12 col-md-4 col-sm-12">
 		@if($title)
 			<div class="title">{{ $title }}</div>
 		@endif
 		<ul>
 			@foreach($pages as $sibling)
-				<li>
+				<li class="{{ $sibling->subclass }}">
 					<a href="{{ route('page', ['page' => $sibling->slug]) }}">{{ $sibling->title}}</a>
 				</li>
 			@endforeach

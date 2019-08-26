@@ -269,6 +269,16 @@ body {
 				.block:last-of-type {
 					padding-bottom: 0;
 				}
+
+				.block-pages {
+					.subpage {
+						margin-left: 12px;
+					}
+
+					.subsubpage {
+						margin-left: 18px;
+					}
+				}
 			}
 
 			@media screen and (max-width: $size-lg) {

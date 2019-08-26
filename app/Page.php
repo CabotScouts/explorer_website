@@ -10,12 +10,13 @@ class Page extends Model
 
 	// Caching of deeper page attributes to reduce queries
 	public $cached_segments = false;
-	public $cached_sidebar = false;
+	public $cached_crumbs   = false;
+	public $cached_sidebar  = false;
 
-	public $segments = [];
-	public $crumbs = [];
-	public $isroot = false;
-	public $depth = 0;
+	public $segments = false;
+	public $crumbs   = false;
+	public $isroot   = false;
+	public $_depth   = 0;
 
 	public $valid_sidebar = false;
 
@@ -32,18 +33,22 @@ class Page extends Model
 		$partial = "";
 
 		if($num > 0) {
-			$this->depth = $num;
+			$this->_depth = $num;
 			for($i = 0; $i < $num; $i++) {
 				$partial .= $segments[$i];
 				$this->segments[$i] = $partial;
 				$partial .= "/";
 			}
-
-			$this->crumbs = Page::whereIn('slug', $this->segments)->where('status', 1)->get();
 		}
 
-		if($num == 1) $this->isroot = true;
+		if($num === 1) $this->isroot = true;
 		$this->cached_segments = true;
+	}
+
+	private function getCrumbs() {
+		if($this->cached_crumbs) return;
+		$this->crumbs = Page::whereIn('slug', $this->segments)->where('status', 1)->get();
+		$this->cached_crumbs = true;
 	}
 
 	public function parseSidebar() {
@@ -51,7 +56,7 @@ class Page extends Model
 		if(!$this->show_sidebar) return; // No point parsing if it won't get shown!
 
 		$sidebar = "";
-		for($i = ($this->depth - 1); $i > -1; $i--) {
+		for($i = ($this->_depth - 1); $i > -1; $i--) {
 			$sidebar .= $this->formatSidebar($this->crumbs[$i]);
 		}
 
@@ -61,15 +66,30 @@ class Page extends Model
 		$this->cached_sidebar = true;
 	}
 
+	public function formatSidebar($page) {
+		$formatted = preg_replace_callback('/(?<!@)@([a-zA-Z]*)(\(([^\n,.]*)\))?((.*?)(@end(\1))+)?/s', function ($matches) use ($page) {
+			$view = 'component.sidebar.' . $matches[1];
+			return View::exists($view) ? view($view, [
+				'title' => isset($matches[3]) ? $matches[3] : false,
+				'content' => isset($matches[5]) ? $matches[5] : false,
+				'page' => $page
+				]) : "";
+		}, $page->sidebar);
+
+		return $formatted;
+	}
+
 	public function getRootAttribute() {
 		$this->parseURLSegments();
+		$this->getCrumbs();
 		return ($this->isroot) ? false : $this->crumbs[0];
 	}
 
 	public function getBreadcrumbAttribute() {
 		$this->parseURLSegments();
+		$this->getCrumbs();
 
-		if($this->depth > 1) {
+		if($this->_depth > 1) {
 			$breadcrumb = "";
 
 			foreach($this->crumbs as $page) {
@@ -93,22 +113,21 @@ class Page extends Model
 		return false;
 	}
 
+	public function getDepthAttribute() {
+		$this->parseURLSegments();
+		return $this->_depth;
+	}
+
+	public function getSubclassAttribute() {
+		$this->parseURLSegments();
+		$rootdepth = (!$this->isroot) ? $this->root->getDepthAttribute() : 0;
+		$subiness = ($this->_depth - $rootdepth - 1);
+		return (str_repeat("sub", $subiness) . "page");
+	}
+
 	public function getHasSidebarAttribute() {
 		$this->parseSidebar();
 		return $this->valid_sidebar;
-	}
-
-	public function formatSidebar($page) {
-		$formatted = preg_replace_callback('/(?<!@)@([a-zA-Z]*)(\(([^\n,.]*)\))?((.*?)(@end(\1))+)?/s', function ($matches) use ($page) {
-			$view = 'component.sidebar.' . $matches[1];
-			return View::exists($view) ? view($view, [
-				'title' => isset($matches[3]) ? $matches[3] : false,
-				'content' => isset($matches[5]) ? $matches[5] : false,
-				'page' => $page
-				]) : "";
-		}, $page->sidebar);
-
-		return $formatted;
 	}
 
   public function getFormattedSidebarAttribute() {
