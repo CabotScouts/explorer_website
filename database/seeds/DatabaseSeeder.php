@@ -13,12 +13,11 @@ class DatabaseSeeder extends Seeder
     {
     	$this->call([
 				VoyagerDatabaseSeeder::class,
-				CurrentUnitSeeder::class,
 				MainMenuSeeder::class,
-				FrontpageLinksSeeder::class,
 
 				UnitsBreadSeeder::class,
-				PagesBreadSeeder::class
+				PagesBreadSeeder::class,
+				HeadersBreadSeeder::class
 			]);
     }
 }
