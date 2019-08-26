@@ -21,7 +21,7 @@
 <section class="page pad space">
 	<div class="grid-lg container">
 		<div class="columns">
-			@if($page->formattedSidebar)
+			@if($page->has_sidebar)
 				<div class="column col-8 col-md-12">
 			@else
 				<div class="column col-12">
@@ -32,7 +32,7 @@
 				{!! $page->body !!}
 			</div>
 
-			@if($page->formattedSidebar)
+			@if($page->has_sidebar)
 				<div class="page-sidebar column col-4 col-md-12">
 					<div class="columns">
 					{!! $page->formattedSidebar !!}

@@ -146,6 +146,27 @@ class PagesBreadSeeder extends Seeder
 								'order'        => 4,
 						],
 
+						'show_sidebar' => [
+								'type'         => 'checkbox',
+								'display_name' => 'Show Sidebar',
+								'required'     => 1,
+								'browse'       => 0,
+								'read'         => 1,
+								'edit'         => 1,
+								'add'          => 1,
+								'delete'       => 0,
+								'details'      => [
+									'options' => [
+										1 => 'Show Sidebar',
+										0 => 'Hide Sidebar'
+									],
+									'on'   => 'Show Sidebar',
+									'off'  => 'Hide Sidebar',
+									'checked' => true,
+								],
+								'order'        => 5,
+						],
+
 						'page_belongsto_header_relationship' => [
 								'type'         => 'relationship',
 								'display_name' => 'Header Image',
@@ -166,7 +187,7 @@ class PagesBreadSeeder extends Seeder
 									'pivot'       => '0',
 									'taggable'    => '0'
 								],
-								'order'        => 5,
+								'order'        => 6,
 						],
 
 						'header_id' => [
@@ -200,7 +221,7 @@ class PagesBreadSeeder extends Seeder
 									'off'  => 'Hidden',
 									'checked' => false,
 								],
-								'order'        => 6,
+								'order'        => 7,
 						],
 
 						'meta_description' => [
@@ -213,7 +234,7 @@ class PagesBreadSeeder extends Seeder
 								'add'          => 1,
 								'delete'       => 0,
 								'details'      => '',
-								'order'        => 7,
+								'order'        => 8,
 						],
 						'meta_keywords' => [
 								'type'         => 'text',
@@ -225,7 +246,7 @@ class PagesBreadSeeder extends Seeder
 								'add'          => 1,
 								'delete'       => 0,
 								'details'      => '',
-								'order'        => 8,
+								'order'        => 9,
 						],
         ];
     }
