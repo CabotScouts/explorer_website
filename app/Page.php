@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\View;
 
 class Page extends Model
 {
+	public function header() {
+		return $this->belongsTo('App\Header');
+	}
+
 	public function getRootAttribute() {
 		$rootslug = explode("/", $this->slug);
 		if(count($rootslug) > 1) {

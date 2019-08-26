@@ -20,7 +20,7 @@ class PagesBreadSeeder extends Seeder
             'generate_permissions'  => 1,
             'description'           => '',
 						'details'               => [
-							'order_column'    => 'title',
+							'order_column'    => 'slug',
 							'order_direction' => 'asc'
 						]
         ];
@@ -90,30 +90,6 @@ class PagesBreadSeeder extends Seeder
                 'details'      => '',
                 'order'        => 0,
             ],
-						'meta_description' => [
-                'type'         => 'text',
-                'display_name' => 'Description',
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 0,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'details'      => '',
-                'order'        => 0,
-            ],
-						'meta_keywords' => [
-                'type'         => 'text',
-                'display_name' => 'Keywords',
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 0,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'details'      => '',
-                'order'        => 0,
-            ],
 
 						// Real Fields
 						// TODO: remove unused fields with a migration
@@ -130,6 +106,7 @@ class PagesBreadSeeder extends Seeder
 								'details'      => '',
 								'order'        => 1,
 						],
+
 						'slug' => [
 								'type'         => 'text',
 								'display_name' => 'Page Address',
@@ -142,6 +119,7 @@ class PagesBreadSeeder extends Seeder
 								'details'      => '',
 								'order'        => 2,
 						],
+
 						'body' => [
 								'type'         => 'rich_text_box',
 								'display_name' => 'Content',
@@ -154,6 +132,7 @@ class PagesBreadSeeder extends Seeder
 								'details'      => '',
 								'order'        => 3,
 						],
+
 						'sidebar' => [
 								'type'         => 'code_editor',
 								'display_name' => 'Sidebar Content',
@@ -166,8 +145,9 @@ class PagesBreadSeeder extends Seeder
 								'details'      => '',
 								'order'        => 4,
 						],
-						'image' => [
-								'type'         => 'media_picker',
+
+						'page_belongsto_header_relationship' => [
+								'type'         => 'relationship',
 								'display_name' => 'Header Image',
 								'required'     => 0,
 								'browse'       => 0,
@@ -176,18 +156,32 @@ class PagesBreadSeeder extends Seeder
 								'add'          => 1,
 								'delete'       => 0,
 								'details'      => [
-									'base_path'    => 'headers',
-									'allowed'      => 'image',
-									'delete_files' => false,
-									'allow_delete' => false,
-									'allow_rename' => false,
-									'allow_crop'   => false,
-									'allow_move'   => false,
-									'max'          => 1,
-									'show_folders' => true
-									],
+									'model'       => 'App\\Header',
+									'table'       => 'headers',
+									'type'        => 'belongsTo',
+									'column'      => 'header_id',
+									'key'         => 'id',
+									'label'       => 'name',
+									'pivot_table' => 'data_rows',
+									'pivot'       => '0',
+									'taggable'    => '0'
+								],
 								'order'        => 5,
 						],
+
+						'header_id' => [
+								'type'         => 'text',
+								'display_name' => 'Header Image',
+								'required'     => 0,
+								'browse'       => 0,
+								'read'         => 0,
+								'edit'         => 0,
+								'add'          => 0,
+								'delete'       => 0,
+								'details'      => '',
+								'order'        => 0,
+						],
+
 						'status' => [
 								'type'         => 'checkbox',
 								'display_name' => 'Published',
@@ -207,7 +201,32 @@ class PagesBreadSeeder extends Seeder
 									'checked' => false,
 								],
 								'order'        => 6,
-						]
+						],
+
+						'meta_description' => [
+								'type'         => 'text',
+								'display_name' => 'Description',
+								'required'     => 0,
+								'browse'       => 0,
+								'read'         => 1,
+								'edit'         => 1,
+								'add'          => 1,
+								'delete'       => 0,
+								'details'      => '',
+								'order'        => 7,
+						],
+						'meta_keywords' => [
+								'type'         => 'text',
+								'display_name' => 'Keywords',
+								'required'     => 0,
+								'browse'       => 0,
+								'read'         => 1,
+								'edit'         => 1,
+								'add'          => 1,
+								'delete'       => 0,
+								'details'      => '',
+								'order'        => 8,
+						],
         ];
     }
 
