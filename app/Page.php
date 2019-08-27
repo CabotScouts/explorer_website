@@ -61,8 +61,7 @@ class Page extends Model
 		}
 
 		$this->sidebar_output = $sidebar;
-		$this->valid_sidebar = true;
-
+		$this->valid_sidebar = (strlen($sidebar) > 0);
 		$this->cached_sidebar = true;
 	}
 
