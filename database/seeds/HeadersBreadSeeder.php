@@ -154,7 +154,7 @@ class HeadersBreadSeeder extends Seeder
             'url'        => '',
             'route'      => 'voyager.headers.index',
             'target'     => '_self',
-            'icon_class' => 'voyager-file-text',
+            'icon_class' => 'voyager-polaroid',
             'color'      => null,
             'parent_id'  => null,
             'order'      => 3,

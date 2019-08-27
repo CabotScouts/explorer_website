@@ -195,12 +195,12 @@ class PagesBreadSeeder extends Seeder
 								'display_name' => 'Header Image',
 								'required'     => 0,
 								'browse'       => 0,
-								'read'         => 0,
-								'edit'         => 0,
+								'read'         => 1,
+								'edit'         => 1,
 								'add'          => 0,
 								'delete'       => 0,
 								'details'      => '',
-								'order'        => 0,
+								'order'        => 0
 						],
 
 						'status' => [
