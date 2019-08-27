@@ -41,7 +41,7 @@ class Page extends Model
 			}
 		}
 
-		if($num === 1) $this->isroot = true;
+		$this->isroot = ($num === 1);
 		$this->cached_segments = true;
 	}
 
