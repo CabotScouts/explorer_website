@@ -8,22 +8,12 @@
 			@include('component.opengraph', ['page' => $page])
 		@endif
 		<link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}"/>
-		<link rel="stylesheet" href="{{ asset('assets/main.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 		@hasSection('title')
 		<title>@yield('title') - Cabot Explorer Scouts</title>
 		@else
 		<title>Cabot Explorer Scouts</title>
 		@endif
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/cash/3.1.0/cash.min.js"></script>
-		<script type="text/javascript">
-			$('body').ready(function() {
-				$('#menu').addClass('hidden');
-				$('#nav-toggle').on('click', function() {
-					$('#menu').toggleClass('hidden');
-				});
-			});
-		</script>
 	</head>
 
 	<body>
@@ -33,7 +23,7 @@
 		</header>
 
 		<main>
-@yield('content')
+			@yield('content')
 		</main>
 
 	  <footer>
