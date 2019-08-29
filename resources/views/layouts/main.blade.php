@@ -8,7 +8,7 @@
 			@include('component.opengraph', ['page' => $page])
 		@endif
 		<link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}"/>
-		<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		@hasSection('title')
 		<title>@yield('title') - Cabot Explorer Scouts</title>
 		@else

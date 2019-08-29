@@ -2,9 +2,11 @@
 $current = str_replace(env("APP_URL", ""), "", url()->current()) . "/";
 foreach($items as $item) {
 	$url = $item->link();
-	$active = ($url == $current && $item->title != 'Home') ? ' class="active"' : '';
+	$active = ($url == $current && $item->title != 'Home') ? 'active' : '';
 ?>
-<a href="{{ $url }}" {!! $active !!}>{{ $item->title }}</a>
+<li class="nav-item {{ $active }}">
+	<a class="nav-link" href="{{ $url }}">{{ $item->title }}</a>
+</li>
 <?php
 }
 ?>

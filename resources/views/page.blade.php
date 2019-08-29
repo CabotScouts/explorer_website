@@ -9,9 +9,9 @@
 @endif
 @if($page->breadcrumb)
 	<section class="crumb pad">
-		<div class="grid-lg container">
-			<div class="columns">
-				<div class="column col-12">
+		<div class="container">
+			<div class="row">
+				<div class="col col-12">
 					{!! $page->breadcrumb !!}
 				</div>
 			</div>
@@ -19,12 +19,12 @@
 	</section>
 @endif
 <section class="page pad space">
-	<div class="grid-lg container">
-		<div class="columns">
+	<div class="container">
+		<div class="row">
 			@if($page->has_sidebar)
-				<div class="column col-8 col-md-12">
+				<div class="page-content col col-12 col-lg-8">
 			@else
-				<div class="column col-12">
+				<div class="page-content col col-12">
 			@endif
 				@if(!$page->header)
 					<h1>{{ $page->title }}</h1>
@@ -33,8 +33,8 @@
 			</div>
 
 			@if($page->has_sidebar)
-				<div class="page-sidebar column col-4 col-md-12">
-					<div class="columns">
+				<div class="page-sidebar col col-12 col-lg-4">
+					<div class="row">
 					{!! $page->formattedSidebar !!}
 					</div>
 				</div>

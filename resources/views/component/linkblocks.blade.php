@@ -1,18 +1,18 @@
 <section class="links pad space">
-	<div class="container grid-lg">
-		<div class="columns">
-			<div class="column col-lg-4 col-sm-12">
-				<h4>For Explorers</h4>
+	<div class="container">
+		<div class="row">
+			<div class="col col-12 col-md-4">
+				<div class="title h3">For Explorers</div>
 				<?php print(menu('for-explorers')); ?>
 			</div>
 
-			<div class="column col-lg-4 col-sm-12">
-				<h4>For Parents</h4>
+			<div class="col col-12 col-md-4">
+				<div class="title h3">For Parents</div>
 				<?php print(menu('for-parents')); ?>
 			</div>
 
-			<div class="column col-lg-4 col-sm-12">
-				<h4>For Leaders</h4>
+			<div class="col col-12 col-md-4">
+				<div class="title h3">For Leaders</div>
 				<?php print(menu('for-leaders')); ?>
 			</div>
 		</div>
