@@ -205,11 +205,11 @@ return [
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
-        'assets/css/admin.css',
+        'css/admin.css',
     ],
 
     'additional_js' => [
-        'assets/js/voyager_tinymce.js',
+        'js/voyager_tinymce.js',
     ],
 
     'googlemaps' => [
