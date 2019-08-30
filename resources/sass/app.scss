@@ -72,8 +72,13 @@
 			background: $white;
 			padding: 0;
 
+			.navbar-toggler {
+				margin: 0.4rem 0;
+				border: 0;
+			}
+
 			.navbar-nav {
-				a.nav-link {
+				a.nav-link, a:hover.nav-link {
 					display: inline-block;
 					padding: 0.8rem 1rem;
 					margin: 0.1rem 0.2rem 0 0;
@@ -85,16 +90,20 @@
 					text-decoration: underline;
 				}
 
-				li.nav-item:first-of-type a {
-					padding-left: 0;
+				li.active a {
+					text-decoration: underline;
 				}
 
-				li.active a {
-					border-bottom: (2*$border-width) solid $highlight;
-					margin-bottom: -0.1rem;
-					// padding-bottom: 0.7rem;
-					color: $navy;
-					text-decoration: none;
+				@include media-breakpoint-up(md) {
+					li.nav-item:first-of-type a {
+						padding-left: 0;
+					}
+
+					li.active a {
+						border-bottom: (2*$border-width) solid $highlight;
+						margin-bottom: -0.1rem;
+						text-decoration: none;
+					}
 				}
 			}
 		}
@@ -156,7 +165,7 @@
 			padding-right: 0;
 		}
 
-		@include media-breakpoint-up(lg) {
+		@include media-breakpoint-down(lg) {
 			.space {
 				padding-top: 1.2rem;
 				padding-bottom: 1.2rem;
