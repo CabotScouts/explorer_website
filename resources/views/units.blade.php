@@ -3,7 +3,15 @@
 @section('content')
 <section class="page-header cover-vertical wide-map">
 	<!-- will eventually add a map we dynamically drop locations onto -->
-	<iframe src="https://www.google.com/maps/d/embed?mid=1riftuTRxvy14w2F-BYw9wl8fXRnpFncc"></iframe>
+	{{-- <iframe src="https://www.google.com/maps/d/embed?mid=1riftuTRxvy14w2F-BYw9wl8fXRnpFncc"></iframe> --}}
+	<div id="map"></div>
+	<script>
+	function initMap() {
+		var map = new google.maps.Map(
+			document.getElementById('map'), { zoom: 12, center: { lat: 51.48, lng: -2.609 }}
+		);
+	}
+	</script>
 </section>
 <section class="page units container pad space">
 	<div class="row">
@@ -39,4 +47,5 @@
 		</div>
 	</div>
 </section>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8I5WdQ_vYkyxgRLTfGvX3MnGDbXZ7xzI&callback=initMap"></script>
 @endsection
