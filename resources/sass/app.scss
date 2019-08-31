@@ -101,8 +101,12 @@
 
 					li.active a {
 						border-bottom: (2*$border-width) solid $highlight;
-						margin-bottom: -0.1rem;
+						margin-bottom: -($border-width/2);
 						text-decoration: none;
+					}
+
+					li.active a:hover {
+						margin-bottom: -($border-width/2);
 					}
 				}
 			}
@@ -351,13 +355,13 @@
 			}
 		}
 
-		// ==Full width map element ==
+		// == Full Width Map Component ==
 		.wide-map {
 			#map {
 				border: 0;
 				width: 100%;
 				height: 500px;
-				max-height: 90vh;
+				max-height: 80vh;
 			}
 		}
 
@@ -374,53 +378,19 @@
 				border: 0;
 			}
 		}
+
+		// == Unit Map Component ==
+			.units {
+				.card {
+					margin-bottom: 10px;
+				}
+
+				a:hover {
+					text-decoration: none;
+				}
+
+				a:hover .card-title {
+					text-decoration: underline;
+				}
+			}
 	} // End main
-
-	//
-	// 	// == Unit Map Component ==
-	// 	.units {
-	// 		iframe {
-	// 			border: 0;
-	// 			width: 100%;
-	// 			height: 600px;
-	// 			max-height: 90vh;
-	// 			margin: 0 0 20px 0;
-	// 		}
-	//
-	// 		@media screen and (min-width: $size-lg) {
-	// 			.units-list {
-	// 				padding-left: 15px;
-	// 			}
-	// 		}
-	//
-	// 		.card {
-	// 			margin-bottom: 10px;
-	// 		}
-	//
-	// 		.card-title {
-	// 			font-size: 1rem;
-	// 			font-weight: 600;
-	// 		}
-	//
-	// 		a:hover {
-	// 			text-decoration: none;
-	// 		}
-	//
-	// 		a:hover .card-title {
-	// 			text-decoration: underline;
-	// 		}
-	//
-	// 		.card-subtitle {
-	// 			color: $gray-color-dark;
-	// 		}
-	//
-	// 		.card-footer {
-	// 			text-align: right;
-	// 		}
-	// 	}
-	//
-
-	// 	.table {
-	// 		margin-bottom: 1.2rem;
-	// 	}
-	// }

@@ -115,6 +115,20 @@ class UnitsBreadSeeder extends Seeder
 								],
                 'order'        => 3,
             ],
+						'coordinates' => [
+                'type'         => 'maplocation',
+                'display_name' => 'Location',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => [
+									'options' => []
+								],
+                'order'        => 3,
+            ],
 						'blurb' => [
                 'type'         => 'text_area',
                 'display_name' => 'Description',
@@ -125,7 +139,7 @@ class UnitsBreadSeeder extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '',
-                'order'        => 4,
+                'order'        => 5,
             ],
 						'status' => [
                 'type'         => 'select_dropdown',
@@ -145,7 +159,7 @@ class UnitsBreadSeeder extends Seeder
 									'off'  => 'Hidden',
 									'checked' => false,
 								],
-                'order'        => 5,
+                'order'        => 6,
             ],
         ];
     }
@@ -161,7 +175,7 @@ class UnitsBreadSeeder extends Seeder
             'icon_class' => 'voyager-world',
             'color'      => null,
             'parent_id'  => null,
-            'order'      => 2,
+            'order'      => 4,
         ];
     }
 }
