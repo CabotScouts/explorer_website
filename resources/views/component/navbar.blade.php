@@ -11,7 +11,7 @@
 		</div>
 
 	@auth
-		<div class="collapse navbar-collapse">
+		<div class="d-none d-md-block">
 			<ul class="navbar-nav">
 				<li class="navbar-item dropdown">
 					<a class="navbar-link dropdown-toggle" href="#" id="manageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
