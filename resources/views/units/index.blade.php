@@ -66,19 +66,10 @@
 		}
 	}
 	</script>
-	{{-- <div class="page-title">
-		<div class="container">
-			<div class="row">
-				<div class="col col-12">
-					<h1>Cabot Explorer Units</h1>
-				</div>
-			</div>
-		</div>
-	</div> --}}
 </section>
 <section class="page units container pad space">
 	<div class="row">
-		<div class="col col-12">
+		<div class="page-content col col-12">
 			@if(isset($page))
 				{!! $page->body !!}
 			@endif
@@ -88,21 +79,8 @@
 			<div class="row">
 				@if(count($units) > 0)
 					@foreach($units as $unit)
-					<div class="col col-6 col-md-3">
-						@if($unit->url)
-						<a href="{{ $unit->url }}/">
-						@endif
-							<div class="card">
-								<div class="card-body">
-									<h5 class="card-title">{{ $unit->name }}</h5>
-									@if($unit->day > -1)
-									<h6 class="card-subtitle muted">{{ $unit->dayString }}</h6>
-									@endif
-								</div>
-							</div>
-						@if($unit->url)
-						</a>
-						@endif
+					<div class="col col-12 col-md-6 col-lg-3">
+						@include('component.unit-card', ['unit' => $unit])
 					</div>
 					@endforeach
 				@endif

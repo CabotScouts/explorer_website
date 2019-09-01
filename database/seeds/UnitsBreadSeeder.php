@@ -127,7 +127,43 @@ class UnitsBreadSeeder extends Seeder
                 'details'      => [
 									'options' => []
 								],
-                'order'        => 3,
+                'order'        => 4,
+            ],
+						'color' => [
+                'type'         => 'color',
+                'display_name' => 'Color',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => [
+									'options' => []
+								],
+                'order'        => 5,
+            ],
+						'logo' => [
+                'type'         => 'media_picker',
+                'display_name' => 'Logo',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+								'details'      => [
+									'base_path'    => 'units',
+									'allowed'      => 'image',
+									'delete_files' => false,
+									'allow_delete' => true,
+									'allow_rename' => true,
+									'allow_crop'   => true,
+									'allow_move'   => false,
+									'max'          => 1,
+									'show_folders' => true
+									],
+                'order'        => 6,
             ],
 						'blurb' => [
                 'type'         => 'text_area',
@@ -139,7 +175,7 @@ class UnitsBreadSeeder extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '',
-                'order'        => 5,
+                'order'        => 7,
             ],
 						'status' => [
                 'type'         => 'select_dropdown',
@@ -159,7 +195,7 @@ class UnitsBreadSeeder extends Seeder
 									'off'  => 'Hidden',
 									'checked' => false,
 								],
-                'order'        => 6,
+                'order'        => 8,
             ],
         ];
     }
