@@ -71,9 +71,9 @@
 	<div class="row">
 		<div class="page-content col col-12">
 			@if(isset($page))
-				<div class="alert alert-warning">
+				{{-- <div class="alert alert-warning"> --}}
 					{!! $page->body !!}
-				</div>
+				{{-- </div> --}}
 			@endif
 		</div>
 

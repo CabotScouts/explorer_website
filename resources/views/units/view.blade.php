@@ -27,9 +27,9 @@
 			<div class="row">
 				<div class="page-content col col-12 col-lg-8">
 					<h1 class="float-left">{{ $unit->name }}</h1>
-					<div class="float-right unit-logo-inline">
+					{{-- <div class="float-right unit-logo-inline">
 						@include('component.unit.logo', ['unit' => $unit])
-					</div>
+					</div> --}}
 				@if($page)
 					{!! $page->body !!}
 				@endif
@@ -37,6 +37,10 @@
 
 				<div class="page-sidebar col col-12 col-lg-4">
 					<div class="row">
+					<div class="block col col-12 col-md-4 col-lg-12">
+						@include('component.unit.card', ['unit' => $unit, 'hideactions' => true])
+					</div>
+
 						@if($page)
 							{!! $page->formattedSidebar !!}
 						@endif
