@@ -377,37 +377,46 @@
 		}
 
 		// == Unit Card Component ==
-			.unit-card {
-				margin-bottom: 10px;
+		.unit-card {
+			margin-bottom: 10px;
 
-				.unit-card-header {
-					height: 180px;
-					background: $gray-400;
-					display: flex;
-					justify-content: center;
-					flex-direction: column;
+			.unit-card-header {
+				height: 180px;
+				background: $gray-400;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
 
-					.unit-logo {
-						max-height: 150px;
-					}
-
-					.default-logo {
-						height: 100px;
-					}
-
-					img {
-						max-height: 100%;
-					}
+				.unit-logo {
+					max-height: 150px;
 				}
-			}
 
-			.unit-logo-inline .unit-card-header {
-				width: 128px;
-				height: 128px;
-				border-radius: 6px;
-				
+				.default-logo {
+					height: 100px;
+				}
+
 				img {
-					margin: 1rem;
+					max-height: 100%;
 				}
 			}
+		}
+
+		.unit-logo-inline .unit-card-header {
+			width: 128px;
+			height: 128px;
+			border-radius: 6px;
+
+			img {
+				margin: 1rem;
+			}
+		}
+
+		// == Vertically Centered Content Block
+		.content-center {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			min-height: 60vh;
+		}
+
 	} // End main
