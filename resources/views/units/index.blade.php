@@ -71,7 +71,9 @@
 	<div class="row">
 		<div class="page-content col col-12">
 			@if(isset($page))
-				{!! $page->body !!}
+				<div class="alert alert-warning">
+					{!! $page->body !!}
+				</div>
 			@endif
 		</div>
 
@@ -80,7 +82,7 @@
 				@if(count($units) > 0)
 					@foreach($units as $unit)
 					<div class="col col-12 col-md-6 col-lg-3">
-						@include('component.unit-card', ['unit' => $unit])
+						@include('component.unit.card', ['unit' => $unit])
 					</div>
 					@endforeach
 				@endif
