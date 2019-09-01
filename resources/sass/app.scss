@@ -3,11 +3,11 @@
 @import '~bootstrap/scss/bootstrap';
 
 // ==== Global Styling ====
-	a, a:hover, a:visited, a.active {
-		color: $highlight;
-	}
+	// a, a:hover, a:visited, a.active {
+	// 	color: $highlight;
+	// }
 
-	h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+	h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 		font-weight: 900;
 		color: $highlight;
 	}
@@ -30,16 +30,6 @@
 
 	ul {
 		list-style: square;
-	}
-
-	.btn:hover {
-		background: $primary;
-		color: $gray-100;
-	}
-
-	.btn-dark:hover {
-		background: $secondary;
-		color: $gray-600;
 	}
 
 	// ==== Global Header ====
@@ -101,7 +91,7 @@
 
 					li.active a {
 						border-bottom: (2*$border-width) solid $highlight;
-						margin-bottom: -($border-width/2);
+						margin-bottom: -($border-width);
 						text-decoration: none;
 					}
 
@@ -144,7 +134,7 @@
 			svg {
 				height: 36px;
 				width: 36px;
-				fill: lighten($navy, 65%);
+				fill: $gray-100;
 				margin: 4px;
 			}
 
@@ -363,6 +353,13 @@
 				height: 500px;
 				max-height: 80vh;
 			}
+
+			#map.single-marker {
+				border: 0;
+				width: 100%;
+				height: 300px;
+				max-height: 50vh;
+			}
 		}
 
 		// == Calendar Component ==
@@ -379,18 +376,28 @@
 			}
 		}
 
-		// == Unit Map Component ==
-			.units {
-				.card {
-					margin-bottom: 10px;
-				}
+		// == Unit Card Component ==
+			.unit-card {
+				margin-bottom: 10px;
 
-				a:hover {
-					text-decoration: none;
-				}
+				.unit-card-header {
+					height: 180px;
+					background: $gray-400;
+					display: flex;
+					justify-content: center;
+					flex-direction: column;
 
-				a:hover .card-title {
-					text-decoration: underline;
+					.unit-logo {
+						max-height: 150px;
+					}
+
+					.default-logo {
+						height: 100px;
+					}
+
+					img {
+						max-height: 100%;
+					}
 				}
 			}
 	} // End main

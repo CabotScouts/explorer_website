@@ -17,8 +17,11 @@ $teal: #00a794;
 $cyan: #6cb2eb;
 
 $theme-colors: (
-	"primary": $navy,
-	"success": $green
+	"primary" : $navy,
+	"success" : $green,
+	"danger"  : $red,
+	"warning" : $yellow,
+	"info"    : $teal
 );
 
 $body-bg: lighten($navy, 2%);
