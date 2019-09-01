@@ -12,7 +12,6 @@
 				center: { lat: {{ $unit->lat }}, lng: {{ $unit->lng }} },
 				disableDefaultUI : true,
 				gestureHandling : 'cooperative',
-				// zoomControl : false
 			});
 
 		var label = new google.maps.InfoWindow({
@@ -21,8 +20,7 @@
 
 		var marker = new google.maps.Marker({
 			position : { lat : {{ $unit->lat }}, lng : {{ $unit->lng }} },
-			map : unitmap,
-			animation: google.maps.Animation.DROP
+			map : unitmap
 		});
 
 		label.open(unitmap, marker);
