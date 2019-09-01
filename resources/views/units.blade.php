@@ -88,7 +88,7 @@
 			<div class="row">
 				@if(count($units) > 0)
 					@foreach($units as $unit)
-					<div class="col col-12 col-md-4">
+					<div class="col col-6 col-md-3">
 						@if($unit->url)
 						<a href="{{ $unit->url }}/">
 						@endif
