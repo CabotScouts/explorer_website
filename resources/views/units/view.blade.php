@@ -14,16 +14,11 @@
 				gestureHandling : 'cooperative',
 			});
 
-		var label = new google.maps.InfoWindow({
-			content : `<b>{{ $unit->name }}</b><br /><small>{{ $unit->dayString }}s</small>`
-		});
-
 		var marker = new google.maps.Marker({
 			position : { lat : {{ $unit->lat }}, lng : {{ $unit->lng }} },
 			map : unitmap
 		});
 
-		label.open(unitmap, marker);
 	}
 	</script>
 </section>
