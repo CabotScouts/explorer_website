@@ -3,6 +3,17 @@
 @section('content')
 <section class="wide-map">
 	<div id="map"></div>
+	<div class="map-overlay">
+		<div class="map-title">
+			<div class="container pad">
+				<div class="row">
+					<div class="col col-12">
+						<h1>Cabot Explorer Units</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script>
 	var unitmap = [];
 
@@ -12,9 +23,10 @@
 @if(($unit->day > -1) && $unit->lat)
 		{
 			name : "{{ $unit->name }}",
-			day : "{{ $unit->dayString }}s",
-			lat : {{ $unit->lat }},
-			lng : {{ $unit->lng }}
+			day  : "{{ $unit->dayString }}s",
+			lat  : {{ $unit->lat }},
+			lng  : {{ $unit->lng }},
+			url  : "{{ route('view-unit', ['name' => $unit->shortname ]) }}"
 		},
 @endif
 @endforeach
@@ -23,7 +35,7 @@
 
 	function addMarker(m) {
 		markers[m].label = new google.maps.InfoWindow({
-			content : `<b>${ markers[m].name }</b><br /><small>${ markers[m].day }</small>`
+			content : `<b><a href="${ markers[m].url }">${ markers[m].name }</a></b><br /><small>${ markers[m].day }</small>`
 		});
 
 		markers[m].marker = new google.maps.Marker({
@@ -47,7 +59,6 @@
 				center: { lat: {{ env('GOOGLE_MAPS_DEFAULT_CENTER_LAT') }}, lng: {{ env('GOOGLE_MAPS_DEFAULT_CENTER_LNG') }} },
 				disableDefaultUI : true,
 				gestureHandling : 'cooperative',
-				// zoomControl : false
 			});
 
 		unitmap.addListener('click', function() {
@@ -62,7 +73,7 @@
 					addMarker(x);
 				}
 			}
-			setTimeout(add(i), i * 200);
+			setTimeout(add(i), i * 100);
 		}
 	}
 	</script>
@@ -70,11 +81,9 @@
 <section class="page units container pad space">
 	<div class="row">
 		<div class="page-content col col-12">
-			@if(isset($page))
-				{{-- <div class="alert alert-warning"> --}}
-					{!! $page->body !!}
-				{{-- </div> --}}
-			@endif
+				@if(isset($page))
+						{!! $page->body !!}
+				@endif
 		</div>
 
 		<div class="units-list col col-12">

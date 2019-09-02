@@ -10,7 +10,7 @@
 	</div>
 @if(!isset($hideactions))
 	<div class="card-body">
-		<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/" class="btn btn-success">See Unit</a>
+		<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/" class="btn btn-success">See More</a>
 	</div>
 @endif
 </div>
