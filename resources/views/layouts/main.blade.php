@@ -19,7 +19,11 @@
 	<body>
 		<header>
 			@include('component.ribbon')
-			@include('component.navbar', ['page' => (isset($page) ? $page : false)])
+			@include('component.navbar', [
+				'page'  => (isset($page)  ? $page  : false),
+				'unit'  => (isset($unit)  ? $unit  : false),
+				'units' => (isset($units) ? $units : false)
+			])
 		</header>
 
 		<main>

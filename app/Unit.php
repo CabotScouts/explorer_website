@@ -38,4 +38,17 @@ class Unit extends Model
 		if($page) return route('page', ['page' => $slug]);
 		return false;
 	}
+
+	public function getBreadcrumbAttribute() {
+		return [
+			[
+				'name' => 'Explorer Units',
+				'url'  => route('units')
+			],
+			[
+				'name' => $this->name,
+				'url'  => false
+			]
+		];
+	}
 }

@@ -8,15 +8,7 @@
 @endcomponent
 @endif
 @if($page->breadcrumb)
-	<section class="crumb pad">
-		<div class="container">
-			<div class="row">
-				<div class="col col-12">
-					{!! $page->breadcrumb !!}
-				</div>
-			</div>
-		</div>
-	</section>
+	@include('component.breadcrumb', ['segments' => $page->breadcrumb])
 @endif
 <section class="page pad space">
 	<div class="container">

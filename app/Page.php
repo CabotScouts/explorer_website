@@ -88,27 +88,19 @@ class Page extends Model
 		$this->parseURLSegments();
 		$this->getCrumbs();
 
-		if($this->_depth > 1) {
-			$breadcrumb = "";
+		$segments = [];
 
+		if($this->_depth > 1) {
 			foreach($this->crumbs as $page) {
 				if($page) {
-					if($page->id == $this->id) {
-						$breadcrumb = $breadcrumb . $page->title;
-					}
-					else {
-						$breadcrumb = $breadcrumb . sprintf(
-							"<a href=%s>%s</a> <span class=\"separator\">/</span> ",
-							route('page', ['page' => $page->slug]),
-							$page->title
-						);
-					}
+					$segments[] = [
+						'name' => $page->title,
+						'url'  => route('page', ['page' => $page->slug])
+					];
 				}
 			}
-
-			return $breadcrumb;
+			return $segments;
 		}
-
 		return false;
 	}
 

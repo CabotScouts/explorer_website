@@ -13,19 +13,37 @@
 	@auth
 		<div class="d-none d-md-block">
 			<ul class="navbar-nav">
+				{{-- Units Menu --}}
+				@if($units || $unit)
+					<li class="navbar-item dropdown mr-4">
+						<a class="navbar-link dropdown-toggle" href="#" id="unitsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Units</a>
+
+						<div class="dropdown-menu" aria-labelledby="unitsDropdown">
+							@if($unit)
+							<a class="dropdown-item" href="{{ route('voyager.units.edit', ['id' => $unit->id]) }}" target="_blank">Edit Explorer Unit</a>
+							@endif
+							<a class="dropdown-item" href="{{ route('voyager.units.create') }}" target="_blank">Add Explorer Unit</a>
+						</div>
+					</li>
+				@endif
+
+				{{-- Pages Menu --}}
+				<li class="navbar-item dropdown mr-4">
+					<a class="navbar-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+
+					<div class="dropdown-menu" aria-labelledby="manageDropdown">
+					@if($page)
+						<a class="dropdown-item" href="{{ route('voyager.pages.edit', ['id' => $page->id]) }}" target="_blank">Edit Page</a>
+					@endif
+						<a class="dropdown-item" href="{{ route('voyager.pages.create') }}" target="_blank">Add New Page</a>
+					</div>
+				</li>
+
+			{{-- Generic Manage Menu --}}
 				<li class="navbar-item dropdown">
 					<a class="navbar-link dropdown-toggle" href="#" id="manageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
 
 					<div class="dropdown-menu" aria-labelledby="manageDropdown">
-						@if(isset($page) && $page)
-						<a class="dropdown-item" href="{{ route('voyager.pages.edit', ['id' => $page->id]) }}" target="_blank">Edit Page</a>
-						@if(isset($unit) && !isset($units))
-						<a class="dropdown-item" href="{{ route('voyager.units.edit', ['id' => $unit->id]) }}" target="_blank">Edit Unit</a>
-						@endif
-						{{-- <a class="dropdown-item" href="{{ route('voyager.pages.create', ['slug' => $page->slug]) }}">Add Subpage</a> --}}
-						@endif
-						<a class="dropdown-item" href="{{ route('voyager.pages.create') }}" target="_blank">Add New Page</a>
-						<a class="dropdown-item" href="{{ route('voyager.units.create') }}" target="_blank">Add Explorer Unit</a>
 						<a class="dropdown-item" href="{{ route('voyager.dashboard') }}" target="_blank">Dashboard</a>
 						<a class="dropdown-item" href="{{ route('voyager.logout') }}">Logout</a>
 					</div>
