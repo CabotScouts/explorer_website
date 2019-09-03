@@ -188,10 +188,46 @@
 			}
 		}
 
-		@include media-breakpoint-up(xs) {
+		// @include media-breakpoint-up(md) {
+		// 	.page-header.cover-vertical {
+		// 		.col {
+		// 			min-height: 30vh;
+		// 		}
+		// 	}
+		//
+		// 	.page-header.cover-horizontal {
+		// 		height: 30vh;
+		// 	}
+		// }
+
+		@include media-breakpoint-up(xl) {
 			.page-header.cover-vertical {
 				.col {
-					min-height: 30vh;
+					min-height: 60vh;
+				}
+			}
+
+			.page-header.cover-horizontal {
+				height: 50vh;
+			}
+		}
+
+		@include media-breakpoint-between(lg, xl) {
+			.page-header.cover-vertical {
+				.col {
+					min-height: 50vh;
+				}
+			}
+
+			.page-header.cover-horizontal {
+				height: 40vh;
+			}
+		}
+
+		@include media-breakpoint-between(sm, lg) {
+			.page-header.cover-vertical {
+				.col {
+					min-height: 40vh;
 				}
 			}
 
@@ -200,22 +236,10 @@
 			}
 		}
 
-		@include media-breakpoint-up(lg) {
+		@include media-breakpoint-down(sm) {
 			.page-header.cover-vertical {
 				.col {
-					min-height: 55vh;
-				}
-			}
-
-			.page-header.cover-horizontal {
-				height: 55vh;
-			}
-		}
-
-		@include media-breakpoint-up(lg) {
-			.page-header.cover-vertical {
-				.col {
-					min-height: 40vh;
+					min-height: 30vh;
 				}
 			}
 
@@ -228,12 +252,10 @@
 			display: flex;
 			justify-content: flex-end;
 			flex-direction: column;
-			height: 40vh;
 		}
 
 		.page-header.cover-vertical {
 			.col {
-				min-height: 40vh;
 				display: flex;
 				justify-content: center;
 				flex-direction: column;
@@ -266,6 +288,8 @@
 
 		// == Links Column Component ==
 		.links {
+			margin-top: 0.75rem;
+
 			@include media-breakpoint-down(md) {
 				ul {
 					margin-bottom: 2rem;

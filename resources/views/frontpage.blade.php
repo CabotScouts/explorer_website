@@ -1,15 +1,9 @@
 @extends('layouts.main')
 @section('content')
-@component('component.header', ['orientation' => 'vertical', 'image' => setting('site.front-header'), 'position' => setting('site.header-position')])
-	<div class="headline">
-		<p>Ready for Adventure?</p>
-	</div>
-	<div>
-		<p>Cabot Explorers is the Scouting section for 14 - 18 year olds in Cabot District, providing new experiences, adventure, and skills to the young people of North West Bristol.</p>
-	</div>
-	<div class="tagline">
-		<p>We prepare young people with Skills For Life.</p>
-	</div>
+@if($page->header)
+@component('component.header', ['orientation' => 'vertical', 'image' => $page->header->src, 'position' => $page->header->position ])
+	{!! $page->body !!}
 @endcomponent
+@endif
 @include('component.linkblocks')
 @endsection

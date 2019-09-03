@@ -3,7 +3,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::view('/', 'frontpage')->name('home');
+Route::get('/', 'PageController@frontpage')->name('home');
 Route::view('/calendar/', 'calendar')->name('calendar');
 
 Route::get('/units/', 'UnitController@index')->name('units');

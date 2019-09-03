@@ -10,6 +10,11 @@ class PageController extends Controller
 		return view('page', ['page' => $page]);
   }
 
+	public function frontpage() {
+		$page = Page::where('slug', '/')->where('status', 1)->firstOrFail();
+		return view('frontpage', ['page' => $page]);
+	}
+
 	public function searchPages(Request $request) {
 		$search = $request->input('search');
 
