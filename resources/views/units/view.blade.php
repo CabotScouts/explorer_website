@@ -2,8 +2,22 @@
 @section('title', $unit->name)
 @section('content')
 @if(($unit->day > -1) && $unit->lat)
-<section class="wide-map">
-	<div id="map" class="single-marker"></div>
+<section class="wide-map single-marker">
+	<div id="map"></div>
+	<div class="map-overlay">
+		<div class="map-title">
+			<div class="container pad">
+				<div class="row">
+					<div class="col col-10">
+						<h1>{{ $unit->name }}</h1>
+					</div>
+					<div class="col col-2 actions">
+						<a href="{{ route('units') }}" class="btn btn-success">See all Units</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script>
 	function initMap() {
 		var unitmap = new google.maps.Map(
@@ -25,14 +39,13 @@
 <section class="page pad space">
 	<div class="container">
 		<div class="row">
-			<div class="page-content col col-12 col-lg-8">
-				<h1>{{ $unit->name }}</h1>
+			<div class="page-content col col-12 col-lg-9">
 			@if($page)
 				{!! $page->body !!}
 			@endif
 			</div>
 
-			<div class="page-sidebar col col-12 col-lg-4">
+			<div class="page-sidebar col col-12 col-lg-3">
 				<div class="row">
 				<div class="block col col-12 col-md-4 col-lg-12">
 					@include('component.unit.event-card', ['unit' => $unit])
