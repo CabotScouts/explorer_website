@@ -8,9 +8,8 @@
 		<h6 class="card-subtitle muted">&nbsp;</h6>
 	@endif
 	</div>
-@if(!isset($hideactions))
 	<div class="card-body">
-		<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/" class="btn btn-success">See More</a>
+		<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/" class="btn btn-success mb-2">See Unit</a>
+		{{-- <a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/" class="btn btn-info">See Programme</a> --}}
 	</div>
-@endif
 </div>

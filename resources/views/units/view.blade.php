@@ -1,17 +1,17 @@
 @extends('layouts.main')
 @section('title', $unit->name)
 @section('content')
-@if(($unit->day > -1) && $unit->lat)
+@if($unit->hasMap)
 <section class="wide-map single-marker">
 	<div id="map"></div>
 	<div class="map-overlay">
-		<div class="map-title">
-			<div class="container pad">
+		<div class="map-title pad">
+			<div class="container">
 				<div class="row">
-					<div class="col col-7 col-md-10">
+					<div class="col col-6 col-md-10">
 						<h1>{{ $unit->name }}</h1>
 					</div>
-					<div class="col col-5 col-md-2 actions">
+					<div class="col col-6 col-md-2 actions">
 						<a href="{{ route('units') }}" class="btn btn-success">See all Units</a>
 					</div>
 				</div>
@@ -35,11 +35,16 @@
 	}
 	</script>
 </section>
+@else
+@include('component.breadcrumb', ['segments' => $unit->breadcrumb])
 @endif
-<section class="page pad space">
+<section class="page units pad space">
 	<div class="container">
 		<div class="row">
 			<div class="page-content col col-12 col-lg-9">
+			@if(!$unit->hasMap)
+				<h1>{{ $unit->name }}</h1>
+			@endif
 			@if($page)
 				{!! $page->body !!}
 			@endif
@@ -47,13 +52,13 @@
 
 			<div class="page-sidebar col col-12 col-lg-3">
 				<div class="row">
-				<div class="block col col-12 col-md-4 col-lg-12">
-					@include('component.unit.event-card', ['unit' => $unit])
-				</div>
+					<div class="block col col-12 col-md-4 col-lg-12">
+						@include('component.unit.event-card', ['unit' => $unit])
+					</div>
 
-					@if($page)
-						{!! $page->formattedSidebar !!}
-					@endif
+				@if($page)
+					{!! $page->formattedSidebar !!}
+				@endif
 				</div>
 			</div>
 		</div>

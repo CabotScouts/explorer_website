@@ -51,4 +51,8 @@ class Unit extends Model
 			]
 		];
 	}
+
+	public function getHasMapAttribute() {
+		return ($this->day > -1) && $this->lat;
+	}
 }

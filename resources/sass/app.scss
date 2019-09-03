@@ -179,7 +179,7 @@
 		.page-header {
 			h1, h2 {
 				color: $white;
-				text-shadow: 0.05rem 0.05rem 0.05rem $gray-800;
+				text-shadow: 1px 1px 1px $gray-800;
 				margin: 0.4em 0;
 			}
 
@@ -245,7 +245,7 @@
 
 				p {
 					color: $white;
-					text-shadow: 0.05rem 0.05rem 0.05rem $gray-800;
+					text-shadow: 1px 1px 1px $gray-800;
 					padding: 0.8rem;
 					margin: 0;
 				}
@@ -380,17 +380,21 @@
 
 				.map-title {
 					background: rgba(0, 0, 0, 0.3);
-					padding: 0.5rem 0;
-				}
 
-				.map-title h1 {
-					color: $white;
-					text-shadow: 0.05rem 0.05rem 0.05rem $gray-800;
-					margin: 0;
-				}
+					.col {
+						padding-top: 0.5rem;
+						padding-bottom: 0.5rem;
+					}
 
-				.map-title .actions {
-					text-align: right;
+					h1 {
+						color: $white;
+						text-shadow: 1px 1px 1px $gray-800;
+						margin: 0;
+					}
+
+					.actions {
+						text-align: right;
+					}
 				}
 			}
 		}
@@ -414,7 +418,13 @@
 			}
 		}
 
-		// == Unit Card Component ==
+		// == Unit Components ==
+		.units {
+			.page-sidebar {
+				border: 0; // Because we have the special logo card at the top
+			}
+		}
+
 		.unit-card {
 			margin-bottom: 10px;
 

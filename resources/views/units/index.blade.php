@@ -7,11 +7,11 @@
 		<div class="map-title">
 			<div class="container pad">
 				<div class="row">
-					<div class="col col-10">
+					<div class="col col-6 col-lg-8">
 						<h1>Explorer Units</h1>
 					</div>
-					<div class="actions col col-2">
-
+					<div class="actions col col-6 col-lg-4">
+						{{-- <a href="#" class="btn btn-info">District Explorer Team</a> --}}
 					</div>
 				</div>
 			</div>
