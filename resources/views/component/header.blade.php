@@ -14,7 +14,7 @@
 <section class="page-header cover-vertical" style="background: url('/storage/{{ $image }}'); background-size: cover; background-position: {{ $position }};">
 	<div class="container">
 		<div class="row">
-			<div class="col col-12 col-lg-5">
+			<div class="col col-12 col-sm-8 col-md-6 col-lg-5">
 				{{ $slot }}
 			</div>
 		</div>

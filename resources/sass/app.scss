@@ -203,7 +203,7 @@
 		@include media-breakpoint-up(xl) {
 			.page-header.cover-vertical {
 				.col {
-					min-height: 60vh;
+					min-height: 55vh;
 				}
 			}
 
@@ -274,14 +274,11 @@
 
 				.headline {
 					padding-top: 1.2rem;
-					font-weight: 900;
-					font-size: 1.4rem;
 				}
 
 				.tagline {
 					padding-bottom: 1.2rem;
 					font-weight: 700;
-					font-size: 1rem;
 				}
 			}
 		}
