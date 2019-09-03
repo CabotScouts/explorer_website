@@ -184,7 +184,7 @@
 			}
 
 			.page-title {
-				background: rgba(0, 0, 0, 0.3);
+				background: rgba(0, 0, 0, $header-overlay-opacity);
 			}
 		}
 
@@ -247,7 +247,7 @@
 				display: flex;
 				justify-content: center;
 				flex-direction: column;
-				background: rgba(0, 0, 0, 0.3);
+				background: rgba(0, 0, 0, $header-overlay-opacity);
 
 				div {
 					width: 100%;
@@ -387,7 +387,7 @@
 				}
 
 				.map-title {
-					background: rgba(0, 0, 0, 0.3);
+					background: rgba(0, 0, 0, $header-overlay-opacity);
 
 					.col {
 						padding-top: 0.5rem;
