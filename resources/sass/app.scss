@@ -316,13 +316,14 @@
 
 		.page {
 			.page-content {
+				padding-bottom: 1rem;
+
 				a {
 					text-decoration: underline;
 				}
 			}
 
 			.page-sidebar {
-
 				.block {
 					padding-bottom: 1rem;
 
@@ -467,12 +468,20 @@
 			}
 		}
 
-		// == Vertically Centered Content Block
+		// == Vertically Centered Content Block ==
 		.content-center {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			min-height: 60vh;
+		}
+
+		// == Accordion Block ==
+		.accordion .card-header {
+			.btn, .btn-link {
+				text-align: left;
+				font-weight: 600;
+			}
 		}
 
 	} // End main
