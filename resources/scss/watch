@@ -1,2 +1,0 @@
-#!/bin/bash
-sass --watch ./cabot.scss:../../public/assets/main.css --style compressed

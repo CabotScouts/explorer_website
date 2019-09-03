@@ -1,6 +1,6 @@
 @if(!isset($orientation) || $orientation == 'horizontal')
 <section class="page-header cover-horizontal" style="background: url('/storage/{{ $image }}'); background-size: cover; background-position: {{ $position }};">
-	<div class="page-title">
+	<div class="page-title pad">
 		<div class="container">
 			<div class="row">
 				<div class="col col-12">

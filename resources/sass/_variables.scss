@@ -16,17 +16,21 @@ $green: #23a950;
 $teal: #00a794;
 $cyan: #6cb2eb;
 
+$body-bg: lighten($navy, 2%);
+$highlight: lighten($navy, 2%);
+
 $theme-colors: (
-	"primary" : $navy,
+	"primary" : $highlight,
 	"success" : $green,
 	"danger"  : $red,
 	"warning" : $yellow,
 	"info"    : $teal
 );
 
-$body-bg: lighten($navy, 2%);
-$highlight: lighten($navy, 2%);
-
 $navbar-light-color: $highlight;
 $navbar-light-hover-color: $highlight;
 $navbar-light-active-color: $highlight;
+
+$link-hover-color: $highlight;
+$dropdown-link-color: $highlight;
+$dropdown-link-hover-color: $highlight;

@@ -8,10 +8,10 @@
 		<div class="map-title pad">
 			<div class="container">
 				<div class="row">
-					<div class="col col-6 col-md-10">
+					<div class="col col-12 col-md-6 col-lg-8">
 						<h1>{{ $unit->name }}</h1>
 					</div>
-					<div class="col col-6 col-md-2 actions">
+					<div class="actions col col-md-6 col-lg-4 d-none d-md-block">
 						<a href="{{ route('units') }}" class="btn btn-success">See all Units</a>
 					</div>
 				</div>
