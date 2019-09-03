@@ -122,7 +122,10 @@ class Page extends Model
 	}
 
   public function getFormattedSidebarAttribute() {
+		$this->parseURLSegments();
+		$this->getCrumbs();
 		$this->parseSidebar();
+
 		return $this->sidebar_output;
 	}
 }
