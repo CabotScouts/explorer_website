@@ -11,7 +11,7 @@
 						<h1>Explorer Units</h1>
 					</div>
 					<div class="actions col col-2">
-						
+
 					</div>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 
 	function addMarker(m) {
 		markers[m].label = new google.maps.InfoWindow({
-			content : `<b><a href="${ markers[m].url }">${ markers[m].name }</a></b><br /><small>${ markers[m].day }</small>`
+			content : `<a href="${ markers[m].url }"><strong>${ markers[m].name }</strong></a><br /><small>${ markers[m].day }</small>`
 		});
 
 		markers[m].marker = new google.maps.Marker({
