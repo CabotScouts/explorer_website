@@ -132,13 +132,15 @@ class HeadersBreadSeeder extends Seeder
                 'delete'       => 1,
                 'details'      => [
 									'options' => [
-										'center'       => 'Center',
-										'left'         => 'Left',
-										'right'        => 'Right',
-										'top left'     => 'Left (Top)',
-										'bottom left'  => 'Left (Bottom)',
-										'top right'    => 'Right (Top)',
-										'bottom right' => 'Right (Bottom)'
+										'left top'      => 'Top Left',
+										'left center'   => 'Center Left',
+										'left bottom'   => 'Bottom Left',
+										'right top'     => 'Top Right',
+										'right center'  => 'Center Right',
+										'right bottom'  => 'Bottom Right',
+										'center top'    => 'Top Center',
+										'center center' => 'Centered',
+										'center bottom' => 'Bottom Center'
 									]
 								],
                 'order'        => 4,
