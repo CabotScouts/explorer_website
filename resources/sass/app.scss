@@ -380,18 +380,19 @@
 
 				.map-title {
 					background: rgba(0, 0, 0, 0.3);
+					padding: 0.5rem 0;
 				}
 
 				.map-title h1 {
 					color: $white;
 					text-shadow: 0.05rem 0.05rem 0.05rem $gray-800;
-					margin: 0.4em 0;
+					margin: 0;
 				}
 			}
 		}
 
 		.wide-map.single-marker {
-			height: 300px;
+			height: 330px;
 			max-height: 50vh;
 		}
 

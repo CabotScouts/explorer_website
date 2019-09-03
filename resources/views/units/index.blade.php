@@ -7,8 +7,11 @@
 		<div class="map-title">
 			<div class="container pad">
 				<div class="row">
-					<div class="col col-12">
-						<h1>Cabot Explorer Units</h1>
+					<div class="col col-10">
+						<h1>Explorer Units</h1>
+					</div>
+					<div class="actions col col-2">
+						
 					</div>
 				</div>
 			</div>
