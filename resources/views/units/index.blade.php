@@ -11,7 +11,7 @@
 						<h1>Explorer Units</h1>
 					</div>
 					<div class="actions col col-6 col-lg-4">
-						<a href="#" class="btn btn-info">District Explorer Team</a>
+						<a href="#" class="btn btn-primary">District Explorer Team</a>
 					</div>
 				</div>
 			</div>
