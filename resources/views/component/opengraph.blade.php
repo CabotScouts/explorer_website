@@ -6,8 +6,8 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="{{ $page->title }}" />
 	<meta property="og:description" content="{{ strip_tags($page->body) }}" />
-	@if($page->image)
-		<meta property="og:image" content="{{ secure_asset('storage/' . $page->image) }}" />
+	@if($page->header)
+		<meta property="og:image" content="{{ secure_asset('storage/' . $page->header->src) }}" />
 	@else
 		<meta property="og:image" content="{{ secure_asset('storage/headers/og-default.png') }}" />
 	@endif
@@ -15,8 +15,8 @@
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="{{ $post->title }}" />
 	<meta property="og:description" content="{{ strip_tags($post->summary) }}" />
-	@if($post->image)
-		<meta property="og:image" content="{{ secure_asset('storage/' . $page->image) }}" />
+	@if($post->header)
+		<meta property="og:image" content="{{ secure_asset('storage/' . $post->header->src) }}" />
 	@else
 		<meta property="og:image" content="{{ secure_asset('storage/headers/og-default.png') }}" />
 	@endif
