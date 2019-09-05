@@ -162,14 +162,12 @@
 			}
 		}
 
-		@include media-breakpoint-down(md) {
-			p {
-				font-size: $font-size-sm;
-			}
-		}
-
 		a, a:hover, a:visited {
 			color: lighten($navy, 65%);
+		}
+
+		p {
+			font-size: $font-size-sm;
 		}
 
 		p:last-of-type {

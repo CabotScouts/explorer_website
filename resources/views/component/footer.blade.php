@@ -4,7 +4,7 @@
 			<img class="img-fluid" src="/assets/img/logos.png" />
 		</div>
 
-		<div class="col col-12 col-sm-6 col-md-7 col-lg-8">
+		<div class="col">
 			<p>Cabot Explorer Scouts are part of <a href="https://bristolcabotscouts.org.uk" target="_blank">Cabot Scout District</a></p>
 			<p>{{ menu('footer', 'component.linklist') }}</p>
 			<p>&copy; Cabot District Explorer Scouts 2019</p>
