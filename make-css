@@ -1,6 +1,0 @@
-#!/bin/bash
-set -e
-cd ./vendor/twbs/bootstrap/
-npm run dist
-cp dist/css/bootstrap.min.css ../../../public/assets/css/
-cp dist/js/bootstrap.min.js ../../../public/assets/js
