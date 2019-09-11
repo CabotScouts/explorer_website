@@ -7,12 +7,12 @@ class PageController extends Controller
 {
   public function showPage($name) {
     $page = Page::where('slug', $name)->where('status', 1)->firstOrFail();
-		return view('page', ['page' => $page]);
+		return view('page.generic', ['page' => $page]);
   }
 
 	public function frontpage() {
 		$page = Page::where('slug', '/')->where('status', 1)->firstOrFail();
-		return view('frontpage', ['page' => $page]);
+		return view('page.root', ['page' => $page]);
 	}
 
 	public function searchPages(Request $request) {

@@ -4,7 +4,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/', 'PageController@frontpage')->name('home');
-Route::view('/calendar/', 'calendar')->name('calendar');
+Route::view('/calendar/', 'page.calendar')->name('calendar');
 
 Route::get('/units/', 'UnitController@index')->name('units');
 Route::get('/units/{unit}', 'UnitController@viewUnit')->name('view-unit');
