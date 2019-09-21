@@ -3,7 +3,7 @@
 	<div class="card-body">
 		<h5 class="card-title">{{ $unit->name }}</h5>
 	@if($unit->day > -1)
-		<h6 class="card-subtitle muted">{{ $unit->dayString }}s</h6>
+		<h6 class="card-subtitle muted">{{ $unit->dayString }}s: {{ $unit->start_time }} - {{ $unit->end_time }} </h6>
 	@else
 		<h6 class="card-subtitle muted">&nbsp;</h6>
 	@endif

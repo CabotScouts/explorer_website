@@ -115,6 +115,32 @@ class UnitsBreadSeeder extends Seeder
 								],
                 'order'        => 3,
             ],
+						'start_time' => [
+								'type'         => 'time',
+								'display_name' => 'Start Time',
+								'required'     => 0,
+								'browse'       => 0,
+								'read'         => 1,
+								'edit'         => 1,
+								'add'          => 1,
+								'delete'       => 1,
+								'details'      => [
+								],
+								'order'        => 4,
+						],
+						'end_time' => [
+								'type'         => 'time',
+								'display_name' => 'End Time',
+								'required'     => 0,
+								'browse'       => 0,
+								'read'         => 1,
+								'edit'         => 1,
+								'add'          => 1,
+								'delete'       => 1,
+								'details'      => [
+								],
+								'order'        => 5,
+						],
 						'coordinates' => [
                 'type'         => 'maplocation',
                 'display_name' => 'Location',
@@ -127,7 +153,7 @@ class UnitsBreadSeeder extends Seeder
                 'details'      => [
 									'options' => []
 								],
-                'order'        => 4,
+                'order'        => 6,
             ],
 						'color' => [
                 'type'         => 'color',
@@ -141,7 +167,7 @@ class UnitsBreadSeeder extends Seeder
                 'details'      => [
 									'options' => []
 								],
-                'order'        => 5,
+                'order'        => 7,
             ],
 						'logo' => [
                 'type'         => 'media_picker',
@@ -163,7 +189,7 @@ class UnitsBreadSeeder extends Seeder
 									'max'          => 1,
 									'show_folders' => true
 									],
-                'order'        => 6,
+                'order'        => 8,
             ],
 						'blurb' => [
                 'type'         => 'text_area',
@@ -175,7 +201,7 @@ class UnitsBreadSeeder extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '',
-                'order'        => 7,
+                'order'        => 9,
             ],
 						'status' => [
                 'type'         => 'select_dropdown',
@@ -195,7 +221,7 @@ class UnitsBreadSeeder extends Seeder
 									'off'  => 'Hidden',
 									'checked' => false,
 								],
-                'order'        => 8,
+                'order'        => 10,
             ],
         ];
     }
