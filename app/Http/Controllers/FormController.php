@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Unit;
+use App\AccidentReport;
 
 class FormController extends Controller
 {
@@ -20,8 +21,6 @@ class FormController extends Controller
 			'reporterEmail' => 'required|email',
 			'theirName'     => 'required',
 			'theirUnit'     => 'required|exists:units,shortname',
-			'description'   => 'required',
-			'treatment'     => 'required'
 		],
 		[
 			'reporterName.required'  => 'You need to enter your name',
@@ -29,15 +28,23 @@ class FormController extends Controller
 			'reporterEmail.email'    => 'You need to enter a valid email address',
 			'theirName.required'     => 'You need to enter their name',
 			'theirUnit.required'     => 'You need to select their Unit',
-			'theirUnit.exists'       => 'You need to select a real Unit',
-			'description.required'   => 'You need to tell us what happened',
-			'treatment.required'     => 'You need to tell us what treatment was given'
+			'theirUnit.exists'       => 'You need to select a real Unit'
 		]
 		)->validate();
 
+		// Store basic report info in DB (report ID, who reported (name and IP address), time of report)
+		$report = new AccidentReport;
+		$report->reporter = $request->reporterName;
+		$report->ip = $request->ip();
+		$report->save();
+
+		// Send out report to accidents email - all info
+		// Send copy of report to submitter - next steps
+
 		return view('form.accident.store', [
 			'treatment' => $request->furtherTreatment,
-			'email'     => $request->reporterEmail
+			'email'     => $request->reporterEmail,
+			'id'        => $report->id
 		]);
   }
 
