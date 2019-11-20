@@ -29,7 +29,7 @@ class FormController extends Controller
 			'reporterEmail.email'    => 'You need to enter a valid email address',
 			'theirName.required'     => 'You need to enter their name',
 			'theirUnit.required'     => 'You need to select their Unit',
-			'theirUnit.exists'       => 'You need to select a real Unit'
+			'theirUnit.exists'       => 'You need to select a real Unit',
 			'description.required'   => 'You need to tell us what happened',
 			'treatment.required'     => 'You need to tell us what treatment was given'
 		]
