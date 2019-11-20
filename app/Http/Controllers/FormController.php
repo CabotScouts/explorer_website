@@ -20,6 +20,8 @@ class FormController extends Controller
 			'reporterEmail' => 'required|email',
 			'theirName'     => 'required',
 			'theirUnit'     => 'required|exists:units,shortname',
+			'description'   => 'required',
+			'treatment'     => 'required'
 		],
 		[
 			'reporterName.required'  => 'You need to enter your name',
@@ -28,6 +30,8 @@ class FormController extends Controller
 			'theirName.required'     => 'You need to enter their name',
 			'theirUnit.required'     => 'You need to select their Unit',
 			'theirUnit.exists'       => 'You need to select a real Unit'
+			'description.required'   => 'You need to tell us what happened',
+			'treatment.required'     => 'You need to tell us what treatment was given'
 		]
 		)->validate();
 
