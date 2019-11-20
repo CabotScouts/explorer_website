@@ -10,6 +10,7 @@
 					<div class="row">
 						<div class="col-12 text-center mt-2">
 							<h1>Report an Accident</h1>
+							<p><small>Fields marked with a * are required - please try to give as much information as possible</small></p>
 						</div>
 					</div>
 
@@ -71,7 +72,7 @@
 						<div class="form-group col-12">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="groupPremises" id="groupPremises" aria-describedby="groupPremises-help" {{ old('groupPremises') == true ? 'checked' : '' }}/>
-								<label class="form-check-label" for="groupPremises">The accident happened at our host Group</label>
+								<label class="form-check-label" for="groupPremises">The accident happened at our host Group's premises</label>
 							</div>
 						</div>
 
@@ -81,13 +82,13 @@
 
 						<div class="form-group col-12">
 							<label for="description">What Happened</label>
-							<textarea class="form-control" name="description" id="description" aria-describedby="description-help" placeholder="Description" required>{{ old('description') }}</textarea>
+							<textarea class="form-control" name="description" id="description" aria-describedby="description-help" placeholder="Description">{{ old('description') }}</textarea>
 							<small id="description-help" class="form-text text-muted">Describe how the accident happened</small>
 						</div>
 
 						<div class="form-group col-12">
 							<label for="treatment">Treatment Given</label>
-							<textarea class="form-control" name="treatment" id="treatment" aria-describedby="treatment-help" placeholder="Treatment" required>{{ old('treatment') }}</textarea>
+							<textarea class="form-control" name="treatment" id="treatment" aria-describedby="treatment-help" placeholder="Treatment">{{ old('treatment') }}</textarea>
 							<small id="treatment-help" class="form-text text-muted">Describe what treatment was given to the injured person</small>
 						</div>
 
@@ -98,7 +99,7 @@
 							</div>
 						</div>
 
-						<div class="form-group col-12">
+						<div class="form-group col-12 mt-3">
 							<input class="form-control" type="submit" name="submit" value="Submit Report" />
 						</div>
 					</div>
