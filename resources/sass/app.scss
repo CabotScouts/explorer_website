@@ -517,3 +517,17 @@
 		}
 
 	} // End main
+
+	main.formview {
+		border-top: (2*$border-width) solid $highlight;
+		padding: 1rem;
+
+		form label {
+			font-weight: 700;
+			color: $highlight;
+		}
+
+		form .alert ul {
+			margin-bottom: 0;
+		}
+	}
