@@ -1,3 +1,8 @@
+@php
+	$needsParent = !$form->parentNotified;
+	$needsHQ = $form->furtherTreatment && !($form->descNotified && $form->hqNotified && $form->unityNotified);
+@endphp
+
 @extends('layouts.form')
 @section('title', 'Accident Report')
 @section('content')
@@ -11,25 +16,28 @@
 
 					<div class="col-12 mt-2">
 						<div class="alert alert-success">
-							Your accident report (#{{ $id }}) has been submitted, and a copy sent to {{ $email }}
+							Your accident report (#{{ $id }}) has been submitted, and a copy sent to <strong>{{ $form->reporterEmail }}</strong> - please make sure you have received this
 						</div>
-
-						@if($treatment)
-							<div class="alert alert-warning">
-								As this accident required further treatment, headquarters must be notified - <a class="alert-link" href="https://scouts.org.uk/contact-us" target="_blank" rel="noreferrer noopener">contact the Info Centre</a> at the earliest opportunity.
-							</div>
-						@endif
 					</div>
 
-					<div class="col-12">
-						<h3>Next Steps</h3>
-						<ul>
-							<li>Check you have received a copy of this report</li>
-							<li>Make sure parents have been notified of the accident and the treatment given</li>
-							<li>If you become aware of further treatment being required (a visit to hospital, a doctor, or a dentist) in relation to this accident, headquarters must be notified - <a href="https://scouts.org.uk/contact-us" target="_blank" rel="noreferrer noopener">contact the Info Centre</a> at the earliest opportunity</li>
-							<li>If you later have any information to add to this report, contact <a href="mailto:X">X</a></li>
-						</ul>
+					@if($needsParent || $needsHQ)
+					<div class="col-12 mt-2">
+					<h2>Next Steps</h2>
+
+					@if($needsParent)
+					<div class="alert alert-warning">
+						If an Explorer was involved in this accident, please make sure their parent/carer is notified
 					</div>
+					@endif
+
+					@if($needsHQ)
+					<div class="alert alert-danger">
+						As this accident required further treatment, HQ and DESC must be notified. If you haven't already, <a class="alert-link" href="https://scouts.org.uk/contact-us" target="_blank" rel="noreferrer noopener">contact the Info Centre</a> at the earliest opportunity, and inform the DESC.
+					</div>
+					@endif
+					</div>
+					@endif
+
 					<div class="col-12 text-center">
 						<a class="btn btn-outline-danger" href="{{ route('accidentForm') }}">Submit another report</a>
 					</div>

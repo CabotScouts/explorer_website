@@ -42,8 +42,8 @@
 						</div>
 
 						<div class="form-group col-lg-6">
-							<label for="their-unit">Their Unit*</label>
-							<select class="form-control" name="theirUnit" id="theirUnit" aria-describedby="theirUnit-help" required>
+							<label for="their-unit">Their Unit</label>
+							<select class="form-control" name="theirUnit" id="theirUnit" aria-describedby="theirUnit-help">
 								<option value="">Unit</option>
 								@foreach($units as $unit)
 								<option value="{{ $unit->shortname }}"{{ old('theirUnit') == $unit->
@@ -67,7 +67,7 @@
 							<label for="where">Where</label>
 							<input class="form-control" type="text" name="where" id="where" aria-describedby="where-help" placeholder="Location" value="{{ old('where') }}" />
 							<small id="where-help" class="form-text text-muted">Where did the accident happen</small>
-							<div class="form-check mt-2">
+							<div class="form-check mt-3">
 								<input class="form-check-input" type="checkbox" name="groupPremises" id="groupPremises" aria-describedby="groupPremises-help"{{ old('groupPremises') == true ? ' checked' : '' }}/>
 								<label class="form-check-label" for="groupPremises">The accident happened at our host Group's premises</label>
 							</div>
@@ -98,18 +98,18 @@
 
 						<div class="form-group col-12">
 							<h3>Further Treatment</h3>
-							<small id="further-treatment-help" class="form-text text-muted">If further treatment (an ambulance, a visit to hospital, a doctor, or the dentist) was required, then HQ must be notified - <a href="https://scouts.org.uk/contact-us" target="_blank" rel="noreferrer noopener">contact the Info Centre</a> at the earliest opportunity</small>
+							<small id="further-treatment-help" class="form-text text-muted">If further treatment (an ambulance, a visit to hospital, a doctor, or the dentist) was required, then HQ and DESC must be notified - <a href="https://scouts.org.uk/contact-us" target="_blank" rel="noreferrer noopener">contact the Info Centre</a> at the earliest opportunity, and inform DESC</small>
 							<div class="form-check mt-2">
 								<input class="form-check-input" type="checkbox" name="furtherTreatment" id="furtherTreatment" aria-describedby="further-treatment-help"{{ old('furtherTreatment') == true ? ' checked' : '' }}/>
 								<label class="form-check-label" for="furtherTreatment">Further treatment was required</label>
 							</div>
 							<div class="form-check mt-2">
-								<input class="form-check-input" type="checkbox" name="descNotified" id="descNotified"{{ old('descNotified') == true ? ' checked' : '' }}/>
-								<label class="form-check-label" for="descNotified">DESC has been notified</label>
-							</div>
-							<div class="form-check mt-2">
 								<input class="form-check-input" type="checkbox" name="hqNotified" id="hqNotified"{{ old('hqNotified') == true ? ' checked' : '' }}/>
 								<label class="form-check-label" for="hqNotified">HQ has been notified</label>
+							</div>
+							<div class="form-check mt-2">
+								<input class="form-check-input" type="checkbox" name="descNotified" id="descNotified"{{ old('descNotified') == true ? ' checked' : '' }}/>
+								<label class="form-check-label" for="descNotified">DESC has been notified</label>
 							</div>
 							<div class="form-check mt-2">
 								<input class="form-check-input" type="checkbox" name="unityNotified" id="unityNotified"{{ old('unityNotified') == true ? ' checked' : '' }}/>
