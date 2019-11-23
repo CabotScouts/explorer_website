@@ -73,13 +73,6 @@
 							</div>
 						</div>
 
-						{{-- <div class="form-group col-12">
-							<div class="form-check mt-2">
-								<input class="form-check-input" type="checkbox" name="groupPremises" id="groupPremises" aria-describedby="groupPremises-help"{{ old('groupPremises') == true ? ' checked' : '' }}/>
-								<label class="form-check-label" for="groupPremises">The accident happened at our host Group's premises</label>
-							</div>
-						</div> --}}
-
 						<div class="form-group col-12">
 							<label for="description">What Happened</label>
 							<textarea rows="6" class="form-control" name="description" id="description" aria-describedby="description-help" placeholder="Description">{{ old('description') }}</textarea>
@@ -95,7 +88,7 @@
 						<div class="form-group col-12">
 							<div class="form-check mt-2">
 								<input class="form-check-input" type="checkbox" name="parentNotified" id="parentNotified"{{ old('parentNotified') == true ? ' checked' : '' }}/>
-								<label class="form-check-label" for="parentNotified">Parent/carer has been notified of the accident</label>
+								<label class="form-check-label" for="parentNotified">Parent/carer has been notified of the accident (if an Explorer)</label>
 							</div>
 						</div>
 
