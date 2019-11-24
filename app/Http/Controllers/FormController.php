@@ -49,7 +49,10 @@ class FormController extends Controller
 
 		// Send out report to accidents email & reporter
 		Mail::to($contact)->send($orig->replyTo($request->reporterEmail));
-		Mail::to($request->reporterEmail)->send($copy->replyTo($contact));
+		if($contact !== $request->reporterEmail) {
+			// Unlikely, but emails are limited so better to check!
+			Mail::to($request->reporterEmail)->send($copy->replyTo($contact));
+		}
 
 		return view('form.accident.store', [
 			'form' => $request,
