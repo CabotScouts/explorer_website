@@ -34,8 +34,8 @@ class AccidentReportMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Cabot Explorers - Accident Report (#' . $this->id . ')')
-				->from('no-reply@cabotexplorers.org.uk')
+        return $this->subject('[' . env('APP_NAME') . '] Accident Report (#' . $this->id . ')')
+				// ->from(env('ADDRESS_NOREPLY'))
 				->markdown('mail.accidentreport');
     }
 }
