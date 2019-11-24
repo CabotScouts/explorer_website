@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 use App\Unit;
 use App\AccidentReport;
+use App\Mail\AccidentReportMail;
 
 class FormController extends Controller
 {
@@ -19,16 +21,13 @@ class FormController extends Controller
 		[
 			'reporterName'  => 'required',
 			'reporterEmail' => 'required|email',
-			'theirName'     => 'required',
-			'theirUnit'     => 'required|exists:units,shortname',
+			'theirName'     => 'required'
 		],
 		[
 			'reporterName.required'  => 'You need to enter your name',
 			'reporterEmail.required' => 'You need to enter your email address',
 			'reporterEmail.email'    => 'You need to enter a valid email address',
-			'theirName.required'     => 'You need to enter their name',
-			'theirUnit.required'     => 'You need to select their Unit',
-			'theirUnit.exists'       => 'You need to select a real Unit'
+			'theirName.required'     => 'You need to enter their name'
 		]
 		)->validate();
 
@@ -38,13 +37,19 @@ class FormController extends Controller
 		$report->ip = $request->ip();
 		$report->save();
 
-		// Send out report to accidents email - all info
-		// Send copy of report to submitter - next steps
+		$mailer = new AccidentReportMail($report, $request);
+		// $contact = env('ADDRESS_ACCIDENTS');
+		$contact = "desc@cabotexplorers.org.uk";
+
+		// Future: render email output to PDF to attach to email (for storage)
+
+		// Send out report to accidents email & reporter
+		Mail::to($contact)->send($mailer->replyTo($request->reporterEmail));
+		// Mail::to($request->reporterEmail)->send($mailer->replyTo($contact));
 
 		return view('form.accident.store', [
-			'treatment' => $request->furtherTreatment,
-			'email'     => $request->reporterEmail,
-			'id'        => $report->id
+			'form' => $request,
+			'id'   => $report->id
 		]);
   }
 
