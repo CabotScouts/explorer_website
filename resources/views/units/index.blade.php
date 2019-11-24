@@ -10,9 +10,9 @@
 					<div class="col col-12 col-md-6 col-lg-8">
 						<h1>Explorer Units</h1>
 					</div>
-					<div class="actions col col-6 col-lg-4">
+					{{-- <div class="actions col col-6 col-lg-4">
 						<a href="#" class="btn btn-primary">District Explorer Team</a>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		</div>

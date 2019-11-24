@@ -14,9 +14,19 @@ class UnitController extends Controller
 		return view('units.index', ['units' => $units, 'page' => $page]);
 	}
 
-  public function viewUnit($name) {
+  public function viewUnit($name, $subpage = false) {
+		$units = Unit::where('status', 1)->orderBy('name', 'asc')->get();
 		$unit = Unit::where('shortname', $name)->firstOrFail();
-		$page = Page::where('slug', ("units/" . $name))->where('status', 1)->first();
-		return view('units.view', ['unit' => $unit, 'page' => $page]);
+		if($subpage) {
+			$page = Page::where('slug', ("units/" . $name . "/" . $subpage))->where('status', 1)->firstOrFail();
+		}
+		else {
+			$page = Page::where('slug', ("units/" . $name))->where('status', 1)->first();
+		}
+		return view('units.view', [
+			'unit'  => $unit,
+			'units' => $units,
+			'page'  => $page
+		]);
   }
 }

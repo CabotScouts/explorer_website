@@ -12,9 +12,11 @@
 				<small class="muted">({{ $unit->start_time }} - {{ $unit->end_time }})</small>
 			@endif
 		</h6>
+		<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}" class="mt-4 btn btn-sm btn-success">See Unit</a>
 	</div>
-	<div class="card-body">
-		<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/" class="btn btn-success mb-2">See Unit</a>
-		<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/" class="btn btn-info">See Programme</a>
-	</div>
+	{{-- <ul class="list-group list-group-flush unit-card-links">
+		<li class="list-group-item">
+			<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/" class="btn btn-sm btn-outline-primary">See Unit</a>
+		</li>
+	</ul> --}}
 </div>

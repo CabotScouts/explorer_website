@@ -6,8 +6,11 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', 'PageController@frontpage')->name('home');
 Route::view('/calendar/', 'page.calendar')->name('calendar');
 
-Route::get('/units/', 'UnitController@index')->name('units');
-Route::get('/units/{unit}', 'UnitController@viewUnit')->name('view-unit');
+Route::group(['prefix' => 'units'], function() {
+	Route::get('/', 'UnitController@index')->name('units');
+	Route::get('/{unit}', 'UnitController@viewUnit')->name('view-unit');
+	Route::get('/{unit}/{page}', 'UnitController@viewUnit')->where('page', '.*');
+});
 
 Route::group(['prefix' => 'form'], function() {
 	// Route::get('/', 'FormController@index');

@@ -488,6 +488,17 @@
 					max-height: 100%;
 				}
 			}
+
+			ul.unit-card-pages {
+				li {
+					font-size: 0.9rem;
+					font-weight: 700;
+				}
+
+				a {
+					display: block;
+				}
+			}
 		}
 
 		.unit-logo-inline .unit-card-header {

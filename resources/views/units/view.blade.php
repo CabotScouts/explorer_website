@@ -12,7 +12,7 @@
 						<h1>{{ $unit->name }}</h1>
 					</div>
 					<div class="actions col col-md-6 col-lg-4 d-none d-md-block">
-						<a href="{{ route('units') }}" class="btn btn-success">See all Units</a>
+						<a href="{{ route('units') }}" class="btn btn-primary">See all Units</a>
 					</div>
 				</div>
 			</div>
@@ -36,7 +36,7 @@
 	</script>
 </section>
 @else
-@include('component.breadcrumb', ['segments' => $unit->breadcrumb])
+@include('component.breadcrumb', ['segments' => $page->breadcrumb])
 @endif
 <section class="page units pad space">
 	<div class="container">
@@ -53,12 +53,15 @@
 			<div class="page-sidebar col col-12 col-lg-3">
 				<div class="row">
 					<div class="block col col-12 col-md-4 col-lg-12">
-						@include('component.unit.event-card', ['unit' => $unit])
+						@include('component.unit.event-card', [
+							'unit'  => $unit,
+							'units' => $units
+						])
 					</div>
 
-				@if($page)
+				{{-- @if($page)
 					{!! $page->formattedSidebar !!}
-				@endif
+				@endif --}}
 				</div>
 			</div>
 		</div>
