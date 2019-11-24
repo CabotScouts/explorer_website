@@ -8,12 +8,14 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
 use App\AccidentReport;
+use App\Unit;
 
 class AccidentReportMail extends Mailable
 {
     use Queueable, SerializesModels;
 
 		public $id;
+		public $unit;
 		public $report;
 
     /**
@@ -25,6 +27,8 @@ class AccidentReportMail extends Mailable
     {
         $this->id = $report->id;
 				$this->report = $request;
+				$unit = Unit::where('shortname', $request->theirUnit)->first();
+				$this->unit = $unit ? $unit->name : false;
     }
 
     /**
@@ -35,7 +39,7 @@ class AccidentReportMail extends Mailable
     public function build()
     {
         return $this->subject('[' . env('APP_NAME') . '] Accident Report (#' . $this->id . ')')
-				// ->from(env('ADDRESS_NOREPLY'))
+				->from(env('ADDRESS_NOREPLY'))
 				->markdown('mail.accidentreport');
     }
 }

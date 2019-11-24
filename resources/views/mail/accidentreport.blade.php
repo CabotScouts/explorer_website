@@ -19,15 +19,16 @@
 
 ## Basic Information
 @component('mail::table')
-| Field     | Data                                                                     |
-| :-------- | :----------------------------------------------------------------------- |
-| Report ID | {{ $id }}                                                                |
-| Reporter  | {{ $report->reporterName }}                                              |
-| Email     | {{ $report->reporterEmail }}                                             |
-| Injured   | {{ $report->theirName }}                                                 |
-| Unit      | {{ $report->theirUnit ? $report->theirUnit : "*No information given*" }} |
-| When      | {{ $report->when ? $report->when : "*No information given*" }}           |
-| Where     | {{ $report->where ? $report->where : "*No information given*" }}         |
+| Field             | Data                                                             |
+| :--------         | :--------------------------------------------------------------- |
+| Report ID         | {{ $id }}                                                        |
+| Reporter          | {{ $report->reporterName }}                                      |
+| Email             | {{ $report->reporterEmail }}                                     |
+| Injured           | {{ $report->theirName }}                                         |
+| Unit              | {{ $unit ? $unit : "*No information given*" }}                   |
+| When              | {{ $report->when ? $report->when : "*No information given*" }}   |
+| Where             | {{ $report->where ? $report->where : "*No information given*" }} |
+| On Group Premises | {{ ($report->groupPremises == "on") ? "Yes" : "No" }}            |
 @endcomponent
 ## Accident Details
 {{ $report->description ? $report->description : "*No information given*" }}
@@ -39,7 +40,7 @@
 @component('mail::table')
 | Field                      | Data                                                     |
 | :------------------------- | :------------------------------------------------------- |
-| On Group Premises          | {{ ($report->groupPremises == "on") ? "Yes" : "No" }}    |
+| Needs Reporting to Group   | {{ ($report->groupPremises == "on") ? "Yes" : "No" }}    |
 | Parent/Carer Notified      | {{ ($report->parentNotified == "on") ? "Yes" : "No" }}   |
 | Required Further Treatment | {{ ($report->furtherTreatment == "on") ? "Yes" : "No" }} |
 | HQ Notified                | {{ ($report->hqNotified == "on") ? "Yes" : "No" }}       |
