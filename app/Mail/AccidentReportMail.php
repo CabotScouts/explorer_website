@@ -38,7 +38,7 @@ class AccidentReportMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('[' . env('APP_NAME') . '] Accident Report (#' . $this->id . ')')
+        return $this->subject('Accident Report (#' . $this->id . ')')
 				->markdown('mail.accidentreport');
     }
 }
