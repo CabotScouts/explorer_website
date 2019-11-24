@@ -48,5 +48,5 @@
 | Unity Form Completed       | {{ ($report->unityNotified == "on") ? "Yes" : "No" }}    |
 @endcomponent
 
-You have received this email as you are either the designated accident report contact for {{ config('app.name') }}, or submitted the report.
+You have received this email as you are either the designated accident report contact for {{ config('app.name') }}, or you submitted the report.
 @endcomponent
