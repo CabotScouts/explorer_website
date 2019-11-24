@@ -38,18 +38,14 @@ class FormController extends Controller
 		$report->save();
 
 		$contact = env('ADDRESS_ACCIDENTS');
-
 		$orig = new AccidentReportMail($report, $request);
-		$orig->replyTo($request->reporterEmail);
-
 		$copy = new AccidentReportMail($report, $request);
-		$copy->replyTo($contact);
 
 		// Future: render email output to PDF to attach to email (for storage)
 
 		// Send out report to accidents email & reporter
-		Mail::to($contact)->send($orig);
-		Mail::to($request->reporterEmail)->send($copy);
+		Mail::to($contact)->send($orig->replyTo($request->reporterEmail));
+		Mail::to($request->reporterEmail)->send($copy->replyTo($contact));
 
 		return view('form.accident.store', [
 			'form' => $request,
