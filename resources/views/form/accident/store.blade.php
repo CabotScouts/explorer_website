@@ -1,6 +1,6 @@
 @php
 	$needsParent = !$form->parentNotified;
-	$needsHQ = $form->furtherTreatment && !($form->descNotified && $form->hqNotified && $form->unityNotified);
+	$needsHQ = $form->furtherTreatment && !($form->descNotified && $form->hqNotified);
 @endphp
 
 @extends('layouts.form')
