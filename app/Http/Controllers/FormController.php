@@ -11,6 +11,10 @@ use App\Mail\AccidentReportMail;
 
 class FormController extends Controller
 {
+	public function index() {
+		return "";
+	}
+
 	public function accidentCreate() {
 		$units = Unit::where('status', 1)->orderBy('name', 'asc')->get();
 		return view('form.accident.create', ['units' => $units]);
