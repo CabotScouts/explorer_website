@@ -1,6 +1,6 @@
 @php
 	$needsParent = !$report->parentNotified;
-	$needsHQ = $report->furtherTreatment && !($report->descNotified && $report->hqNotified && $report->unityNotified);
+	$needsHQ = $report->furtherTreatment && !($report->descNotified && $report->hqNotified);
 @endphp
 @component('mail::message')
 # Accident Report #{{ $id }}
@@ -37,14 +37,14 @@
 
 ## Further Reporting
 @component('mail::table')
-| Field                       | Data                                                     |
-| :-------------------------- | :------------------------------------------------------- |
-| On Group Premises?          | {{ ($report->groupPremises == "on") ? "Yes" : "No" }}    |
-| Parent/Carer Notified?      | {{ ($report->parentNotified == "on") ? "Yes" : "No" }}   |
-| Required Further Treatment? | {{ ($report->furtherTreatment == "on") ? "Yes" : "No" }} |
-| HQ Notified                 | {{ ($report->hqNotified == "on") ? "Yes" : "No" }}       |
-| DESC Notified               | {{ ($report->descNotified == "on") ? "Yes" : "No" }}     |
-| Unity Form Completed        | {{ ($report->unityNotified == "on") ? "Yes" : "No" }}    |
+| Field                      | Data                                                     |
+| :------------------------- | :------------------------------------------------------- |
+| On Group Premises          | {{ ($report->groupPremises == "on") ? "Yes" : "No" }}    |
+| Parent/Carer Notified      | {{ ($report->parentNotified == "on") ? "Yes" : "No" }}   |
+| Required Further Treatment | {{ ($report->furtherTreatment == "on") ? "Yes" : "No" }} |
+| HQ Notified                | {{ ($report->hqNotified == "on") ? "Yes" : "No" }}       |
+| DESC Notified              | {{ ($report->descNotified == "on") ? "Yes" : "No" }}     |
+| Unity Form Completed       | {{ ($report->unityNotified == "on") ? "Yes" : "No" }}    |
 @endcomponent
 
 You have received this email as you are either the designated accident report contact for {{ config('app.name') }}, or submitted the report.
