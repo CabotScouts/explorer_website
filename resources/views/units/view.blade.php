@@ -9,10 +9,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col col-12 col-md-6 col-lg-8">
+						@if(isset($root))
 						<h1>{{ $unit->name }}</h1>
+						@else
+						<h1>{{ $unit->name }} - {{ $page->title }}</h1>
+						@endif
 					</div>
 					<div class="actions col col-md-6 col-lg-4 d-none d-md-block">
-						<a href="{{ route('units') }}" class="btn btn-primary">See all Units</a>
+						@include('component.unit.unit-dropdown', ['units' => $units])
 					</div>
 				</div>
 			</div>
@@ -43,7 +47,7 @@
 		<div class="row">
 			<div class="page-content col col-12 col-lg-9">
 			@if(!$unit->hasMap)
-				<h1>{{ $unit->name }}</h1>
+				<h1>{{ $page->title }}</h1>
 			@endif
 			@if($page)
 				{!! $page->body !!}
@@ -53,15 +57,15 @@
 			<div class="page-sidebar col col-12 col-lg-3">
 				<div class="row">
 					<div class="block col col-12 col-md-4 col-lg-12">
-						@include('component.unit.event-card', [
+						@include('component.unit.view-card', [
 							'unit'  => $unit,
 							'units' => $units
 						])
 					</div>
 
-				{{-- @if($page)
+				@if($page)
 					{!! $page->formattedSidebar !!}
-				@endif --}}
+				@endif
 				</div>
 			</div>
 		</div>

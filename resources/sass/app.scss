@@ -335,10 +335,14 @@
 				padding: 0;
 				margin: 0;
 				background: 0;
+			}
 
-				li {
-					padding: 0;
-				}
+			li {
+				padding: 0;
+			}
+
+			.actions {
+				text-align: right;
 			}
 		}
 
@@ -436,6 +440,10 @@
 					.actions {
 						text-align: right;
 					}
+
+					a.dropdown-toggle {
+						color: $white;
+					}
 				}
 			}
 		}
@@ -466,6 +474,10 @@
 			}
 		}
 
+		.units-dropdown {
+			list-style: none;
+		}
+
 		.unit-card {
 			margin-bottom: 10px;
 
@@ -490,10 +502,8 @@
 			}
 
 			ul.unit-card-pages {
-				li {
-					font-size: 0.9rem;
-					font-weight: 700;
-				}
+				font-size: 0.9rem;
+				font-weight: 700;
 
 				a {
 					display: block;

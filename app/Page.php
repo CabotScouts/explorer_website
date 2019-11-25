@@ -56,7 +56,8 @@ class Page extends Model
 		if(!$this->show_sidebar) return; // No point parsing if it won't get shown!
 
 		$sidebar = "";
-		for($i = ($this->_depth - 1); $i > -1; $i--) {
+		$count = min(count($this->crumbs), $this->_depth) - 1;
+		for($i = $count; $i > -1; $i--) {
 			$sidebar .= $this->formatSidebar($this->crumbs[$i]);
 		}
 

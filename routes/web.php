@@ -7,9 +7,11 @@ Route::get('/', 'PageController@frontpage')->name('home');
 Route::view('/calendar/', 'page.calendar')->name('calendar');
 
 Route::group(['prefix' => 'units'], function() {
-	Route::get('/', 'UnitController@index')->name('units');
-	Route::get('/{unit}', 'UnitController@viewUnit')->name('view-unit');
-	Route::get('/{unit}/{page}', 'UnitController@viewUnit')->where('page', '.*');
+	Route::get('/', 'UnitController@showUnits')->name('units');
+	Route::get('/{unit}', 'UnitController@viewUnitIndex')->name('view-unit');
+	Route::get('/{unit}/programme', 'UnitController@viewUnitProgramme')->name('view-unit-programme');
+	Route::get('/{unit}/contact', 'UnitController@viewUnitContact')->name('view-unit-contact');
+	Route::get('/{unit}/{page}', 'UnitController@viewUnitPage')->where('page', '.*');
 });
 
 Route::group(['prefix' => 'form'], function() {

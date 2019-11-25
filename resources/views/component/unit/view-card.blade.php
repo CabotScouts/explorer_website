@@ -13,12 +13,12 @@ $pages = Page::where([
 		<li class="list-group-item">
 			<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}">{{ $unit->name }} Home</a>
 		</li>
-		<li class="list-group-item">
+		{{-- <li class="list-group-item">
 			<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/programme">Programme</a>
 		</li>
 		<li class="list-group-item">
 			<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/contact">Contact</a>
-		</li>
+		</li> --}}
 		@if(count($pages) > 0)
 			@foreach($pages as $sibling)
 				<li class="list-group-item">
@@ -26,13 +26,5 @@ $pages = Page::where([
 				</li>
 			@endforeach
 		@endif
-	</ul>
-	<div class="card-header">
-		Other Units
-	</div>
-	<ul class="list-group list-group-flush unit-card-pages">
-		@include('component.unit.list-units', [
-			'units' => $units,
-		])
 	</ul>
 </div>

@@ -94,7 +94,7 @@
 				@if(count($units) > 0)
 					@foreach($units as $unit)
 					<div class="col col-12 col-md-6 col-lg-3">
-						@include('component.unit.card', ['unit' => $unit])
+						@include('component.unit.index-card', ['unit' => $unit])
 					</div>
 					@endforeach
 				@endif
