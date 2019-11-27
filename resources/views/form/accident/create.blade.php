@@ -98,7 +98,7 @@
 
 						<div class="form-group col-12">
 							<h3>Further Treatment</h3>
-							<small id="further-treatment-help" class="form-text text-muted">If further treatment (an ambulance, a visit to hospital, a doctor, or the dentist) was required, then HQ and DESC must be notified - <a href="https://scouts.org.uk/contact-us" target="_blank" rel="noreferrer noopener">contact the Info Centre</a> at the earliest opportunity, and inform DESC</small>
+							<small id="further-treatment-help" class="form-text text-muted">If further treatment (an ambulance, a visit to hospital, a doctor, or the dentist) was required, then HQ must be notified - <a href="https://scouts.org.uk/contact-us" target="_blank" rel="noreferrer noopener">contact the Info Centre</a> at the earliest opportunity</small>
 							<div class="form-check mt-2">
 								<input class="form-check-input" type="checkbox" name="furtherTreatment" id="furtherTreatment" aria-describedby="further-treatment-help"{{ old('furtherTreatment') == true ? ' checked' : '' }}/>
 								<label class="form-check-label" for="furtherTreatment">Further treatment was required</label>
@@ -106,10 +106,6 @@
 							<div class="form-check mt-2">
 								<input class="form-check-input" type="checkbox" name="hqNotified" id="hqNotified"{{ old('hqNotified') == true ? ' checked' : '' }}/>
 								<label class="form-check-label" for="hqNotified">HQ has been notified</label>
-							</div>
-							<div class="form-check mt-2">
-								<input class="form-check-input" type="checkbox" name="descNotified" id="descNotified"{{ old('descNotified') == true ? ' checked' : '' }}/>
-								<label class="form-check-label" for="descNotified">DESC has been notified</label>
 							</div>
 							<div class="form-check mt-2">
 								<input class="form-check-input" type="checkbox" name="unityNotified" id="unityNotified"{{ old('unityNotified') == true ? ' checked' : '' }}/>

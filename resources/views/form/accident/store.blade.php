@@ -1,6 +1,6 @@
 @php
 	$needsParent = !$form->parentNotified;
-	$needsHQ = $form->furtherTreatment && !($form->descNotified && $form->hqNotified);
+	$needsHQ = $form->furtherTreatment && !$form->hqNotified;
 @endphp
 
 @extends('layouts.form')
@@ -16,7 +16,7 @@
 
 					<div class="col-12 mt-2">
 						<div class="alert alert-success">
-							Your accident report (#{{ $id }}) has been submitted, and a copy sent to <strong>{{ $form->reporterEmail }}</strong> - please make sure you have received this
+							Your accident report (#{{ $id }}) has been submitted, and a copy sent to <strong>{{ $form->reporterEmail }}</strong> @if($$form->furtherTreatment) and the DESC @endif- please make sure you have received this
 						</div>
 					</div>
 
@@ -32,7 +32,7 @@
 
 					@if($needsHQ)
 					<div class="alert alert-danger">
-						As this accident required further treatment, HQ and DESC must be notified. If you haven't already, <a class="alert-link" href="https://scouts.org.uk/contact-us" target="_blank" rel="noreferrer noopener">contact the Info Centre</a> at the earliest opportunity, and inform the DESC.
+						As this accident required further treatment, HQ must be notified. Please fill out the <a href="https://app.smartsheet.com/b/form/f16aec805bee49cdbc4d12c82b5e7d2b" target="_blank" rel="noreferrer nofollow">HQ Incident Report Form</a> as soon as possible
 					</div>
 					@endif
 					</div>

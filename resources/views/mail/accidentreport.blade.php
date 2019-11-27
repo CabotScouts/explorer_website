@@ -1,6 +1,6 @@
 @php
 	$needsParent = !$report->parentNotified;
-	$needsHQ = $report->furtherTreatment && !($report->descNotified && $report->hqNotified);
+	$needsHQ = $report->furtherTreatment && !$report->hqNotified;
 @endphp
 @component('mail::message')
 # Accident Report #{{ $id }}
@@ -12,7 +12,7 @@
 * If an Explorer was involved, make sure a parent/carer has been notified of the accident and the treatment given
 @endif
 @if($needsHQ)
-* As this accident required further treatment, HQ and DESC must be notified - [contact the Info Centre](https://scouts.org.uk/contact-us) at the earliest opportunity, and inform the DESC
+* As this accident required further treatment, HQ must be notified - [fill out the Scout Incident Form](https://app.smartsheet.com/b/form/f16aec805bee49cdbc4d12c82b5e7d2b) as soon as possible
 @endif
 @endcomponent
 @endif
@@ -44,7 +44,6 @@
 | Parent/Carer Notified      | {{ ($report->parentNotified == "on") ? "Yes" : "No" }}   |
 | Required Further Treatment | {{ ($report->furtherTreatment == "on") ? "Yes" : "No" }} |
 | HQ Notified                | {{ ($report->hqNotified == "on") ? "Yes" : "No" }}       |
-| DESC Notified              | {{ ($report->descNotified == "on") ? "Yes" : "No" }}     |
 | Unity Form Completed       | {{ ($report->unityNotified == "on") ? "Yes" : "No" }}    |
 @endcomponent
 
