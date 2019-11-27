@@ -42,16 +42,25 @@ class FormController extends Controller
 		$report->save();
 
 		$contact = env('ADDRESS_ACCIDENTS');
+		$desc = env('ADDRESS_DESC');
+
 		$orig = new AccidentReportMail($report, $request);
+		$orig = $orig->replyTo($request->reporterEmail);
+		if($request->furtherTreatment && $request->reporterEmail !== $desc) {
+			// cc in DESC to reports that require further reporting (if the reporter isn't DESC)
+			$orig = $orig->cc(env('ADDRESS_DESC'));
+		}
+
 		$copy = new AccidentReportMail($report, $request);
+		$copy = $copy->replyTo($contact);
 
 		// Future: render email output to PDF to attach to email (for storage)
 
 		// Send out report to accidents email & reporter
-		Mail::to($contact)->send($orig->replyTo($request->reporterEmail));
-		if($contact !== $request->reporterEmail) {
+		Mail::to($contact)->send($orig);
+		if($request->reporterEmail !== $contact) {
 			// Unlikely, but emails are limited so better to check!
-			Mail::to($request->reporterEmail)->send($copy->replyTo($contact));
+			Mail::to($request->reporterEmail)->send($copy);
 		}
 
 		return view('form.accident.store', [
