@@ -12,7 +12,7 @@
 				<small class="muted">({{ $unit->start_time }} - {{ $unit->end_time }})</small>
 			@endif
 		</h6>
-		<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}" class="mt-4 btn btn-sm btn-success">See Unit</a>
+		<a href="{{ route('view-unit', $unit->shortname) }}" class="mt-4 btn btn-sm btn-success">See Unit</a>
 	</div>
 	{{-- <ul class="list-group list-group-flush unit-card-links">
 		<li class="list-group-item">

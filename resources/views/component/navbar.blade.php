@@ -20,7 +20,7 @@
 
 						<div class="dropdown-menu" aria-labelledby="unitsDropdown">
 							@if($unit)
-							<a class="dropdown-item" href="{{ route('voyager.units.edit', ['id' => $unit->id]) }}" target="_blank">Edit Explorer Unit</a>
+							<a class="dropdown-item" href="{{ route('voyager.units.edit', $unit->id) }}" target="_blank">Edit Explorer Unit</a>
 							@endif
 							<a class="dropdown-item" href="{{ route('voyager.units.create') }}" target="_blank">Add Explorer Unit</a>
 						</div>
@@ -33,7 +33,7 @@
 
 					<div class="dropdown-menu" aria-labelledby="manageDropdown">
 					@if($page)
-						<a class="dropdown-item" href="{{ route('voyager.pages.edit', ['id' => $page->id]) }}" target="_blank">Edit Page</a>
+						<a class="dropdown-item" href="{{ route('voyager.pages.edit', $page->id) }}" target="_blank">Edit Page</a>
 					@endif
 						<a class="dropdown-item" href="{{ route('voyager.pages.create') }}" target="_blank">Add New Page</a>
 					</div>

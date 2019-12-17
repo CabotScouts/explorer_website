@@ -22,14 +22,14 @@
 
 	var markers = [
 @if(count($units) > 0)
-@foreach($units as $unit)
-@if(($unit->day > -1) && $unit->lat)
+@foreach($units as $u)
+@if(($u->day > -1) && $u->lat)
 		{
-			name : "{{ $unit->name }}",
-			day  : "{{ $unit->dayString }}s",
-			lat  : {{ $unit->lat }},
-			lng  : {{ $unit->lng }},
-			url  : "{{ route('view-unit', ['name' => $unit->shortname ]) }}"
+			name : "{{ $u->name }}",
+			day  : "{{ $u->dayString }}s",
+			lat  : {{ $u->lat }},
+			lng  : {{ $u->lng }},
+			url  : "{{ route('view-unit', $u->shortname) }}"
 		},
 @endif
 @endforeach
@@ -92,9 +92,9 @@
 		<div class="units-list col col-12">
 			<div class="row">
 				@if(count($units) > 0)
-					@foreach($units as $unit)
+					@foreach($units as $u)
 					<div class="col col-12 col-md-6 col-lg-3">
-						@include('component.unit.index-card', ['unit' => $unit])
+						@include('component.unit.index-card', ['unit' => $u])
 					</div>
 					@endforeach
 				@endif
