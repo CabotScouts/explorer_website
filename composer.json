@@ -12,10 +12,10 @@
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.4",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
-        "tcg/voyager": "^1.3",
-        "voyager-bread-generator": "dev-master"
+        "tcg/voyager": "1.3.*",
+        "gruz/voyager-bread-generator": "dev-master"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
