@@ -9,4 +9,9 @@ class Event extends Model
     public function source() {
 			return $this->hasOne('App\EventSource');
 		}
+
+    public function fromRemote() {
+      // populate fields from parsed ical event
+      
+    }
 }
