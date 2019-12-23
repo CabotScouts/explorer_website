@@ -28,7 +28,7 @@ class AddEventsTables extends Migration
 			$table->increments('id');
       $table->string('name');
       $table->string('type');
-      $table->string('cal')
+      $table->string('cal');
 			$table->timestamps();
 		});
 

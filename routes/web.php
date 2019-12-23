@@ -64,7 +64,21 @@ Route::domain(config('app.root_domain'))->group(function () {
     Route::get('/delete/{id}', 'ShortlinkController@delete')->name('shortlink.delete');
   });
 
-  Route::view('/calendar', 'page.calendar')->name('calendar');
+  Route::group(['prefix' => 'event_test'], function() {
+    Route::get('/events/', 'EventTestController@listEvents');
+    Route::get('/sources/', 'EventTestController@listSources');
+    Route::get('/calendars/', 'EventTestController@listCalendars');
+
+    Route::get('/new/source/', 'EventTestController@newSource');
+    Route::post('/new/source/', 'EventTestController@createSource');
+
+    Route::get('/add/event/', 'EventTestController@newEvent');
+    Route::post('/add/event/', 'EventTestController@createEvent');
+
+    Route::get('/add/calendar/', 'EventTestController@newCalendar');
+    Route::post('/add/calendar/', 'EventTestController@createCalendar');
+  });
+
   Route::post('/search', 'PageController@searchPages');
   Route::get('/sitemap.xml', 'PageController@sitemap');
 
