@@ -25,7 +25,7 @@ class EventSource extends Model
     public function updateFromRemote() {
       $calendar = new ICal($this->cal);
 
-      if($calendar->eventsCount > 0) {
+      if($calendar->eventCount > 0) {
         $this->removeAllEvents();
         foreach($calendar->events() as $remoteEvent) {
           $event = new Event;
