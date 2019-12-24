@@ -488,16 +488,12 @@
 				justify-content: center;
 				flex-direction: column;
 
-				.unit-logo {
-					max-height: 150px;
-				}
-
-				.default-logo {
-					height: 100px;
-				}
-
 				img {
-					max-height: 100%;
+					max-height: 135px;
+				}
+
+				.default-logo img {
+					max-height: 100px;
 				}
 			}
 
