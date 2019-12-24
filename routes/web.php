@@ -64,6 +64,12 @@ Route::domain(config('app.root_domain'))->group(function () {
     Route::get('/delete/{id}', 'ShortlinkController@delete')->name('shortlink.delete');
   });
 
+  Route::get('/source/flush/{id}', 'EventTestController@flushSource');
+  Route::get('/source/update/{id}', 'EventTestController@updateSource');
+
+  Route::get('/new/source/', 'EventTestController@newSource');
+  Route::post('/new/source/', 'EventTestController@createSource')->name('test-createSource');
+
   Route::group(['prefix' => 'event_test'], function() {
     Route::get('/events/', 'EventTestController@listEvents');
     Route::get('/sources/', 'EventTestController@listSources');
