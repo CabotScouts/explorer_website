@@ -85,6 +85,11 @@ Route::domain(config('app.root_domain'))->group(function () {
     Route::post('/add/calendar/', 'EventTestController@createCalendar');
   });
 
+  Route::group(['prefix' => 'calendar'], function() {
+    Route::get('/{calendar}/render/{year?}/{month?}', 'CalendarController@renderMonth');
+    Route::get('/{calendar}.ics', 'CalendarController@export');
+  });
+
   Route::post('/search', 'PageController@searchPages');
   Route::get('/sitemap.xml', 'PageController@sitemap');
 
