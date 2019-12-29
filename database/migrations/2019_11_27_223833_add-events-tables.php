@@ -16,11 +16,11 @@ class AddEventsTables extends Migration
 		Schema::create('events', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
-      $table->date('start');
-      $table->date('end');
-      $table->string('location');
-      $table->string('description');
-      $table->integer('eventsource_id')->references('id')->on('eventsources');
+      $table->date('start')->nullable();
+      $table->date('end')->nullable();
+      $table->string('location')->nullable();
+      $table->string('description')->nullable();
+      $table->integer('event_source_id')->references('id')->on('event_sources');
       $table->timestamps();
 		});
 
@@ -28,7 +28,7 @@ class AddEventsTables extends Migration
 			$table->increments('id');
       $table->string('name');
       $table->string('type');
-      $table->string('ics');
+      $table->string('ics')->nullable();
 			$table->timestamps();
 		});
 
@@ -41,7 +41,7 @@ class AddEventsTables extends Migration
 
 		Schema::create('calendar_event_source', function(Blueprint $table) {
 			$table->integer('calendar_id')->references('id')->on('calendars');
-			$table->integer('eventsource_id')->references('id')->on('eventsources');
+			$table->integer('event_source_id')->references('id')->on('event_sources');
 		});
   }
 
