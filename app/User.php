@@ -21,4 +21,13 @@ class User extends \TCG\Voyager\Models\User {
     $this->avatar = $this->compare($this->avatar, $returned->getAvatar());
     $this->save();
   }
+
+  public function getAvatarURLAttribute() {
+    if(substr($this->avatar, 0, 4) === "http") {
+      return $this->avatar;
+    }
+    else {
+      return "storage/" . $this->avatar;
+    }
+  }
 }

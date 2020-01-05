@@ -92,6 +92,10 @@
 			}
 
 			.navbar-nav {
+				@include media-breakpoint-up(md) {
+					align-items: center;
+				}
+
 				a.nav-link, a:hover.nav-link {
 					display: inline-block;
 					padding: 0.8rem 1rem;
@@ -122,6 +126,21 @@
 					li.active a:hover {
 						margin-bottom: -($border-width);
 					}
+				}
+
+				.navbar-avatar img {
+					height: 36px;
+					width: 36px;
+					border-radius: 20px;
+					margin-left: 1rem;
+				}
+			}
+
+			.navbar-admin {
+				font-size: 0.9rem;
+
+				.dropdown-menu, a.nav-link, a:hover.nav-link {
+					font-size: 0.9rem;
 				}
 			}
 		}

@@ -14,8 +14,8 @@ $user = Auth::user();
 		</div>
 
 	@auth
-		<div class="d-none d-md-block">
-			<ul class="navbar-nav">
+		<div class="d-none d-lg-block">
+			<ul class="navbar-nav navbar-admin">
 				{{-- Units Menu --}}
 				@if($user->hasPermission('add_units') || $user->hasPermission('edit_units'))
 					<li class="navbar-item dropdown mr-4">
@@ -69,9 +69,9 @@ $user = Auth::user();
 					</div>
 				</li>
 
-				{{-- <li class="navbar-item">
-					<img src="/storage/{{ Auth::user()->avatar }}"  />
-				</li> --}}
+				<li class="navbar-item navbar-avatar">
+					<img src="{{ Auth::user()->avatarURL }}"  />
+				</li>
 			</ul>
 		</div>
 	@endauth
