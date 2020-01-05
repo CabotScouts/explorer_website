@@ -16,6 +16,7 @@ class UpdateUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('gid')->after('id')->nullable();
             $table->string('password')->nullable()->change();
+            $table->dropColumn('email_verified_at');
         });
     }
 
@@ -27,6 +28,7 @@ class UpdateUsersTable extends Migration
     public function down()
     {
       Schema::table('users', function (Blueprint $table) {
+        $table->timestamp('email_verified_at')->nullable();
         $table->dropColumn('gid');
       });
     }
