@@ -16,14 +16,12 @@ class AuthController extends Controller {
     $user = User::where('email', $google->getEmail())->first();
 
     if($user) {
-      // TODO: check if any fields have changed since last login
+      $user->updateFromGoogle($google);
       Auth::login($user, true);
     } else {
       $user = new User;
-      $user->name = $google->getName();
       $user->email = $google->getEmail();
-      $user->gid = $google->getId();
-      $user->avatar = $google->getAvatar();
+      $user->updateFromGoogle($google);
 
       $role = Role::where('name', 'user')->first();
       $user->role_id = $role->id;
