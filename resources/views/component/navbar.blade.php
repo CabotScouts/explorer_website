@@ -45,7 +45,7 @@
 
 					<div class="dropdown-menu" aria-labelledby="manageDropdown">
 						<a class="dropdown-item" href="{{ route('voyager.dashboard') }}" target="_blank">Dashboard</a>
-						<a class="dropdown-item" href="{{ route('voyager.logout') }}">Logout</a>
+						<a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
 					</div>
 				</li>
 			</ul>
