@@ -27,7 +27,7 @@ class User extends \TCG\Voyager\Models\User {
       return $this->avatar;
     }
     else {
-      return "storage/" . $this->avatar;
+      return "/storage/" . $this->avatar;
     }
   }
 }
