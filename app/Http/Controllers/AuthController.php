@@ -12,17 +12,17 @@ class AuthController extends Controller {
   }
 
   public function googleCallback() {
-    $gUser = Socialite::driver('google')->user();
-    $user = User::where('email', $gUser->getEmail())->first();
+    $google = Socialite::driver('google')->user();
+    $user = User::where('email', $google->getEmail())->first();
 
     if($user) {
       Auth::login($user, true);
     } else {
       $user = new User;
-      $user->name = $user->getName();
-      $user->email = $user->getEmail();
-      $user->gid = $user->getId();
-      $user->avatar = $user->getAvatar();
+      $user->name = $google->getName();
+      $user->email = $google->getEmail();
+      $user->gid = $google->getId();
+      $user->avatar = $google->getAvatar();
 
       $role = Role::where('name', 'user')->first();
       $user->role_id = $role->id;
