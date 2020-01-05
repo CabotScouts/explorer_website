@@ -13,6 +13,7 @@ class AccidentReportsBreadSeeder extends Seeder
         return [
             // usually the name of the table
             'name'                  => 'accident_reports',
+            'slug'                  => 'accident_reports',
             'display_name_singular' => 'Accident Report',
             'display_name_plural'   => 'Accident Reports',
             'icon'                  => '',
