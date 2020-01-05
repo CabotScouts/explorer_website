@@ -129,4 +129,5 @@ class Page extends Model
 
 		return $this->sidebar_output;
 	}
+
 }

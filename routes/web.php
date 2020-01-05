@@ -29,6 +29,6 @@ Route::group(['prefix' => 'form'], function() {
 });
 
 Route::post('/search/', 'PageController@searchPages');
-
+Route::get('/sitemap.xml', 'PageController@sitemap');
 // Catch-all route - find a page which matches or 404
 Route::any('/{page}', 'PageController@showPage')->where('page', '.*')->name('page');

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Page;
+use App\Unit;
 
 class PageController extends Controller
 {
@@ -30,4 +31,10 @@ class PageController extends Controller
 			return view('errors.404');
 		}
 	}
+
+  public function sitemap() {
+    $pages = Page::where('status', 1)->orderBy('slug', 'asc')->get();
+    $units = Unit::where('status', 1)->where('day', '>', '-1')->orderBy('shortname', 'asc')->get();
+    return view('sitemap', ['pages' => $pages, 'units' => $units]);
+  }
 }
