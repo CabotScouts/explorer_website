@@ -29,15 +29,14 @@ class Calendar extends Model {
   }
 
   public function getMonth($month = false, $year = false) {
-    $year  = $year ? $year : (new DateTime)->format("Y");
-    $month = $month ? $month : (new DateTime)->format("m");
-    
     $d = new DateTime;
-    $d->setDate($year, $month, 01);
+    $year  = $year ? $year : $d->format("Y");
+    $month = $month ? $month : $d->format("m");
 
+    $d->setDate($year, $month, 01);
     $start = $d->format("Y-m-d");
     $end = $d->add(new DateInterval("P1M"))->format("Y-m-d");
 
-    return $this->events()->whereBetween('start', [$start, $end]);
+    return $this->events()->whereBetween('start_date', [$start, $end]);
   }
 }

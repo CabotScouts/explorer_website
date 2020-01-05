@@ -86,8 +86,10 @@ Route::domain(config('app.root_domain'))->group(function () {
   });
 
   Route::group(['prefix' => 'calendar'], function() {
-    Route::get('/{calendar}/render/{year?}/{month?}', 'CalendarController@renderMonth');
+    Route::get('/', 'CalendarController@index');
+    Route::get('/{calendar}', 'CalendarController@show');
     Route::get('/{calendar}.ics', 'CalendarController@export');
+    Route::get('/{calendar}/render/{year?}/{month?}', 'CalendarController@month');
   });
 
   Route::post('/search', 'PageController@searchPages');

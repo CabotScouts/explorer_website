@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use DateTime;
 
 class Event extends Model {
-  protected $hidden = ['created_at', 'updated_at', 'event_source_id'];
+
+  protected $hidden  = ['created_at', 'updated_at', 'event_source_id'];
   protected $appends = ['source_name'];
 
   public function source() {
@@ -22,8 +23,13 @@ class Event extends Model {
     $this->location    = $remote->location;
     $this->description = $remote->description;
 
-    $this->start = new DateTime($remote->dtstart);
-    $this->end   = new DateTime($remote->dtend);
+    $start = new DateTime($remote->dtstart);
+    $end   = new DateTime($remote->dtend);
+
+    $this->start_date = $start->format("Y-m-d");
+    $this->end_date   = $end->format("Y-m-d");
+    $this->start_time = $start->format("H:i");
+    $this->end_time   = $end->format("H:i");
   }
 
   public function toICS() {

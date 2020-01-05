@@ -7,6 +7,7 @@ use App\Event;
 use ICal\ICal;
 
 class EventSource extends Model {
+  
   public function calendars() {
 		return $this->belongsToMany('App\Calendar');
 	}
@@ -23,7 +24,7 @@ class EventSource extends Model {
     if($this->type == "remote") {
       $calendar = new ICal($this->ics);
 
-      if($calendar->eventCount > 0) {
+      if($calendar->cal) {
         $this->removeAllEvents();
         foreach($calendar->events() as $remoteEvent) {
           $event = new Event;

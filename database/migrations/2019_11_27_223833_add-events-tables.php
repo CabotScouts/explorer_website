@@ -16,8 +16,10 @@ class AddEventsTables extends Migration
 		Schema::create('events', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
-      $table->date('start')->nullable();
-      $table->date('end')->nullable();
+      $table->date('start_date')->nullable();
+      $table->date('end_date')->nullable();
+      $table->time('start_time')->nullable();
+      $table->time('end_time')->nullable();
       $table->string('location')->nullable();
       $table->string('description')->nullable();
       $table->integer('event_source_id')->references('id')->on('event_sources');
