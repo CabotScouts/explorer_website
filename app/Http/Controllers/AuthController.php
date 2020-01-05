@@ -16,6 +16,7 @@ class AuthController extends Controller {
     $user = User::where('email', $google->getEmail())->first();
 
     if($user) {
+      // TODO: check if any fields have changed since last login
       Auth::login($user, true);
     } else {
       $user = new User;
