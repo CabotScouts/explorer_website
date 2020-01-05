@@ -40,4 +40,10 @@ return [
         ],
     ],
 
+    'gsuite' => [
+      'client_id' => env('GSUITE_ID'),
+      'client_secret' => env('GSUITE_SECRET'),
+      'redirect' => '/login/redirect'
+    ]
+
 ];
