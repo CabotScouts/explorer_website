@@ -3,10 +3,9 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::group(['prefix' => 'login'], function () {
-  Route::get('/', 'AuthController@googleRedirect')->name('login');
-  Route::get('/redirect', 'AuthController@googleCallback');
-});
+Route::get('/login', 'AuthController@googleRedirect')->name('login');
+Route::get('/login/redirect', 'AuthController@googleCallback');
+Route::get('/logout', 'AuthController@logout')->name('logout');
 
 Route::get('/', 'PageController@frontpage')->name('home');
 Route::view('/calendar/', 'page.calendar')->name('calendar');
