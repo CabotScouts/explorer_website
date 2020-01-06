@@ -17,23 +17,26 @@ $user = Auth::user();
 		<div class="d-none d-lg-block">
 			<ul class="navbar-nav navbar-admin">
 				{{-- Units Menu --}}
-				@if($user->hasPermission('add_units') || $user->hasPermission('edit_units'))
+				@if($user->hasPermission('browse_units'))
 					<li class="navbar-item dropdown mr-4">
 						<a class="navbar-link dropdown-toggle" href="#" id="unitsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Units</a>
 
 						<div class="dropdown-menu" aria-labelledby="unitsDropdown">
 							@if($unit && $user->hasPermission('edit_units'))
-							<a class="dropdown-item" href="{{ route('voyager.units.edit', $unit->id) }}" target="_blank">Edit Explorer Unit</a>
+							<a class="dropdown-item" href="{{ route('voyager.units.edit', $unit->id) }}" target="_blank">Edit Unit</a>
 							@endif
 							@if($user->hasPermission('add_units'))
-							<a class="dropdown-item" href="{{ route('voyager.units.create') }}" target="_blank">Add Explorer Unit</a>
+							<a class="dropdown-item" href="{{ route('voyager.units.create') }}" target="_blank">Add Unit</a>
+							@endif
+							@if($user->hasPermission('browse_units'))
+							<a class="dropdown-item" href="{{ route('voyager.units.index') }}" target="_blank">Browse Units</a>
 							@endif
 						</div>
 					</li>
 				@endif
 
 				{{-- Pages Menu --}}
-				@if($user->hasPermission('add_pages') || $user->hasPermission('edit_pages'))
+				@if($user->hasPermission('browse_pages'))
 				<li class="navbar-item dropdown mr-4">
 					<a class="navbar-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
 
@@ -43,6 +46,9 @@ $user = Auth::user();
 					@endif
 					@if($user->hasPermission('add_pages'))
 						<a class="dropdown-item" href="{{ route('voyager.pages.create') }}" target="_blank">Add New Page</a>
+					@endif
+					@if($user->hasPermission('browse_pages'))
+					<a class="dropdown-item" href="{{ route('voyager.pages.index') }}" target="_blank">Browse Pages</a>
 					@endif
 					</div>
 				</li>
