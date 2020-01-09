@@ -4,7 +4,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/login', 'AuthController@googleRedirect')->name('login');
-Route::get('/login/redirect', 'AuthController@googleCallback');
+Route::get('/login/redirect', 'AuthController@googleCallback')->name('google-redirect');
 Route::get('/logout', 'AuthController@logout')->name('logout');
 
 Route::get('/', 'PageController@frontpage')->name('home');
@@ -26,6 +26,15 @@ Route::group(['prefix' => 'form'], function() {
 
 	Route::get('/contact/', 'FormController@contactCreate');
 	Route::post('/contact/', 'FormController@contactStore');
+});
+
+Route::group(['prefix' => 'instagram'], function() {
+  Route::get('/', 'InstagramController@index')->name('instagram');
+  Route::get('/login', 'InstagramController@instagramRedirect');
+  Route::get('/login/redirect', 'InstagramController@instagramCallback')->name('instagram-redirect');
+  Route::get('/deauth', 'InstagramController@instagramDeauthorise');
+  Route::get('/delete-data', 'InstagramController@instagramDeleteDate');
+  Route::get('/force-update', 'InstagramController@updatePosts')->middleware('auth');
 });
 
 Route::post('/search/', 'PageController@searchPages');
