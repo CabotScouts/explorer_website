@@ -50,8 +50,7 @@ class IGToken extends Model {
     }
 
     foreach($response->data as $media) {
-      print("$media->id\n");
-      $m = IGMedia::firstOrCreate(['media_id', $media->id]);
+      $m = IGMedia::firstOrCreate(['media_id' => $media->id]);
       $m->fromResponse($media, $this->token);
     }
 
