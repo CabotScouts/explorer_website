@@ -12,7 +12,7 @@ class IGMedia extends Model {
   protected $fillable = ['media_id', 'parent_id'];
 
   public function children() {
-    return $this->hasMany('App\IGMedia', 'parent_id', 'id');
+    return $this->hasMany('App\IGMedia', 'parent_id');
   }
 
   public function fromResponse($data, $token) {
@@ -52,12 +52,12 @@ class IGMedia extends Model {
         $this->media_thumbnail = $data->thumbnail_url;
       }
 
-      if(isset($data->caption)) {
-        $this->caption = $data->caption;
-      }
-
       $this->media_url = $data->media_url;
       $this->timestamp = $data->timestamp;
+    }
+
+    if(isset($data->caption)) {
+      $this->caption = $data->caption;
     }
 
     $this->save();
