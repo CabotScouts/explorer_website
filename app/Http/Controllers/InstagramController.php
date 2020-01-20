@@ -18,7 +18,12 @@ class InstagramController extends Controller {
   }
 
   public function index() {
-    return $this->view(setting('social.instagram'));
+    $tags = IGTag::orderBy('tag', 'asc')->get();
+    return view('instagram.index', [
+      'tag' => false,
+      'tags' => $tags,
+      'media' => IGMedia::where('parent_id', null)->get()
+    ]);
   }
 
   public function view($tag) {
