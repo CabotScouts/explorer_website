@@ -128,6 +128,6 @@ class IGUser extends Model {
 
   public function tokenNeedsRefresh() {
     // token will expire in the next 24hrs
-    return (($this->expires + 86400) > (new DateTime)->getTimestamp());
+    return ((new DateTime)->getTimestamp() + 86400) > $this->expires;
   }
 }

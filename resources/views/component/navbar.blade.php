@@ -71,6 +71,7 @@ $user = Auth::user();
 						@if($user->hasPermission('browse_settings'))
 						<a class="dropdown-item" href="{{ route('voyager.settings.index') }}" target="_blank">Settings</a>
 						@endif
+						<a class="dropdown-item" href="{{ route('instagram.manage') }}">Instagram Connection</a>
 						<a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
 					</div>
 				</li>

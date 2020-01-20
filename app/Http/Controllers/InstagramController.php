@@ -77,22 +77,41 @@ class InstagramController extends Controller {
   }
 
   public function deauthorise() {
-
+    // TODO - callback for instagram app compliance
   }
 
   public function deleteData() {
-
+    // TODO - callback for instagram app compliance
   }
 
   public function forceUpdate() {
-    $users = IGUser::all();
-
-    foreach($users as $user) {
-      $user->fetchMedia();
-    }
+    IGUser::all()->fetchMedia();
 
     session()->flash('alert', ['success' => 'Media updated']);
     return redirect()->route('instagram.manage');
+  }
+
+  public function removeMedia() {
+    foreach(IGTag::all() as $tag) {
+      $tag->media()->sync([]);
+    }
+
+    IGTag::truncate();
+    IGMedia::truncate();
+
+    session(['alert' => ['warning' => 'All media removed']]);
+    return redirect()->route('instagram.manage');
+  }
+
+  public function refreshToken($id) {
+    $user = IGUser::where('id', $id)->first();
+    if(count($user) > 0) {
+      $user->refreshToken();
+    }
+    else {
+      session(['alert' => ['warning' => 'Invalid User ID']]);
+      return redirect()->route('instagram.manage');
+    }
   }
 }
 ?>

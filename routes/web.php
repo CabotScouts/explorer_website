@@ -35,7 +35,9 @@ Route::group(['prefix' => 'instagram'], function() {
   Route::get('/login/redirect', 'InstagramController@callback')->name('instagram.redirect')->middleware('auth');
   Route::get('/deauth', 'InstagramController@deauthorise');
   Route::get('/delete-data', 'InstagramController@deleteData');
-  Route::get('/force-update', 'InstagramController@forceUpdate')->middleware('auth');
+  Route::get('/force-update', 'InstagramController@forceUpdate')->name('instagram.force-update')->middleware('auth');
+  Route::get('/remove-media', 'InstagramController@removeMedia')->name('instagram.remove-media')->middleware('auth');
+  Route::get('/refresh-token/{id}', 'InstagramController@refreshToken')->name('instagram.refresh-token')->auth('middleware');
   Route::get('/{tag}', 'InstagramController@view')->name('instagram.view');
 });
 
