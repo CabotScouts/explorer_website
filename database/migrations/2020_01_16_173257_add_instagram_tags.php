@@ -42,6 +42,7 @@ class AddInstagramTags extends Migration {
 
     Schema::table('units', function (Blueprint $table) {
 			$table->dropColumn('tag');
+      $table->dropColumn('permalink');
 		});
   }
 }
