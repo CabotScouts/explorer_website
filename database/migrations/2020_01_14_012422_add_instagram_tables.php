@@ -31,6 +31,7 @@ class AddInstagramTables extends Migration {
         $table->enum('media_type', ['IMAGE', 'VIDEO', 'CAROUSEL_ALBUM'])->nullable();
         $table->string('media_url')->nullable();
         $table->string('media_thumbnail')->nullable();
+        $table->string('permalink')->nullable();
         $table->string('caption')->nullable();
         $table->datetime('timestamp')->nullable();
         $table->timestamps();

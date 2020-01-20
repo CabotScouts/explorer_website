@@ -27,7 +27,6 @@ class AddInstagramTags extends Migration {
 
     Schema::table('units', function (Blueprint $table) {
 			$table->string('tag')->nullable();
-      $table->string('permalink')->nullable();
 		});
   }
 
@@ -42,7 +41,6 @@ class AddInstagramTags extends Migration {
 
     Schema::table('units', function (Blueprint $table) {
 			$table->dropColumn('tag');
-      $table->dropColumn('permalink');
 		});
   }
 }
