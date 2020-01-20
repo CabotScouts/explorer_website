@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Unit;
 use App\Page;
+use App\IGTag;
 
 class UnitController extends Controller
 {
@@ -17,13 +18,15 @@ class UnitController extends Controller
   public function viewUnitIndex($name) {
 		$units = Unit::where('status', 1)->orderBy('name', 'asc')->get();
 		$unit  = Unit::where('shortname', $name)->firstOrFail();
+		$media = IGTag::where('tag', $unit->tag);
 		$page  = Page::where('slug', ("units/" . $name))->where('status', 1)->first();
 
 		return view('units.view', [
 			'root'  => true,
 			'unit'  => $unit,
 			'units' => $units,
-			'page'  => $page
+			'page'  => $page,
+			'media' => (($media->count() > 0) ? $media->first()->media()->limit(6)->get() : false)
 		]);
   }
 

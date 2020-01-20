@@ -2,17 +2,27 @@
 
 namespace App;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\InstagramController as IG;
 use GuzzleHttp\Client;
+use App\IGTag;
 
 class IGMedia extends Model {
 
   protected $table = "IGMedia";
-  protected $fillable = ['media_id', 'parent_id'];
+  protected $fillable = ['media_id', 'parent_id', 'ig_id'];
+
+  public function user() {
+    return $this->hasOne('App\IGUser', 'ig_id', 'ig_id')->first();
+  }
 
   public function children() {
     return $this->hasMany('App\IGMedia', 'parent_id');
+  }
+
+  public function tags() {
+    return $this->belongsToMany('App\IGTag', 'IGMedia_IGTags', 'media_id', 'tag_id');
   }
 
   public function fromResponse($data, $token) {
@@ -43,7 +53,7 @@ class IGMedia extends Model {
 
         $response = json_decode($request->getBody());
 
-        $m = IGMedia::firstOrCreate(['media_id' => $media->id], ['parent_id' => $this->id]);
+        $m = IGMedia::firstOrCreate(['media_id' => $media->id], ['parent_id' => $this->id, 'ig_id' => $this->ig_id]);
         $m->fromResponse($response, $token);
       }
     }
@@ -58,8 +68,37 @@ class IGMedia extends Model {
 
     if(isset($data->caption)) {
       $this->caption = $data->caption;
+      $this->parseTags();
     }
 
     $this->save();
+  }
+
+  public function parseTags() {
+    if($this->caption) {
+      preg_match_all("/#(\w*)[\s]?/", $this->caption, $tags);
+
+      foreach($tags[1] as $tag) {
+        $t = IGTag::firstOrCreate(['tag' => strtolower($tag)], ['formatted' => "#$tag"]);
+        $t->media()->attach($this);
+      }
+    }
+  }
+
+  public function getDisplayCaptionAttribute() {
+    return preg_replace_callback("/#(\w*)[\s]?/", function($matches) {
+      $tag = IGTag::where('tag', strtolower($matches[1]))->first();
+      return $tag->link;
+    }, $this->caption);
+  }
+
+  public function getPostedAttribute() {
+    if($this->media_type == "CAROUSEL_ALBUM") {
+      $time = $this->children()->first()->timestamp;
+      return (new DateTime($time))->format("jS F Y");
+    }
+    else {
+      return (new DateTime($this->timestamp))->format("jS F Y");
+    }
   }
 }

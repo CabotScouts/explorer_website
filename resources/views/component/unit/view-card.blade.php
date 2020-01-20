@@ -11,7 +11,7 @@ $pages = Page::where([
 	@include('component.unit.logo', ['unit' => $unit])
 	<ul class="list-group list-group-flush unit-card-pages">
 		<li class="list-group-item">
-			<a href="{{ route('view-unit', $unit->shortname) }}">{{ $unit->name }} Home</a>
+			<a href="{{ route('unit.view', $unit->shortname) }}">{{ $unit->name }} Home</a>
 		</li>
 		{{-- <li class="list-group-item">
 			<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/programme">Programme</a>

@@ -1,5 +1,7 @@
 <div class="card unit-card">
+	<a href="{{ route('unit.view', ['unit' => $unit->shortname]) }}">
 	@include('component.unit.logo', ['unit' => $unit])
+	</a>
 	<div class="card-body">
 		<h5 class="card-title">{{ $unit->name }}</h5>
 		<h6 class="card-subtitle">
@@ -12,7 +14,7 @@
 				<small class="muted">({{ $unit->start_time }} - {{ $unit->end_time }})</small>
 			@endif
 		</h6>
-		<a href="{{ route('view-unit', $unit->shortname) }}" class="mt-4 btn btn-sm btn-success">See Unit</a>
+		<a href="{{ route('unit.view', $unit->shortname) }}" class="mt-4 btn btn-sm btn-success">See Unit</a>
 	</div>
 	{{-- <ul class="list-group list-group-flush unit-card-links">
 		<li class="list-group-item">

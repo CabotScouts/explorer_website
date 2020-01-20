@@ -7,6 +7,11 @@ use App\Page;
 
 class Unit extends Model
 {
+	public function getLinkAttribute() {
+		$link = route('unit.view', ['unit' => $this->shortname]);
+		return "<a href=\"$link\">$this->name</a> ";
+	}
+
 	public function getRawCoords() {
 		$coords = explode(',', $this->coordinates);
 		return (count($coords) === 2) ? $coords : [ env("GOOGLE_MAPS_DEFAULT_CENTER_LAT"), env("GOOGLE_MAPS_DEFAULT_CENTER_LNG") ];

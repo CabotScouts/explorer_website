@@ -11,10 +11,10 @@ class AddInstagramTables extends Migration {
      * @return void
      */
     public function up() {
-      Schema::dropIfExists('IGTokens');
+      Schema::dropIfExists('IGUsers');
       Schema::dropIfExists('IGMedia');
 
-      Schema::create('IGTokens', function (Blueprint $table) {
+      Schema::create('IGUsers', function (Blueprint $table) {
         $table->increments('id');
         $table->string('ig_id');
         $table->string('ig_username')->nullable();
@@ -25,7 +25,8 @@ class AddInstagramTables extends Migration {
 
       Schema::create('IGMedia', function (Blueprint $table) {
         $table->increments('id');
-        $table->integer('parent_id')->nullable();
+        $table->string('ig_id')->references('ig_id')->on('IGUsers');
+        $table->integer('parent_id')->references('id')->on('IGMedia')->nullable();
         $table->string('media_id');
         $table->enum('media_type', ['IMAGE', 'VIDEO', 'CAROUSEL_ALBUM'])->nullable();
         $table->string('media_url')->nullable();
@@ -43,7 +44,7 @@ class AddInstagramTables extends Migration {
      * @return void
      */
     public function down() {
-      Schema::dropIfExists('IGTokens');
+      Schema::dropIfExists('IGUsers');
       Schema::dropIfExists('IGMedia');
     }
 }

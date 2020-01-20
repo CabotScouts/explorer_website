@@ -4,7 +4,7 @@
 
 	<div class="dropdown-menu" aria-labelledby="unitsDropdown">
 		@foreach($units as $u)
-		<a class="dropdown-item" href="{{ route('view-unit', $u->shortname) }}">{{ $u->name }}</a>
+		<a class="dropdown-item" href="{{ route('unit.view', $u->shortname) }}">{{ $u->name }}</a>
 		@endforeach
 	</div>
 </li>

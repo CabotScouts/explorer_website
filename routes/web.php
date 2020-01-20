@@ -12,7 +12,7 @@ Route::view('/calendar/', 'page.calendar')->name('calendar');
 
 Route::group(['prefix' => 'units'], function() {
 	Route::get('/', 'UnitController@showUnits')->name('units');
-	Route::get('/{unit}', 'UnitController@viewUnitIndex')->name('view-unit');
+	Route::get('/{unit}', 'UnitController@viewUnitIndex')->name('unit.view');
 	Route::get('/{unit}/programme', 'UnitController@viewUnitProgramme')->name('view-unit-programme');
 	Route::get('/{unit}/contact', 'UnitController@viewUnitContact')->name('view-unit-contact');
 	Route::get('/{unit}/{page}', 'UnitController@viewUnitPage')->where('page', '.*');
@@ -29,12 +29,14 @@ Route::group(['prefix' => 'form'], function() {
 });
 
 Route::group(['prefix' => 'instagram'], function() {
-  Route::get('/', 'InstagramController@index')->name('instagram');
-  Route::get('/login', 'InstagramController@instagramRedirect');
-  Route::get('/login/redirect', 'InstagramController@instagramCallback')->name('instagram-redirect');
-  Route::get('/deauth', 'InstagramController@instagramDeauthorise');
-  Route::get('/delete-data', 'InstagramController@instagramDeleteDate');
-  Route::get('/force-update', 'InstagramController@updatePosts')->middleware('auth');
+  Route::get('/', 'InstagramController@index')->name('instagram.index');
+  Route::get('/manage', 'InstagramController@manage')->name('instagram.manage')->middleware('auth');
+  Route::get('/login', 'InstagramController@redirect')->middleware('auth');
+  Route::get('/login/redirect', 'InstagramController@callback')->name('instagram.redirect')->middleware('auth');
+  Route::get('/deauth', 'InstagramController@deauthorise');
+  Route::get('/delete-data', 'InstagramController@deleteData');
+  Route::get('/force-update', 'InstagramController@forceUpdate')->middleware('auth');
+  Route::get('/{tag}', 'InstagramController@view')->name('instagram.view');
 });
 
 Route::post('/search/', 'PageController@searchPages');

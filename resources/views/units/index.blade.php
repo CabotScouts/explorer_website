@@ -29,7 +29,7 @@
 			day  : "{{ $u->dayString }}s",
 			lat  : {{ $u->lat }},
 			lng  : {{ $u->lng }},
-			url  : "{{ route('view-unit', $u->shortname) }}"
+			url  : "{{ route('unit.view', $u->shortname) }}"
 		},
 @endif
 @endforeach

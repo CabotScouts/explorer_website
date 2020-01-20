@@ -52,6 +52,9 @@
 			@if($page)
 				{!! $page->body !!}
 			@endif
+			@if(isset($media))
+			@include('instagram.media', ['media' => $media])
+			@endif
 			</div>
 
 			<div class="page-sidebar col col-12 col-lg-3">
