@@ -1,6 +1,6 @@
 <?php $title = $tag ? $tag->formatted : "Photos" ?>
 @extends('layouts.main')
-@section('title', $tag->formatted)
+@section('title', $title)
 @section('content')
 @if(isset($media))
 <section class="page container pad space">
