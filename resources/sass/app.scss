@@ -370,13 +370,13 @@
 			.page-content {
 				padding-bottom: 1rem;
 
-				a {
-					text-decoration: underline;
-				}
-
-				a.btn {
-					text-decoration: none;
-				}
+				// a {
+				// 	text-decoration: underline;
+				// }
+				//
+				// a.btn {
+				// 	text-decoration: none;
+				// }
 			}
 
 			.page-sidebar {
@@ -491,6 +491,15 @@
 		.units {
 			.page-sidebar {
 				border: 0; // Because we have the special logo card at the top
+			}
+
+			.card-columns {
+				@include media-breakpoint-up(lg) {
+					column-count: 2;
+				}
+				@include media-breakpoint-down(lg) {
+					column-count: 1;
+				}
 			}
 		}
 

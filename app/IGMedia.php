@@ -95,10 +95,10 @@ class IGMedia extends Model {
   public function getPostedAttribute() {
     if($this->media_type == "CAROUSEL_ALBUM") {
       $time = $this->children()->first()->timestamp;
-      return (new DateTime($time))->format("jS F Y");
     }
     else {
-      return (new DateTime($this->timestamp))->format("jS F Y");
+      $time = $this->timestamp;
     }
+    return (new DateTime($time))->format("jS F Y");
   }
 }

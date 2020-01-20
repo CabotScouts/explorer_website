@@ -1,3 +1,4 @@
+{{-- TODO: add lightbox to images, add video media_type controls --}}
 <div class="card">
   @if($media->media_type == "IMAGE")
     <img class="card-img-top" src="{{ $media->media_url }}" />
@@ -27,8 +28,8 @@
     <p class="card-text">
       {!! $media->display_caption !!}
     </p>
+    <span class="text-muted small">
+      {{ $media->posted }}
+    </span>
   </div>
-  {{-- <div class="card-footer text-muted small">
-    {{ $media->posted }}
-  </div> --}}
 </div>

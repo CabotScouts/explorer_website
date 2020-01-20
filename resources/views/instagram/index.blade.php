@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Units')
+@section('title', $tag->formatted)
 @section('content')
 @if(isset($media))
 <section class="container pad space">
