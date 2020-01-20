@@ -33,8 +33,7 @@ class InstagramController extends Controller {
 
   public function redirect() {
     $app_id = config('services.instagram.client_id');
-    // $redirect = url(config('services.instagram.redirect'));
-    $redirect = "https://127.0.0.1:8000/instagram/login/redirect";
+    $redirect = url(config('services.instagram.redirect'));
 
     return redirect($this->getBaseURI('authorize') . "?app_id=$app_id&redirect_uri=$redirect&scope=user_profile,user_media&response_type=code");
   }
@@ -54,8 +53,7 @@ class InstagramController extends Controller {
           'app_secret' => config('services.instagram.client_secret'),
           'code' => $code,
           'grant_type' => 'authorization_code',
-          // 'redirect_uri' => url(config('services.instagram.redirect')),
-          'redirect_uri' => 'https://127.0.0.1:8000/instagram/login/redirect'
+          'redirect_uri' => url(config('services.instagram.redirect')),
         ]
       ]);
 
