@@ -40,7 +40,7 @@ Route::group(['prefix' => 'instagram'], function() {
 });
 
 Route::get('/photos', 'InstagramController@index')->name('instagram.index');
-Route::get('/photos/album/{tag}', 'InstagramController@view')->name('instagram.view');
+Route::get('/photos/{tag}', 'InstagramController@view')->name('instagram.view');
 
 Route::post('/search/', 'PageController@searchPages');
 Route::get('/sitemap.xml', 'PageController@sitemap');
