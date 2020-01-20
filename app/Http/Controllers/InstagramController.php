@@ -88,7 +88,11 @@ class InstagramController extends Controller {
   }
 
   public function forceUpdate() {
-    IGUser::all()->fetchMedia();
+    $users = IGUser::all();
+
+    foreach($users as $user) {
+      $user->fetchMedia();
+    }
 
     session()->flash('alert', ['success' => 'Media updated']);
     return redirect()->route('instagram.manage');
