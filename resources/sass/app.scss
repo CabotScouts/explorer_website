@@ -501,15 +501,6 @@
 			.page-sidebar {
 				border: 0; // Because we have the special logo card at the top
 			}
-
-			.card-columns {
-				@include media-breakpoint-up(lg) {
-					column-count: 2;
-				}
-				@include media-breakpoint-down(lg) {
-					column-count: 1;
-				}
-			}
 		}
 
 		.units-dropdown {
@@ -575,5 +566,30 @@
 
 		form .alert ul {
 			margin-bottom: 0;
+		}
+	}
+
+	.media-wall {
+		.wall-item {
+			margin-bottom: 15px;
+		}
+
+		.col {
+			padding-left: 7.5px;
+			padding-right: 7.5px;
+		}
+	}
+
+	.ekko-lightbox {
+		.modal-content {
+			border: 0;
+
+			.modal-body {
+				padding: 0.2rem;
+
+				img {
+					border-radius: 0.3rem;
+				}
+			}
 		}
 	}

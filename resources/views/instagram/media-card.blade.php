@@ -1,5 +1,5 @@
 {{-- TODO: add lightbox to images, add video media_type controls --}}
-<div class="col col-12 col-xs-12 col-md-2 col-xl-4 wall-item">
+<div class="col col-12 col-sm-6 col-md-6 col-xl-4 wall-item">
   <div class="card">
     @if($media->media_type == "IMAGE")
       <a href="{{ $media->media_url }}" data-toggle="lightbox"><img class="card-img-top" src="{{ $media->media_url }}" /></a>
