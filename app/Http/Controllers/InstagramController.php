@@ -23,7 +23,12 @@ class InstagramController extends Controller {
 
   public function view($tag) {
     $tag = IGTag::where('tag', $tag)->firstOrFail();
-    return view('instagram.index', ['tag' => $tag, 'media' => $tag->media()->get()]);
+    $tags = IGTag::orderBy('tag', 'asc')->get();
+    return view('instagram.index', [
+      'tag' => $tag,
+      'tags' => $tags,
+      'media' => $tag->media()->get()
+    ]);
   }
 
   public function manage() {

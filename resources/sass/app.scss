@@ -402,6 +402,15 @@
 						margin-left: 0.8rem;
 					}
 				}
+
+				ul.list-group li {
+					font-size: 0.9rem;
+					font-weight: 700;
+
+					a {
+						display: block;
+					}
+				}
 			}
 
 			@include media-breakpoint-down(md) {
@@ -523,15 +532,6 @@
 
 				.default-logo img {
 					max-height: 100px;
-				}
-			}
-
-			ul.unit-card-pages {
-				font-size: 0.9rem;
-				font-weight: 700;
-
-				a {
-					display: block;
 				}
 			}
 		}
