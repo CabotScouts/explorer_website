@@ -31,7 +31,7 @@ Route::group(['prefix' => 'form'], function() {
 Route::group(['prefix' => 'instagram'], function() {
   Route::get('/', 'InstagramController@index')->name('instagram.index');
   Route::get('/manage', 'InstagramController@manage')->name('instagram.manage')->middleware('auth');
-  Route::get('/login', 'InstagramController@redirect')->middleware('auth');
+  Route::get('/login', 'InstagramController@redirect')->name('instagram.login')->middleware('auth');
   Route::get('/login/redirect', 'InstagramController@callback')->name('instagram.redirect')->middleware('auth');
   Route::get('/deauth', 'InstagramController@deauthorise');
   Route::get('/delete-data', 'InstagramController@deleteData');

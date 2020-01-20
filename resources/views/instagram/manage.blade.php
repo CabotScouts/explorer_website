@@ -7,7 +7,7 @@
     <div class="col col-12">
       <h1>Manage Instagram</h1>
       <p>
-        <a href="{{ route('instagram.redirect') }}" class="btn btn-success">New Instagram Login</a>
+        <a href="{{ route('instagram.login') }}" class="btn btn-success">New Instagram Login</a>
         <a href="{{ route('instagram.force-update') }}" class="btn btn-warning">Force Update</a>
         <a href="{{ route('instagram.remove-media') }}" class="btn btn-danger">Remove All Media</a>
       </p>

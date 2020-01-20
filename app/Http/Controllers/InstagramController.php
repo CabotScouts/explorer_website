@@ -44,6 +44,11 @@ class InstagramController extends Controller {
     // so we have to get the short-term token here
 
     $code = $request->query('code');
+    if(!$code) {
+      session()->flash('alert', ['danger' => "Instagram OAuth Code is missing"]);
+      return redirect()->route('instagram.manage');
+    }
+
     try {
       // Short-term token - lasts 1 hour
       $client = new Client;
