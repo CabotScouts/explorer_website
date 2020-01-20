@@ -10,9 +10,9 @@
 		<link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}"/>
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		@hasSection('title')
-		<title>@yield('title') - Cabot Explorer Scouts</title>
+		<title>@yield('title') - {{ config('app.name') }}</title>
 		@else
-		<title>Cabot Explorer Scouts</title>
+		<title>{{ config('app.name') }}</title>
 		@endif
 		@stack('additional-head')
 	</head>
