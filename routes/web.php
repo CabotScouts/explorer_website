@@ -29,7 +29,6 @@ Route::group(['prefix' => 'form'], function() {
 });
 
 Route::group(['prefix' => 'instagram'], function() {
-  Route::get('/', 'InstagramController@index')->name('instagram.index');
   Route::get('/manage', 'InstagramController@manage')->name('instagram.manage')->middleware('auth');
   Route::get('/login', 'InstagramController@redirect')->name('instagram.login')->middleware('auth');
   Route::get('/login/redirect', 'InstagramController@callback')->name('instagram.redirect')->middleware('auth');
@@ -38,8 +37,10 @@ Route::group(['prefix' => 'instagram'], function() {
   Route::get('/force-update', 'InstagramController@forceUpdate')->name('instagram.force-update')->middleware('auth');
   Route::get('/remove-media', 'InstagramController@removeMedia')->name('instagram.remove-media')->middleware('auth');
   Route::get('/refresh-token/{id}', 'InstagramController@refreshToken')->name('instagram.refresh-token')->middleware('auth');
-  Route::get('/{tag}', 'InstagramController@view')->name('instagram.view');
 });
+
+Route::get('/photos', 'InstagramController@index')->name('instagram.index');
+Route::get('/photos/album/{tag}', 'InstagramController@view')->name('instagram.view');
 
 Route::post('/search/', 'PageController@searchPages');
 Route::get('/sitemap.xml', 'PageController@sitemap');
