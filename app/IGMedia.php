@@ -78,10 +78,12 @@ class IGMedia extends Model {
     if($this->caption) {
       preg_match_all("/#(\w*)[\s]?/", $this->caption, $tags);
 
+      $sync = [];
       foreach($tags[1] as $tag) {
         $t = IGTag::firstOrCreate(['tag' => strtolower($tag)], ['formatted' => "#$tag"]);
-        $t->media()->attach($this);
+        $sync[] = $t->id;
       }
+      $this->tags()->sync($sync);
     }
   }
 
