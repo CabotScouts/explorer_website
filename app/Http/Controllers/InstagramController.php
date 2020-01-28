@@ -22,7 +22,7 @@ class InstagramController extends Controller {
     return view('instagram.index', [
       'tag' => false,
       'tags' => $tags,
-      'media' => IGMedia::where('parent_id', null)->get()
+      'media' => IGMedia::where('parent_id', null)->orderBy('timestamp', 'desc')->get()
     ]);
   }
 
@@ -32,7 +32,7 @@ class InstagramController extends Controller {
     return view('instagram.index', [
       'tag' => $tag,
       'tags' => $tags,
-      'media' => $tag->media()->get()
+      'media' => $tag->media()->orderBy('timestamp', 'desc')->get()
     ]);
   }
 
