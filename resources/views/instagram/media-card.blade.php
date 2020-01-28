@@ -1,17 +1,12 @@
 {{-- TODO: add lightbox to images, add video media_type controls --}}
 <div class="col col-12 col-sm-6 col-md-6 col-xl-4 wall-item">
   <div class="card">
-    @if($media->media_type == "IMAGE")
-      <a href="{{ $media->media_url }}" data-toggle="lightbox"><img class="card-img-top" src="{{ $media->media_url }}" /></a>
-    @elseif($media->media_type == "VIDEO")
-      <img class="card-img-top" src="{{ $media->thumbnail_url }}" />
-      {{-- Add play icon over image - sort media player --}}
-    @elseif($media->media_type == "CAROUSEL_ALBUM")
+    @if($media->media_type == "CAROUSEL_ALBUM")
     <div id="{{ $media->id }}" class="carousel slide" data-interval="false">
       <div class="carousel-inner">
         @foreach($media->children()->get() as $child)
         <div class="carousel-item @if($loop->first) active @endif">
-          <a href="{{ $child->media_url }}" data-toggle="lightbox" data-gallery="{{ $media->id }}"><img class="card-img-top" src="{{ $child->media_url }}" /></a>
+          @include('instagram.media-item', ['media' => $child, 'gallery' => $media->id])
         </div>
         @endforeach
       </div>
@@ -24,6 +19,8 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    @else
+      @include('instagram.media-item', ['media' => $media, 'gallery' => $media->id])
     @endif
     <div class="card-body">
       <p class="card-text">
