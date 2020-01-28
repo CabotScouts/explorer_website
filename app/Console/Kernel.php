@@ -5,38 +5,48 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
-class Kernel extends ConsoleKernel
-{
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
-    protected $commands = [
-        //
-    ];
+use App\IGUser;
 
-    /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
-    protected function schedule(Schedule $schedule)
-    {
-        // $schedule->command('inspire')
-        //          ->hourly();
-    }
+class Kernel extends ConsoleKernel {
+  /**
+   * The Artisan commands provided by your application.
+   *
+   * @var array
+   */
+  protected $commands = [
+    //
+  ];
 
-    /**
-     * Register the commands for the application.
-     *
-     * @return void
-     */
-    protected function commands()
-    {
-        $this->load(__DIR__.'/Commands');
+  /**
+   * Define the application's command schedule.
+   *
+   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+   * @return void
+   */
+  protected function schedule(Schedule $schedule) {
+    $schedule->call(function () {
+      // Refresh any expiring Instagram tokens - daily
+      array_map(function (IGUser $user) {
+        $user->refreshToken();
+      }, IGUser::get()->all());
+    })->daily();
 
-        require base_path('routes/console.php');
-    }
+    $schedule->call(function () {
+      // Fetch media from Instagram - hourly
+      array_map(function (IGUser $user) {
+        $user->fetchMedia();
+      }, IGUser::get()->all());
+    })->hourly();
+  }
+
+  /**
+   * Register the commands for the application.
+   *
+   * @return void
+   */
+  protected function commands() {
+    $this->load(__DIR__.'/Commands');
+
+    require base_path('routes/console.php');
+  }
 }
