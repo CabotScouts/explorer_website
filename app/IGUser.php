@@ -102,24 +102,28 @@ class IGUser extends Model {
     }
   }
 
-  public function refreshToken() {
-    try {
-      $request = $client->request("GET", IG::getInstagramURI('refresh_access_token'), [
-        'query' => [
-          'grant_type' => 'ig_refresh_token',
-          'client_secret' => $app_secret,
-          'access_token' => $this->token
-        ]
-      ]);
+  public function refreshToken($force = false) {
+    if($this->tokenNeedsRefresh() || $force) {
+      try {
+        $client = new Client();
+        $request = $client->request("GET", IG::getInstagramURI('refresh_access_token'), [
+          'query' => [
+            'grant_type' => 'ig_refresh_token',
+            'client_secret' => config('services.instagram.client_secret'),
+            'access_token' => $this->token
+          ]
+        ]);
 
-      $response = json_decode($request->getBody());
-      $this->token = $response->access_token;
-      $this->save;
-      return $this;
+        $response = json_decode($request->getBody());
+        $this->token = $response->access_token;
+        $this->save;
+        return true;
+      }
+      catch(Exception $e) {
+        exit("Error - $e");
+      }
     }
-    catch(Exception $e) {
-      exit("Error - $e");
-    }
+    return false;
   }
 
   public function tokenIsExpired() {
