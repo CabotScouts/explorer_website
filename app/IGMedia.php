@@ -42,12 +42,13 @@ class IGMedia extends Model {
 
       $response = json_decode($request->getBody());
       $children = $response->data;
+      $timestamp = null;
 
       foreach($children as $media) {
         $request = $client->request('GET', IG::getInstagramURI("$media->id"), [
           'query' => [
             'access_token' => $token,
-            'fields' => 'id,media_type,media_url,timestamp'
+            'fields' => 'id,media_type,media_url,thumbnail_url,timestamp'
           ]
         ]);
 
@@ -55,7 +56,11 @@ class IGMedia extends Model {
 
         $m = IGMedia::firstOrCreate(['media_id' => $media->id], ['parent_id' => $this->id, 'ig_id' => $this->ig_id]);
         $m->fromResponse($response, $token);
+
+        $timestamp = $m->timestamp;
       }
+
+      $this->timestamp = $timestamp;
     }
     else { // IMAGE/VIDEO media types
       if($data->media_type == "VIDEO") {
