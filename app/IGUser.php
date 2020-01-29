@@ -134,4 +134,8 @@ class IGUser extends Model {
     // token will expire in the next 24hrs
     return ((new DateTime)->getTimestamp() + 86400) > $this->expires;
   }
+
+  public function getTokenExpiresAttribute() {
+    return (new Datetime("@" . $this->expires))->format("d-m-Y (H:i)");
+  }
 }

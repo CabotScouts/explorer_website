@@ -17,6 +17,7 @@
             <tr>
               <td>Instagram User</td>
               <td colspan="2">Token needs refreshing</td>
+              <td>Token Expires</td>
               <td>Media Count</td>
             </tr>
           </thead>
@@ -26,6 +27,7 @@
               <td>{{ $user->ig_username }}</td>
               <td>{{ $user->tokenNeedsRefresh() ? "Yes" : "No" }}</td>
               <td><a href="{{ route('instagram.refresh-token', ['id' => $user->id])}}" class="btn btn-secondary">Refresh Token</a></td>
+              <td>{{ $user->token_expires }}</td>
               <td>{{ $user->media()->count() }}</td>
             </tr>
           @endforeach
