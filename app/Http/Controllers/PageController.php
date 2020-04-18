@@ -12,8 +12,10 @@ class PageController extends Controller
   }
 
 	public function frontpage() {
-		$page = Page::where('slug', '/')->where('status', 1)->firstOrFail();
-		return view('page.root', ['page' => $page]);
+		$masthead = Page::where('slug', '/')->where('status', 1)->firstOrFail();
+    $page = Page::where('slug', '/front-page')->where('status', 1)->first();
+
+		return view('page.root', ['masthead' => $masthead, 'page' => $page]);
 	}
 
 	public function searchPages(Request $request) {
