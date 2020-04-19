@@ -37,9 +37,14 @@
 	}
 
 	// == Space (adds top/bottom padding to content block)
+	.more-space {
+		padding-top: 1.6rem;
+		padding-bottom: 1.6rem;
+	}
+
 	.space {
 		padding-top: 1.1rem;
-		padding-bottom: 1.2rem;
+		padding-bottom: 1.1rem;
 	}
 
 	// == Pad (adds left/right padding for small screens/mobile) ==
@@ -49,6 +54,11 @@
 	}
 
 	@include media-breakpoint-down(lg) {
+		.more-space {
+			padding-top: 1.5rem;
+			padding-bottom: 1.5rem;
+		}
+
 		.space {
 			padding-top: 1.2rem;
 			padding-bottom: 1.2rem;
@@ -564,76 +574,82 @@
 			}
 		}
 
-		.colour-block.purple {
-			background: #7413dc;
-			color: #ffffff;
+		@mixin colour-block-light($colour) {
+			// a colour block with light (white) text elements
+			background: $colour;
+			color: $light;
 
 			h1, p, a {
-				color: #ffffff;
+				color: $light;
 			}
+
+			.btn-outline-light:hover {
+				color: $black;
+			}
+
+			.btn-outline-dark {
+				border-color: $light;
+			}
+
+			.btn-outline-dark:hover {
+				background-color: $light;
+				color: $black;
+			}
+		}
+
+		@mixin colour-block-dark($colour) {
+			background: $colour;
+			color: $dark;
+
+			h1, p, a {
+				color: $dark;
+			}
+
+			.btn-outline-light {
+				border-color: $dark;
+			}
+
+			.btn-outline-light:hover {
+				background-color: $black;
+				color: $white;
+			}
+
+			.btn-outline-dark:hover {
+				background-color: $black;
+				color: $white;
+			}
+		}
+
+		.colour-block.purple {
+			@include colour-block-light(#7413dc);
 		}
 
 		.colour-block.teal {
-			background: #00a794;
-			color: #ffffff;
-
-			h1, p, a {
-				color: #ffffff;
-			}
+			@include colour-block-light(#00a794);
 		}
 
 		.colour-block.red {
-			background: #e22e12;
-			color: #ffffff;
-
-			h1, p, a {
-				color: #ffffff;
-			}
+			@include colour-block-light(#e22e12);
 		}
 
 		.colour-block.blue {
-			background: #006ddf;
-			color: #ffffff;
-
-			h1, p, a {
-				color: #ffffff;
-			}
+			@include colour-block-light(#006ddf);
 		}
 
 		.colour-block.green {
-			background: #23a950;
-			color: #ffffff;
-
-			h1, p, a {
-				color: #ffffff;
-			}
+			@include colour-block-light(#23a950);
 		}
 
 		.colour-block.pink {
-			background: #ffb4e5;
-			color: #000000;
-
-			h1, p, a {
-				color: #000000;
-			}
+			@include colour-block-dark(#ffb4e5);
 		}
 
 		.colour-block.navy {
-			background: #003982;
-			color: #ffffff;
-
-			h1, p, a {
-				color: #ffffff;
-			}
+			@include colour-block-light(#003982);
 		}
 
 		.colour-block.yellow {
-			background: #ffe627;
-			color: #000000;
-
-			h1, p, a {
-				color: #000000;
-			}
+			@include colour-block-dark(#ffe627);
 		}
 
 	} // End main
