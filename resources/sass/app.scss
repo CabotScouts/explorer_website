@@ -595,6 +595,10 @@
 				background-color: $light;
 				color: $black;
 			}
+
+			svg.match-block {
+				fill: $light;
+			}
 		}
 
 		@mixin colour-block-dark($colour) {
@@ -617,6 +621,10 @@
 			.btn-outline-dark:hover {
 				background-color: $black;
 				color: $white;
+			}
+
+			svg.match-block {
+				fill: $dark;
 			}
 		}
 
