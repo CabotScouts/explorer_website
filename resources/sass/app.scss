@@ -582,7 +582,7 @@
 			h1 {
 				color: $white;
 			}
-			
+
 			p, a {
 				color: $light;
 			}
@@ -607,13 +607,9 @@
 
 		@mixin colour-block-dark($colour) {
 			background: $colour;
-			color: $dark;
+			color: $black;
 
-			h1 {
-				color: $black
-			}
-
-			p, a {
+			h1, p, a {
 				color: $dark;
 			}
 
