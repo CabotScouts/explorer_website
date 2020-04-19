@@ -579,7 +579,11 @@
 			background: $colour;
 			color: $light;
 
-			h1, p, a {
+			h1 {
+				color: $white;
+			}
+			
+			p, a {
 				color: $light;
 			}
 
@@ -597,7 +601,7 @@
 			}
 
 			svg.match-block {
-				fill: $light;
+				fill: $white;
 			}
 		}
 
@@ -605,7 +609,11 @@
 			background: $colour;
 			color: $dark;
 
-			h1, p, a {
+			h1 {
+				color: $black
+			}
+
+			p, a {
 				color: $dark;
 			}
 
@@ -624,7 +632,7 @@
 			}
 
 			svg.match-block {
-				fill: $dark;
+				fill: $black;
 			}
 		}
 
