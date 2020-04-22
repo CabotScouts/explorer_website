@@ -16,17 +16,19 @@ class UnitController extends Controller
 	}
 
   public function viewUnitIndex($name) {
-		$units = Unit::where('status', 1)->orderBy('name', 'asc')->get();
 		$unit  = Unit::where('shortname', $name)->firstOrFail();
-		$media = IGTag::where('tag', $unit->tag)->orderBy('timestamp', 'desc');
+		$units = Unit::where('status', 1)->orderBy('name', 'asc')->get();
 		$page  = Page::where('slug', ("units/" . $name))->where('status', 1)->first();
+
+		$mediaTag = IGTag::where('tag', $unit->tag);
+		$media = (($mediaTag->count() > 0) ? $mediaTag->first()->media()->orderBy('timestamp', 'desc')->limit(9)->get() : false);
 
 		return view('units.view', [
 			'root'  => true,
 			'unit'  => $unit,
 			'units' => $units,
 			'page'  => $page,
-			'media' => (($media->count() > 0) ? $media->first()->media()->limit(9)->get() : false)
+			'media' => $media
 		]);
   }
 
