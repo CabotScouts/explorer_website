@@ -14,6 +14,7 @@ class AddShortlinks extends Migration {
       $table->increments('id');
       $table->string('code');
       $table->string('url');
+      $table->bigInteger('clicks');
       $table->timestamps();
     })
   }
