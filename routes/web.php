@@ -44,6 +44,15 @@ Route::group(['prefix' => 'instagram'], function() {
 Route::get('/photos', 'InstagramController@index')->name('instagram.index');
 Route::get('/photos/{tag}', 'InstagramController@view')->name('instagram.view');
 
+Route::get('/l/{code}', 'ShortlinkController@redirect');
+Route::group(['prefix' => 'link'], function() {
+  Route::get('/', 'ShortlinkController@index');
+  Route::get('/view/{code}', 'ShortlinkController@view');
+  Route::post('/add', 'ShortlinkController@add');
+  Route::post('/update', 'ShortlinkController@update');
+  Route::post('/delete', 'ShortlinkController@delete');
+});
+
 Route::post('/search/', 'PageController@searchPages');
 Route::get('/sitemap.xml', 'PageController@sitemap');
 
