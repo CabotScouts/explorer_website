@@ -8,7 +8,7 @@ use Socialite;
 class AuthController extends Controller {
 
   public function googleRedirect() {
-    return Socialite::driver('google')->with(['hd' => env('GOOGLE_AUTH_DOMAIN')])->redirect();
+    return Socialite::driver('google')->with(['hd' => config('explorers.auth_domain')])->redirect();
   }
 
   public function googleCallback() {

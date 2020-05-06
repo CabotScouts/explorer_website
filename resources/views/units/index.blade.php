@@ -58,8 +58,8 @@
 	function initMap() {
 		unitmap = new google.maps.Map(
 			document.getElementById('map'), {
-				zoom: 12,
-				center: { lat: {{ env('GOOGLE_MAPS_DEFAULT_CENTER_LAT') }}, lng: {{ env('GOOGLE_MAPS_DEFAULT_CENTER_LNG') }} },
+				zoom: {{ config('explorers.map.zoom') }},
+				center: { lat: {{ config('explorers.map.centre.latitude') }}, lng: {{ config('explorers.map.centre.longitude') }} },
 				disableDefaultUI : true,
 				gestureHandling : 'cooperative',
 			});
@@ -102,5 +102,5 @@
 		</div>
 	</div>
 </section>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY') }}&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps.key') }}&callback=initMap"></script>
 @endsection

@@ -41,14 +41,14 @@ class FormController extends Controller
 		$report->ip = $request->ip();
 		$report->save();
 
-		$contact = env('ADDRESS_ACCIDENTS');
-		$desc = env('ADDRESS_DESC');
+		$contact = config('explorers.emails.accidents');
+		$desc = config('explorers.emails.DESC');
 
 		$orig = new AccidentReportMail($report, $request);
 		$orig = $orig->replyTo($request->reporterEmail);
 		if($request->furtherTreatment && $request->reporterEmail !== $desc) {
 			// cc in DESC to reports that require further reporting (if the reporter isn't DESC)
-			$orig = $orig->cc(env('ADDRESS_DESC'));
+			$orig = $orig->cc(config('explorers.emails.DESC'));
 		}
 
 		$copy = new AccidentReportMail($report, $request);

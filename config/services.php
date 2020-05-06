@@ -43,7 +43,10 @@ return [
     'google' => [
       'client_id' => env('GOOGLE_ID'),
       'client_secret' => env('GOOGLE_SECRET'),
-      'redirect' => '/login/redirect'
+      'redirect' => '/login/redirect',
+      'maps' => [
+        'key' => env('GOOGLE_MAPS_KEY')
+      ]
     ],
 
     'instagram' => [

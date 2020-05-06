@@ -30,6 +30,7 @@
 | Where             | {{ $report->where ? $report->where : "*No information given*" }} |
 | On Group Premises | {{ ($report->groupPremises == "on") ? "Yes" : "No" }}            |
 @endcomponent
+
 ## Accident Details
 {{ $report->description ? $report->description : "*No information given*" }}
 
