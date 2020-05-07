@@ -1,16 +1,17 @@
 <?php
-Route::group(['prefix' => 'admin'], function () {
+Route::prefix('admin')->group(function () {
     Voyager::routes();
 });
 
+Route::get('/', 'PageController@frontpage')->name('home');
+
+// Auth
 Route::get('/login', 'AuthController@googleRedirect')->name('login');
 Route::get('/login/redirect', 'AuthController@googleCallback')->name('google-redirect');
 Route::get('/logout', 'AuthController@logout')->name('logout');
 
-Route::get('/', 'PageController@frontpage')->name('home');
-Route::view('/calendar/', 'page.calendar')->name('calendar');
-
-Route::group(['prefix' => 'units'], function() {
+// Units
+Route::prefix('units')->group(function() {
 	Route::get('/', 'UnitController@showUnits')->name('units');
 	Route::get('/{unit}', 'UnitController@viewUnitIndex')->name('unit.view');
 	Route::get('/{unit}/programme', 'UnitController@viewUnitProgramme')->name('view-unit-programme');
@@ -18,7 +19,8 @@ Route::group(['prefix' => 'units'], function() {
 	Route::get('/{unit}/{page}', 'UnitController@viewUnitPage')->where('page', '.*');
 });
 
-Route::group(['prefix' => 'form'], function() {
+// Forms
+Route::prefix('form')->group(function() {
 	// Route::get('/', 'FormController@index');
 
 	Route::get('/accident/', 'FormController@accidentCreate')->name('accidentForm');
@@ -28,13 +30,14 @@ Route::group(['prefix' => 'form'], function() {
 	Route::post('/contact/', 'FormController@contactStore');
 });
 
-Route::group(['prefix' => 'instagram'], function() {
+// Instagram
+Route::prefix('instagram')->group(function() {
   Route::get('/manage', 'InstagramController@manage')->name('instagram.manage')->middleware('auth');
   Route::get('/force-update', 'InstagramController@forceUpdate')->name('instagram.force-update')->middleware('auth');
   Route::get('/remove-media', 'InstagramController@removeMedia')->name('instagram.remove-media')->middleware('auth');
   Route::get('/refresh-token/{id}', 'InstagramController@refreshToken')->name('instagram.refresh-token')->middleware('auth');
 
-  // Instagram App Callbacks
+  // App Callbacks
   Route::get('/login', 'InstagramController@redirect')->name('instagram.login');
   Route::get('/login/redirect', 'InstagramController@callback')->name('instagram.redirect');
   Route::get('/deauth', 'InstagramController@deauthorise');
@@ -44,15 +47,18 @@ Route::group(['prefix' => 'instagram'], function() {
 Route::get('/photos', 'InstagramController@index')->name('instagram.index');
 Route::get('/photos/{tag}', 'InstagramController@view')->name('instagram.view');
 
-Route::get('/l/{code}', 'ShortlinkController@redirect');
-Route::group(['prefix' => 'link'], function() {
-  Route::get('/', 'ShortlinkController@index');
-  Route::get('/view/{code}', 'ShortlinkController@view');
-  Route::post('/add', 'ShortlinkController@add');
-  Route::post('/update', 'ShortlinkController@update');
-  Route::post('/delete', 'ShortlinkController@delete');
+// Shortlinks
+Route::get('/go/{code}', 'ShortlinkController@redirect')->name('shortlink.redirect');
+Route::prefix('links')->middleware('auth')->group(function() {
+  Route::get('/', 'ShortlinkController@index')->name('shortlink.index');
+  Route::get('/create', 'ShortlinkController@createForm')->name('shortlink.create.form');
+  Route::post('/create', 'ShortlinkController@createStore')->name('shortlink.create.store');
+  Route::get('/edit/{id}', 'ShortlinkController@editForm')->name('shortlink.edit.form');
+  Route::post('/edit/{id}', 'ShortlinkController@editStore')->name('shortlink.edit.store');
+  Route::get('/delete/{id}', 'ShortlinkController@delete')->name('shortlink.delete');
 });
 
+Route::view('/calendar/', 'page.calendar')->name('calendar');
 Route::post('/search/', 'PageController@searchPages');
 Route::get('/sitemap.xml', 'PageController@sitemap');
 
