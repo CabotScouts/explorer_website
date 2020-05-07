@@ -7,36 +7,65 @@ use Illuminate\Support\Facades\Validator;
 use App\Shortlink;
 
 class ShortlinkController extends Controller {
-    public function index() {
-      $links = Shortlink::orderBy('created_at', 'desc')->get();
-      return view('shortlink.index', ["links" => $link]);
+
+  public function redirect($code) {
+    $link = Shortlink::where('code', $code)->firstOrFail();
+    $link->registerClick();
+    return redirect()->away($to = $link->url, $status = 302);
+  }
+
+  public function index(Request $request) {
+    $links = Shortlink::sortable()->paginate(50);
+    return view('shortlink.index', ["links" => $links]);
+  }
+
+  public function view($id) {
+    $link = Shortlink::where('id', $id)->firstOrFail();
+    return view('shortlink.view', ["link" => $link]);
+  }
+
+  public function createForm() {
+    return view('shortlink.create');
+  }
+
+  public function createStore(Request $request) {
+    $validator = Validator::make($request->all(),
+    [ 'url' => 'required' ], [ 'url.required'  => 'A URL is required' ])->validate();
+
+    $link = Shortlink::where('url', $request->url)->first();
+    if(isset($link)) {
+      session()->flash('alert', ['warning' => "Shortlink already exists - <code>$link->redirectURL</code>"]);
+    }
+    else {
+        $link = new Shortlink;
+        $link->url = $request->url;
+        $link->code = $request->code ?? $link->generateCode();
+        $link->save();
+        session()->flash('alert', ['success' => "New shortlink made - <code>$link->redirectURL</code>"]);
     }
 
-    public function view($code) {
-      $link = Shortlink::where('code', $code)->firstOrFail();
-      return view('shortlink.view', ["link" => $link]);
+    return redirect()->action('ShortlinkController@index');
+  }
+
+  public function editForm($id) {
+    $link = Shortlink::where('id', $id)->firstOrFail();
+    return view('shortlink.edit', ['link' => $link]);
+  }
+
+  public function editStore(Request $request) {
+    return redirect()->action('ShortlinkController@index');
+  }
+
+  public function delete($id) {
+    $link = Shortlink::where('id', $id)->delete();
+    if($link) {
+      session()->flash('alert', ['success' => "Shortlink deleted"]);
+    }
+    else {
+      session()->flash('alert', ['danger' => "Shortlink couldn't be deleted"]);
     }
 
-    public function redirect($code) {
-      $link = Shortlink::where('code', $code)->firstOrFail();
-      return redirect()->away($to = $link->code, $status = 302);
-    }
+    return redirect()->action('ShortlinkController@index');
+  }
 
-    public function add(Request $request) {
-      $validator = Validator::make($request->all(),
-      [
-        'url' => 'required'
-      ]);
-
-      $link = new Shortlink;
-      return redirect()->action('ShortlinkController@view', ["code" => $code]);
-    }
-
-    public function update(Request $request) {
-      return redirect()->action('ShortlinkController@view', ["code" => $code]);
-    }
-
-    public function delete(Request $request) {
-      return redirect()->action('ShortlinkController@index');
-    }
 }
