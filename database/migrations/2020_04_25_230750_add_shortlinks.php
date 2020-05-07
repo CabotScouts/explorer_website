@@ -12,11 +12,11 @@ class AddShortlinks extends Migration {
 
     Schema::create('shortlinks', function (Blueprint $table) {
       $table->increments('id');
-      $table->string('code');
+      $table->string('code')->unique();
       $table->string('url');
-      $table->bigInteger('clicks');
+      $table->bigInteger('clicks')->default(0);
       $table->timestamps();
-    })
+    });
   }
 
   public function down() {
