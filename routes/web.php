@@ -1,5 +1,5 @@
 <?php
-Route::domain(config('app.domain'))->group(function () {
+Route::domain(config('app.root_domain'))->group(function () {
   Route::prefix('admin')->group(function () {
       Voyager::routes();
   });
