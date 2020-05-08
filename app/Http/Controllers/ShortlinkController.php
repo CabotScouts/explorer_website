@@ -34,7 +34,7 @@ class ShortlinkController extends Controller {
 
     $link = Shortlink::where('url', $request->url)->first();
     if(isset($link)) {
-      session()->flash('alert', ['warning' => "Shortlink already exists - <code>$link->redirectURL</code>"]);
+      session()->flash('alert', ['warning' => "A shortlink to this URL already exists - <code>$link->redirectURL</code>"]);
     }
     else {
         $link = new Shortlink;
