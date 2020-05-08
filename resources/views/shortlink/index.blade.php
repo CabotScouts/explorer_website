@@ -38,7 +38,7 @@
                 @endforeach
               @else
                 <tr>
-                  <td colspan="4">No shortlinks have been made yet</td>
+                  <td colspan="5">No shortlinks have been made yet</td>
                   <td><a href="{{ route('shortlink.create.form') }}" class="btn btn-primary btn-block">Make a shortlink</a></td>
                 </tr>
               @endif
