@@ -31,7 +31,7 @@
                     <td><a href="{{ $link->url }}" target="_blank" rel="noreferrer nofollow">{{ $link->url }}</a></td>
                     <td>{{ $link->created_at }}</td>
                     <td>{{ $link->clicks }}</td>
-                    <td><a href="{{ route('shortlink.edit.form', ['id' => $link->id]) }}">Edit</a></td>
+                    {{-- <td><a href="{{ route('shortlink.edit.form', ['id' => $link->id]) }}">Edit</a></td> --}}
                     <td><a href="{{ route('shortlink.delete', ['id' => $link->id]) }}">Delete</a></td>
                   </tr>
                 @endforeach
