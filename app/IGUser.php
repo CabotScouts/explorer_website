@@ -116,7 +116,8 @@ class IGUser extends Model {
 
         $response = json_decode($request->getBody());
         $this->token = $response->access_token;
-        $this->save;
+        $this->expires = (new DateTime)->getTimestamp() + $response->expires_in;
+        $this->save();
         return true;
       }
       catch(Exception $e) {

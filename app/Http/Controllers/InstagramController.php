@@ -122,8 +122,17 @@ class InstagramController extends Controller {
 
   public function refreshToken($id) {
     $user = IGUser::where('id', $id)->first();
-    if(count($user) > 0) {
-      $user->refreshToken();
+
+    if(isset($user)) {
+      $refresh = $user->refreshToken(true);
+      if($refresh) {
+        session(['alert' => ['success' => 'Token appears to have refreshed']]);
+        return redirect()->route('instagram.manage');
+      }
+      else {
+        session(['alert' => ['warning' => 'Token failed to refresh?']]);
+        return redirect()->route('instagram.manage');
+      }
     }
     else {
       session(['alert' => ['warning' => 'Invalid User ID']]);
