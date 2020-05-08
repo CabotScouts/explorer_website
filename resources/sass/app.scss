@@ -36,6 +36,14 @@
 		list-style: square;
 	}
 
+	.alert ul {
+		margin-bottom: 0;
+	}
+
+	code {
+		color: $dark;
+	}
+
 	// == Space (adds top/bottom padding to content block)
 	.more-space {
 		padding-top: 1.6rem;
@@ -673,10 +681,6 @@
 		form label {
 			font-weight: 700;
 			color: $highlight;
-		}
-
-		form .alert ul {
-			margin-bottom: 0;
 		}
 	}
 
