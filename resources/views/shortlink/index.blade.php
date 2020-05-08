@@ -16,7 +16,7 @@
           <table class="table table-hover table-responsive-lg">
             <thead>
               <tr>
-                <th scope="col">@sortablelink('code', 'Shortlink')</th>
+                <th scope="col" colspan="2">@sortablelink('code', 'Shortlink')</th>
                 <th scope="col">@sortablelink('url', 'Redirects to')</th>
                 <th scope="col">@sortablelink('created_at', 'Created at')</th>
                 <th scope="col">@sortablelink('clicks', 'Clicks')</th>
@@ -27,7 +27,8 @@
               @if($links->count())
                 @foreach($links as $link)
                   <tr>
-                    <td><a href="{{ $link->redirectURL }}" target="_blank">{{ $link->redirectURL }}</a></td>
+                    <td>{{ $link->code }}</td>
+                    <td><a href="javascript:toClipboard('{{ $link->redirectURL }}');"><i class="far fa-clipboard"></i></a></td>
                     <td><a href="{{ $link->url }}" target="_blank" rel="noreferrer nofollow">{{ $link->url }}</a></td>
                     <td>{{ $link->created_at }}</td>
                     <td>{{ $link->clicks }}</td>

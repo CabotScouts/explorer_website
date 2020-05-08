@@ -23,5 +23,8 @@
         "serialize-javascript": "^3.0.0",
         "vue": "^2.6.11",
         "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.13.0"
     }
 }

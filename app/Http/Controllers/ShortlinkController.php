@@ -34,14 +34,14 @@ class ShortlinkController extends Controller {
 
     $link = Shortlink::where('url', $request->url)->first();
     if(isset($link)) {
-      session()->flash('alert', ['warning' => "A shortlink to this URL already exists - <code>$link->redirectURL</code>"]);
+      session()->flash('alert', ['warning' => "A shortlink to this URL already exists - <code>$link->redirectURL</code> <a href=\"javascript:toClipboard('$link->redirectURL');\"><i class=\"far fa-clipboard\"></i></a>"]);
     }
     else {
         $link = new Shortlink;
         $link->url = $request->url;
         $link->code = $request->code ?? $link->generateCode();
         $link->save();
-        session()->flash('alert', ['success' => "New shortlink made - <code>$link->redirectURL</code>"]);
+        session()->flash('alert', ['success' => "New shortlink made - <code>$link->redirectURL</code> <a href=\"javascript:toClipboard('$link->redirectURL');\"><i class=\"far fa-clipboard\"></i> </a>"]);
     }
 
     return redirect()->action('ShortlinkController@index');

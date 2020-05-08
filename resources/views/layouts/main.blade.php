@@ -9,6 +9,8 @@
 		@endif
 		<link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}"/>
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/icons.css') }}">
+		<script src="{{ asset('js/app.js') }}"></script>
 		@hasSection('title')
 		<title>@yield('title') - {{ config('app.name') }}</title>
 		@else
