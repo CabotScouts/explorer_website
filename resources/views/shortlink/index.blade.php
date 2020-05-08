@@ -4,23 +4,23 @@
 @include('component.alerts')
   <section class="page container pad space">
     <div class="row">
-      <div class="col col-10">
+      <div class="col col-6 col-lg-10 col-md-8">
         <h1>Shortlinks</h1>
       </div>
 
-      <div class="col col-2">
-        <a href="{{ route('shortlink.create.form') }}" class="btn btn-primary btn-block">New Link</a>
+      <div class="col col-6 col-lg-2 col-md-4">
+        <a href="{{ route('shortlink.create.form') }}" class="btn btn-primary btn-block">New shortlink</a>
       </div>
 
       <div class="page-content col col-12 mt-3">
-          <table class="table table-hover">
+          <table class="table table-hover table-responsive-lg">
             <thead>
               <tr>
                 <th scope="col">@sortablelink('code', 'Shortlink')</th>
-                <th scope="col">@sortablelink('url', 'Target URL')</th>
-                <th scope="col">@sortablelink('created_at', 'Created At')</th>
+                <th scope="col">@sortablelink('url', 'Redirects to')</th>
+                <th scope="col">@sortablelink('created_at', 'Created at')</th>
                 <th scope="col">@sortablelink('clicks', 'Clicks')</th>
-                <th scope="col" colspan="2">Actions</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -37,8 +37,8 @@
                 @endforeach
               @else
                 <tr>
-                  <td colspan="5">No Links!</td>
-                  <td><a href="{{ route('shortlink.create.form') }}" class="btn btn-primary btn-block">New Link</a></td>
+                  <td colspan="4">No shortlinks have been made yet</td>
+                  <td><a href="{{ route('shortlink.create.form') }}" class="btn btn-primary btn-block">Make a shortlink</a></td>
                 </tr>
               @endif
             </tbody>
