@@ -48,11 +48,12 @@ Route::get('/photos', 'InstagramController@index')->name('instagram.index');
 Route::get('/photos/{tag}', 'InstagramController@view')->name('instagram.view');
 
 // Shortlinks
-if(config('shortlinks.subdomain')) {
-  Route::domain(config('shortlinks.subdomain'))->middleware('throttle:10,1')->group(function () {
+if(config('shortlinks.domain')) {
+  Route::domain(config('shortlinks.domain'))->middleware('throttle:10,1')->group(function () {
     Route::get('/{code}', 'ShortlinkController@redirect')->name('shortlink.redirect');
-    Route::get('/go/{code}', 'ShortlinkController@redirect');
   });
+
+  Route::get('/go/{code}', 'ShortlinkController@redirect');
 }
 else {
   Route::get('/go/{code}', 'ShortlinkController@redirect')->middleware('throttle:10,1')->name('shortlink.redirect');
