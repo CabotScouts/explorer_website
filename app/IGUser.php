@@ -57,6 +57,7 @@ class IGUser extends Model {
       ]);
 
       $response = json_decode($request->getBody());
+
       foreach($response->data as $media) {
         $m = IGMedia::firstOrCreate(['media_id' => $media->id], ['ig_id' => $this->ig_id]);
         $m->fromResponse($media, $this->token);
@@ -66,12 +67,12 @@ class IGUser extends Model {
         $this->fetchMedia($response->paging->cursors->after);
       }
 
-      return $this;
+      return true;
     }
     catch(BadResponseException $e) {
       $r = Psr7\str($e->getResponse());
       session()->flash('alert', ['danger' => "Failed to fetch user media - $r"]);
-      return redirect()->route('instagram.manage');
+      return false;
     }
   }
 

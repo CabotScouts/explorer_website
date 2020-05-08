@@ -85,7 +85,7 @@ class InstagramController extends Controller {
     $user->exchangeToken();
     $user->fetchUserProfile();
 
-    session()->flash(['alert' => ['success' => 'Instagram token successfully retrieved']]);
+    session()->flash('alert', ['success' => 'Instagram token successfully retrieved']);
     return redirect()->route('instagram.manage');
   }
 
@@ -98,13 +98,13 @@ class InstagramController extends Controller {
   }
 
   public function forceUpdate() {
-    $users = IGUser::all();
+    $status = array_map(function (IGUser $user) {
+      return $user->fetchMedia();
+    }, IGUser::get()->all());
 
-    foreach($users as $user) {
-      $user->fetchMedia();
+    if(!in_array(false, $status)) {
+      session()->flash('alert', ['success' => 'Media updated']);
     }
-
-    session()->flash('alert', ['success' => 'Media updated']);
     return redirect()->route('instagram.manage');
   }
 
@@ -116,7 +116,7 @@ class InstagramController extends Controller {
     IGTag::truncate();
     IGMedia::truncate();
 
-    session()->flash(['alert' => ['warning' => 'All media removed']]);
+    session()->flash('alert', ['warning' => 'All media removed']);
     return redirect()->route('instagram.manage');
   }
 
@@ -126,16 +126,16 @@ class InstagramController extends Controller {
     if(isset($user)) {
       $refresh = $user->refreshToken(true);
       if($refresh) {
-        session()->flash(['alert' => ['success' => 'Token appears to have refreshed']]);
+        session()->flash('alert', ['success' => 'Token appears to have refreshed']);
         return redirect()->route('instagram.manage');
       }
       else {
-        session()->flash(['alert' => ['warning' => 'Token failed to refresh?']]);
+        session()->flash('alert', ['warning' => 'Token failed to refresh?']);
         return redirect()->route('instagram.manage');
       }
     }
     else {
-      session()->flash(['alert' => ['warning' => 'Invalid User ID']]);
+      session()->flash('alert', ['warning' => 'Invalid User ID']);
       return redirect()->route('instagram.manage');
     }
   }
