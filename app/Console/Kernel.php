@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel {
       array_map(function (IGUser $user) {
         $user->fetchMedia();
       }, IGUser::get()->all());
-    })->hourly();
+    })->twiceDaily(10, 22);
   }
 
   /**
