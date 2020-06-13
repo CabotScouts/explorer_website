@@ -13,8 +13,14 @@ class AddEventsTables extends Migration
    */
   public function up()
   {
+    Schema::dropIfExists('events');
+		Schema::dropIfExists('event_sources');
+		Schema::dropIfExists('calendars');
+		Schema::dropIfExists('calendar_event_source');
+
 		Schema::create('events', function (Blueprint $table) {
 			$table->increments('id');
+      $table->string('uid')->unique();
 			$table->string('name');
       $table->date('start_date')->nullable();
       $table->date('end_date')->nullable();
