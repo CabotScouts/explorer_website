@@ -9,6 +9,7 @@ class Event extends Model {
 
   protected $hidden  = ['created_at', 'updated_at', 'event_source_id'];
   protected $appends = ['source_name'];
+  protected $fillable = ['uid', 'event_source_id'];
 
   public function source() {
   	return $this->belongsTo('App\EventSource', 'event_source_id')->first();

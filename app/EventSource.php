@@ -7,7 +7,7 @@ use App\Event;
 use ICal\ICal;
 
 class EventSource extends Model {
-  
+
   public function calendars() {
 		return $this->belongsToMany('App\Calendar');
 	}
@@ -25,13 +25,12 @@ class EventSource extends Model {
       $calendar = new ICal($this->ics);
 
       if($calendar->cal) {
-        $this->removeAllEvents();
         foreach($calendar->events() as $remoteEvent) {
-          $event = new Event;
-          $event->event_source_id = $this->id;
+          $event = Event::firstOrCreate(['uid' => $remoteEvent->uid], ['event_source_id' => $this->id]);
           $event->fromICS($remoteEvent);
           $event->save();
         }
+        $this->touch();
         return $this->save();
       }
       return false;
