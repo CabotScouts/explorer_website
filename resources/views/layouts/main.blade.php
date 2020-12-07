@@ -10,7 +10,7 @@
 		<link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}"/>
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/icons.css') }}">
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5BF91YQZ5"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id={{ setting('content.gtag') }}"></script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
