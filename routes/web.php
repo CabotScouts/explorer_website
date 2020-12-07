@@ -64,27 +64,7 @@ Route::domain(config('app.root_domain'))->group(function () {
     Route::get('/delete/{id}', 'ShortlinkController@delete')->name('shortlink.delete');
   });
 
-  Route::get('/source/flush/{id}', 'EventTestController@flushSource');
-  Route::get('/source/update/{id}', 'EventTestController@updateSource');
-
-  Route::get('/new/source/', 'EventTestController@newSource');
-  Route::post('/new/source/', 'EventTestController@createSource')->name('test-createSource');
-
-  Route::group(['prefix' => 'event_test'], function() {
-    Route::get('/events/', 'EventTestController@listEvents');
-    Route::get('/sources/', 'EventTestController@listSources');
-    Route::get('/calendars/', 'EventTestController@listCalendars');
-
-    Route::get('/new/source/', 'EventTestController@newSource');
-    Route::post('/new/source/', 'EventTestController@createSource');
-
-    Route::get('/add/event/', 'EventTestController@newEvent');
-    Route::post('/add/event/', 'EventTestController@createEvent');
-
-    Route::get('/add/calendar/', 'EventTestController@newCalendar');
-    Route::post('/add/calendar/', 'EventTestController@createCalendar');
-  });
-
+  // Calendar/Events
   Route::group(['prefix' => 'calendar'], function() {
     Route::get('/', 'CalendarController@index');
     Route::get('/{calendar}', 'CalendarController@show');
@@ -92,6 +72,7 @@ Route::domain(config('app.root_domain'))->group(function () {
     Route::get('/{calendar}/render/{year?}/{month?}', 'CalendarController@month');
   });
 
+  // Other generic content - to be sorted at some point
   Route::post('/search', 'PageController@searchPages');
   Route::get('/sitemap.xml', 'PageController@sitemap');
 
