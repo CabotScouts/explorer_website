@@ -14,10 +14,10 @@
         "bootstrap": "^4.4.1",
         "cross-env": "^5.2.1",
         "jquery": "^3.5.1",
-        "laravel-mix": "^4.1.4",
+        "laravel-mix": "^5.0.9",
         "lodash": "^4.17.19",
         "popper.js": "^1.16.1",
-        "resolve-url-loader": "^2.3.1",
+        "resolve-url-loader": "^3.1.2",
         "sass": "^1.26.5",
         "sass-loader": "^7.1.0",
         "serialize-javascript": "^3.1.0",
@@ -26,5 +26,6 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0"
-    }
+    },
+    "name": "website"
 }
