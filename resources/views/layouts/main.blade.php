@@ -10,6 +10,14 @@
 		<link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}"/>
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/icons.css') }}">
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5BF91YQZ5"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '{{ setting("content.gtag") }}');
+		</script>
 		<script src="{{ asset('js/app.js') }}"></script>
 		@hasSection('title')
 		<title>@yield('title') - {{ config('app.name') }}</title>
