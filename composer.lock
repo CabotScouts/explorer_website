@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4fb2a1cc6f2eddcf243dd76a6dbdf37",
+    "content-hash": "0aab878d7f90c0c2855232a714256e90",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -1656,21 +1656,20 @@
         },
         {
             "name": "johngrogg/ics-parser",
-            "version": "v2.1.18",
+            "version": "v2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/u01jmg3/ics-parser.git",
-                "reference": "32b3f30f2ed6026d9d11fb6d66c3995d18917156"
+                "reference": "69c80471a0a99142ebc72b21c2bc084e81a7c4f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/u01jmg3/ics-parser/zipball/32b3f30f2ed6026d9d11fb6d66c3995d18917156",
-                "reference": "32b3f30f2ed6026d9d11fb6d66c3995d18917156",
+                "url": "https://api.github.com/repos/u01jmg3/ics-parser/zipball/69c80471a0a99142ebc72b21c2bc084e81a7c4f4",
+                "reference": "69c80471a0a99142ebc72b21c2bc084e81a7c4f4",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "nesbot/carbon": "^1.39.0 || ^2.0",
                 "php": ">=5.3.9"
             },
             "require-dev": {
@@ -1708,7 +1707,17 @@
                 "ics-parser",
                 "ifb"
             ],
-            "time": "2020-03-10T10:10:01+00:00"
+            "support": {
+                "issues": "https://github.com/u01jmg3/ics-parser/issues",
+                "source": "https://github.com/u01jmg3/ics-parser/tree/v2.2.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/u01jmg3",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-02T10:28:33+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
