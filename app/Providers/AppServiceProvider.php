@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 use TCG\Voyager\Facades\Voyager;
 use App\FormFields\LocationFormField;
-use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      Paginator::useBootstrap();
+      Voyager::addFormField(LocationFormField::class);
     }
 
     /**
@@ -25,6 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Voyager::addFormField(LocationFormField::class);
+      //
     }
 }
