@@ -3,9 +3,10 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use \TCG\Voyager\Models\User as TCGUser;
 use Laravel\Socialite\Two\User as SocialiteUser;
 
-class User extends \TCG\Voyager\Models\User {
+class User extends TCGUser {
   use Notifiable;
 
   protected $fillable = ['name', 'email', 'password'];
