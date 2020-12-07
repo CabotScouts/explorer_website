@@ -24,11 +24,11 @@ Route::domain(config('app.root_domain'))->group(function () {
   Route::prefix('form')->group(function() {
   	// Route::get('/', 'FormController@index');
 
-  	Route::get('/accident/', 'FormController@accidentCreate')->name('accidentForm');
-  	Route::post('/accident/', 'FormController@accidentStore')->name('accidentFormStore');
+  	Route::get('/accident', 'FormController@accidentCreate')->name('accidentForm');
+  	Route::post('/accident', 'FormController@accidentStore')->name('accidentFormStore');
 
-  	Route::get('/contact/', 'FormController@contactCreate');
-  	Route::post('/contact/', 'FormController@contactStore');
+  	Route::get('/contact', 'FormController@contactCreate');
+  	Route::post('/contact', 'FormController@contactStore');
   });
 
   // Instagram
@@ -45,8 +45,7 @@ Route::domain(config('app.root_domain'))->group(function () {
     Route::get('/delete-data', 'InstagramController@deleteData');
   });
 
-  Route::get('/photos', 'InstagramController@index')->name('instagram.index');
-  Route::get('/photos/{tag}', 'InstagramController@view')->name('instagram.view');
+  Route::get('/photos/{tag?}', 'InstagramController@view')->whereAlphaNumeric('tag')->name('instagram.view');
 
   // Shortlinks
   if(config('shortlinks.domain')) {
@@ -65,8 +64,8 @@ Route::domain(config('app.root_domain'))->group(function () {
     Route::get('/delete/{id}', 'ShortlinkController@delete')->name('shortlink.delete');
   });
 
-  Route::view('/calendar/', 'page.calendar')->name('calendar');
-  Route::post('/search/', 'PageController@searchPages');
+  Route::view('/calendar', 'page.calendar')->name('calendar');
+  Route::post('/search', 'PageController@searchPages');
   Route::get('/sitemap.xml', 'PageController@sitemap');
 
   // Catch-all route - find a page which matches or 404

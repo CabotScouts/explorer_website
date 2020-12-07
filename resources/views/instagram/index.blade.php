@@ -12,8 +12,8 @@
       <div class="dropdown mt-2 mr-4 text-right">
         <a class="navbar-link dropdown-toggle" href="#" id="albumsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Albums</a>
 
-      	<div class="dropdown-menu" aria-labelledby="albumsDropdown">
-          <a class="dropdown-item" href="{{ route('instagram.index') }}">All Photos</a>
+      	<div class="dropdown-menu pre-scrollable" aria-labelledby="albumsDropdown">
+          <a class="dropdown-item" href="{{ route('instagram.view') }}">All Photos</a>
       		@foreach($tags as $t)
       		<a class="dropdown-item" href="{{ route('instagram.view', ['tag' => $t->tag]) }}">{{ $t->formatted }}</a>
       		@endforeach

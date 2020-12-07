@@ -1,5 +1,5 @@
-{{-- TODO: add lightbox to images, add video media_type controls --}}
-<div class="col col-12 col-sm-6 col-md-6 col-xl-4 wall-item">
+{{-- TODO: add video media_type controls --}}
+<div class="col col-12 col-sm-6 col-md-6 col-xl-6 wall-item">
   <div class="card">
     @if($media->media_type == "CAROUSEL_ALBUM")
     <div id="{{ $media->id }}" class="carousel slide" data-interval="false">

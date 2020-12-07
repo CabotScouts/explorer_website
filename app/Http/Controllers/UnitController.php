@@ -21,7 +21,7 @@ class UnitController extends Controller
 		$page  = Page::where('slug', ("units/" . $name))->where('status', 1)->first();
 
 		$mediaTag = IGTag::where('tag', $unit->tag);
-		$media = (($mediaTag->count() > 0) ? $mediaTag->first()->media()->orderBy('timestamp', 'desc')->limit(9)->get() : false);
+		$media = (($mediaTag->count() > 0) ? $mediaTag->first()->media()->orderBy('timestamp', 'desc')->paginate(8) : false);
 
 		return view('units.view', [
 			'root'  => true,

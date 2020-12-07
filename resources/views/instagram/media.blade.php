@@ -27,4 +27,9 @@ var $grid = $('.media-wall').imagesLoaded(function() {
     @endforeach
   </div>
 </div>
+<div class="row justify-content-center">
+  <div class="col-md-auto">
+    {{ $media->links() }}
+  </div>
+</div>
 @endif

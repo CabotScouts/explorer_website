@@ -17,22 +17,14 @@ class InstagramController extends Controller {
     return "https://graph.instagram.com/" . $module;
   }
 
-  public function index() {
+  public function view($tag=false) {
+    $tag = $tag ? IGTag::where('tag', $tag)->firstOrFail() : false;
     $tags = IGTag::orderBy('tag', 'asc')->get();
-    return view('instagram.index', [
-      'tag' => false,
-      'tags' => $tags,
-      'media' => IGMedia::where('parent_id', null)->orderBy('timestamp', 'desc')->get()
-    ]);
-  }
-
-  public function view($tag) {
-    $tag = IGTag::where('tag', $tag)->firstOrFail();
-    $tags = IGTag::orderBy('tag', 'asc')->get();
+    $media = $tag ? $tag->media() : IGMedia::where('parent_id', null);
     return view('instagram.index', [
       'tag' => $tag,
       'tags' => $tags,
-      'media' => $tag->media()->orderBy('timestamp', 'desc')->get()
+      'media' => $media->orderBy('timestamp', 'desc')->paginate('12')
     ]);
   }
 
