@@ -78,7 +78,7 @@ $user = Auth::user();
 				</li>
 
 				<li class="navbar-item navbar-avatar">
-					<img src="{{ Auth::user()->avatarURL }}"  />
+					<img src="{{ Auth::user()->avatarURL }}" height="36" width="36" />
 				</li>
 			</ul>
 		</div>
