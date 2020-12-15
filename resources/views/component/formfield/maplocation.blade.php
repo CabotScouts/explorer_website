@@ -15,7 +15,7 @@
         @forelse($dataTypeContent->getCoordinates() as $point)
             var center = {lat: {{ $point['lat'] }}, lng: {{ $point['lng'] }}};
         @empty
-            var center = {lat: {{ config('voyager.googlemaps.center.lat') }}, lng: {{ config('voyager.googlemaps.center.lng') }}};
+            var center = {lat: {{ config('explorers.map.centre.latitude') }}, lng: {{ config('explorers.map.centre.longitude') }}};
         @endforelse
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: {{ config('voyager.googlemaps.zoom') }},
