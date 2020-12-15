@@ -1,5 +1,5 @@
 <?php
-namespace App\Formfields;
+namespace App\FormFields;
 use TCG\Voyager\FormFields\AbstractHandler;
 
 class LocationFormField extends AbstractHandler
