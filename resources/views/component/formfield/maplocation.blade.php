@@ -18,7 +18,7 @@
             var center = {lat: {{ config('explorers.map.centre.latitude') }}, lng: {{ config('explorers.map.centre.longitude') }}};
         @endforelse
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: {{ config('voyager.googlemaps.zoom') }},
+            zoom: {{ config('explorers.map.zoom') }},
             center: center
         });
         var markers = [];
