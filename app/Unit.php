@@ -14,7 +14,7 @@ class Unit extends Model
 
 	public function getRawCoords() {
 		$coords = explode(',', $this->coordinates);
-		return (count($coords) === 2) ? $coords : [ env("GOOGLE_MAPS_DEFAULT_CENTER_LAT"), env("GOOGLE_MAPS_DEFAULT_CENTER_LNG") ];
+		return (count($coords) === 2) ? $coords : [ config('explorers.map.centre.latitude'), config('explorers.map.centre.longitude') ];
 	}
 
 	public function getCoordinates() {

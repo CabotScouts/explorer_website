@@ -7,7 +7,7 @@
 @forelse($dataTypeContent->getCoordinates() as $point)
     <input type="hidden" name="{{ $row->field }}" value="{{ $point['lat'] }}, {{ $point['lng'] }}" id="coordinates"/>
 @empty
-    <input type="hidden" name="{{ $row->field }}" value="{{ config('voyager.googlemaps.center.lat') }}, {{ config('voyager.googlemaps.center.lng') }}" id="coordinates"/>
+    <input type="hidden" name="{{ $row->field }}" value="{{ config('explorers.map.centre.latitude') }}, {{ config('explorers.map.centre.latitude') }}" id="coordinates"/>
 @endforelse
 
 <script type="application/javascript">
