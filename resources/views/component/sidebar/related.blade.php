@@ -1,5 +1,5 @@
 <?php
-use App\Page;
+use App\Models\Page;
 $pages = Page::where([
 	['slug', 'like', $page->slug."%"],
 	['status', 1],

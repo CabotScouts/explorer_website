@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\InstagramController as IG;
 use GuzzleHttp\Client;
-use App\IGTag;
+
+use App\Models\IGTag;
 
 class IGMedia extends Model {
 
@@ -14,15 +15,15 @@ class IGMedia extends Model {
   protected $fillable = ['media_id', 'parent_id', 'ig_id'];
 
   public function user() {
-    return $this->hasOne('App\IGUser', 'ig_id', 'ig_id')->first();
+    return $this->hasOne('App\Models\IGUser', 'ig_id', 'ig_id')->first();
   }
 
   public function children() {
-    return $this->hasMany('App\IGMedia', 'parent_id');
+    return $this->hasMany('App\Models\IGMedia', 'parent_id');
   }
 
   public function tags() {
-    return $this->belongsToMany('App\IGTag', 'IGMedia_IGTags', 'media_id', 'tag_id');
+    return $this->belongsToMany('App\Models\IGTag', 'IGMedia_IGTags', 'media_id', 'tag_id');
   }
 
   public function fromResponse($data, $token) {

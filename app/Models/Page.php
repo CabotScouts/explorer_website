@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\View;
@@ -21,7 +21,7 @@ class Page extends Model
 	public $valid_sidebar = false;
 
 	public function header() {
-		return $this->belongsTo('App\Header');
+		return $this->belongsTo('App\Models\Header');
 	}
 
 	private function parseURLSegments() {

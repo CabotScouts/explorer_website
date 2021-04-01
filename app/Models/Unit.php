@@ -1,8 +1,9 @@
 <?php
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Spatial;
+
 use App\Page;
 
 class Unit extends Model

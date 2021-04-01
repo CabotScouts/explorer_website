@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Unit;
-use App\Page;
-use App\IGTag;
+
+use App\Models\Unit;
+use App\Models\Page;
+use App\Models\IGTag;
 
 class UnitController extends Controller
 {

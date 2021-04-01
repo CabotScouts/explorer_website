@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
-use App\Unit;
-use App\AccidentReport;
+
+use App\Models\Unit;
+use App\Models\AccidentReport;
 use App\Mail\AccidentReportMail;
 
 class FormController extends Controller

@@ -3,9 +3,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use App\IGUser;
-use App\IGMedia;
-use App\IGTag;
+use App\Models\IGUser;
+use App\Models\IGMedia;
+use App\Models\IGTag;
 
 class InstagramController extends Controller {
 

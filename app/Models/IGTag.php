@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ class IGTag extends Model {
   protected $fillable = ['tag', 'formatted'];
 
   public function media() {
-    return $this->belongsToMany('App\IGMedia', 'IGMedia_IGTags', 'tag_id', 'media_id');
+    return $this->belongsToMany('App\Models\IGMedia', 'IGMedia_IGTags', 'tag_id', 'media_id');
   }
 
   public function getLinkAttribute() {

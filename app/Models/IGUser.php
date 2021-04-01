@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
@@ -17,7 +17,7 @@ class IGUser extends Model {
   protected $hidden = ['token'];
 
   public function media() {
-    return $this->hasMany('App\IGMedia', 'ig_id', 'ig_id');
+    return $this->hasMany('App\Models\IGMedia', 'ig_id', 'ig_id');
   }
 
   public function fetchUserProfile() {
