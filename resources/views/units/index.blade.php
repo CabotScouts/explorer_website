@@ -83,7 +83,7 @@
 </section>
 <section class="page units container pad space">
 	<div class="row">
-		<div class="page-content col col-12 mt-2 mb-4">
+		<div class="page-content col col-12 mt-2">
 				@if(isset($page))
 						{!! $page->body !!}
 				@endif
