@@ -249,7 +249,7 @@
 	}
 
 	main {
-		background: $gray-100;
+		background: lighten($gray-100, 2%);
 
 		li {
 			padding: 0.4rem 0 0 0;
