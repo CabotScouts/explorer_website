@@ -1,5 +1,5 @@
 <?php
-use App\Page;
+use App\Models\Page;
 $pages = Page::where([
 	['slug', 'like', 'units/'. $unit->shortname ."%"],
 	['slug', '!=', 'units/'. $unit->shortname ],
