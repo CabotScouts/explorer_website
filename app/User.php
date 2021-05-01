@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use \TCG\Voyager\Models\User as TCGUser;
+use TCG\Voyager\Models\User as TCGUser;
 use Laravel\Socialite\Two\User as SocialiteUser;
 
 class User extends TCGUser {
@@ -12,14 +12,10 @@ class User extends TCGUser {
   protected $fillable = ['name', 'email', 'password'];
   protected $hidden = ['password', 'remember_token', 'gid'];
 
-  private function compare($old, $new) {
-    return ($old == $new) ? $old : $new;
-  }
-
   public function updateFromGoogle(SocialiteUser $returned) {
-    $this->name   = $this->compare($this->name, $returned->getName());
-    $this->gid    = $this->compare($this->gid, $returned->getId());
-    $this->avatar = $this->compare($this->avatar, $returned->getAvatar());
+    $this->name = $returned->getName();
+    $this->gid = $returned->getId();
+    $this->avatar = $returned->getAvatar();
     $this->save();
   }
 
