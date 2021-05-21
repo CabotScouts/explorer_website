@@ -7,8 +7,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
-use App\AccidentReport;
-use App\Unit;
+
+use App\Models\AccidentReport;
+use App\Models\Unit;
 
 class AccidentReportMail extends Mailable
 {
