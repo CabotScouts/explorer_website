@@ -5,7 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
-use App\IGUser;
+use App\Models\IGUser;
 
 class Kernel extends ConsoleKernel {
   /**
