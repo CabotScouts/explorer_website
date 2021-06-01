@@ -4,11 +4,12 @@ namespace App\Models;
 
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Controllers\InstagramController as IG;
-use App\IGMedia;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
+
+use App\Http\Controllers\InstagramController as IG;
+use App\Models\IGMedia;
 
 class IGUser extends Model {
 
