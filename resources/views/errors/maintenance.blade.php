@@ -3,14 +3,14 @@
     <title>{{ config('app.name') }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;700;900&display=swap" rel="stylesheet">
     <style type="text/css">
       body {
         margin: 0;
         padding: 0;
         overscroll-behavior: none;
         background: #003982;
-        font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-family: "Source Code Pro", monospace;
         font-size: 18px;
         color: #ffffff;
       }
@@ -39,13 +39,13 @@
       }
       
       .message h1 {
-        font-weight: 900;
+        font-weight: 700;
         font-size: 3rem;
         margin: 0;
       }
 
       .message p {
-        font-weight: 700;
+        font-weight: 300;
       }
     </style>
   </head>
