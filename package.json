@@ -1,32 +1,22 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-    },
-    "devDependencies": {
-        "axios": "^0.21.1",
-        "bootstrap": "^4.5.x",
-        "cross-env": "^5.2.1",
-        "jquery": "^3.5.1",
-        "laravel-mix": "^5.0.9",
-        "lodash": "^4.17.19",
-        "popper.js": "^1.16.1",
-        "resolve-url-loader": "^3.1.2",
-        "sass": "^1.26.5",
-        "sass-loader": "^7.1.0",
-        "serialize-javascript": "^3.1.0",
-        "vue": "^2.6.11",
-        "vue-template-compiler": "^2.6.11"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.13.0",
-        "elliptic": "^6.5.4"
-    },
-    "name": "website"
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "npx mix",
+    "watch": "npx mix watch",
+    "watch-poll": "npx mix watch -- --watch-options-poll=1000",
+    "hot": "npx mix watch --hot",
+    "prod": "npm run production",
+    "production": "npx mix --production"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.27",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.37.5",
+    "sass-loader": "^12.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.0",
+    "@fortawesome/fontawesome-free": "^5.15.4"
+  }
 }
