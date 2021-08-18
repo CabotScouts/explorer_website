@@ -2,10 +2,6 @@
 source .env
 
 if [[ "$APP_ENV" = "production" ]]; then
-  chown -R www-data:www-data /data
-  chmod -R 775 ./storage/logs
-  chmod -R 775 ./bootstrap/cache
-  
   composer install --optimize-autoloader --no-dev
   
   php artisan config:cache
@@ -18,3 +14,9 @@ fi
 
 php artisan storage:link
 php artisan down --retry=60 --secret=$MAINTENANCE_KEY --render="errors::maintenance"
+
+if [[ "$APP_ENV" = "production" ]]; then
+  chown -R www-data:www-data /data
+  chmod -R 775 ./storage/logs
+  chmod -R 775 ./bootstrap/cache
+fi
