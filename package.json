@@ -16,7 +16,7 @@
     "sass-loader": "^12.1.0"
   },
   "dependencies": {
-    "bootstrap": "^5.1.0",
+    "bootstrap": "^4",
     "@fortawesome/fontawesome-free": "^5.15.4"
   }
 }
