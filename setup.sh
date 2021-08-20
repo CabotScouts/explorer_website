@@ -1,6 +1,10 @@
 #!/bin/bash
 source .env
 
+if [[ "$APP_KEY" = "" ]]; then
+  php artisan key:generate
+fi
+
 if [[ "$APP_ENV" = "production" ]]; then
   echo "Installing production environment and caching"
   composer install --optimize-autoloader --no-dev
