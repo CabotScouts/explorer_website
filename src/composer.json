@@ -10,12 +10,14 @@
     "require": {
         "php": "^8.0",
         "doctrine/dbal": "^2.9",
+        "evolutap/voyager-bread-generator": "^1.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "kyslik/column-sortable": "^6.3",
         "laravel/framework": "^8.0",
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
+        "predis/predis": "^2.0",
         "tcg/voyager": "^1.4.x-dev"
     },
     "require-dev": {

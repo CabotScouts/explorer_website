@@ -12,10 +12,11 @@ class PagesBreadSeeder extends Seeder
         return [
             // usually the name of the table
             'name'                  => 'pages',
+            'slug'                  => 'pages',
             'display_name_singular' => 'Page',
             'display_name_plural'   => 'Pages',
             'icon'                  => '',
-            'model_name'            => 'App\Page',
+            'model_name'            => 'App\Models\Page',
             'controller'            => '',
             'generate_permissions'  => 1,
             'description'           => '',
@@ -177,7 +178,7 @@ class PagesBreadSeeder extends Seeder
 								'add'          => 1,
 								'delete'       => 0,
 								'details'      => [
-									'model'       => 'App\\Header',
+									'model'       => 'App\\Models\\Header',
 									'table'       => 'headers',
 									'type'        => 'belongsTo',
 									'column'      => 'header_id',

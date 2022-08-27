@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\Models\Header;
+
 class NewHeaders extends Migration
 {
     /**
@@ -25,8 +27,7 @@ class NewHeaders extends Migration
 			});
 
 			Schema::table('pages', function (Blueprint $table) {
-				$table->unsignedBigInteger('header_id')->nullable();
-				$table->foreign('header_id')->references('id')->on('headers');
+        $table->foreignIdFor(Header::class)->nullable();
 			});
 
 			Schema::table('pages', function(Blueprint $table) {
@@ -47,7 +48,7 @@ class NewHeaders extends Migration
 			});
 
 			Schema::table('pages', function(Blueprint $table) {
-				$table->dropColumn('header_id');
+        $table->dropColumn('header_id');
 			});
 
 			Schema::dropIfExists('headers');

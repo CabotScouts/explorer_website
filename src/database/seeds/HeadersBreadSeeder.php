@@ -12,10 +12,11 @@ class HeadersBreadSeeder extends Seeder
         return [
             // usually the name of the table
             'name'                  => 'headers',
+            'slug'                  => 'headers',
             'display_name_singular' => 'Headers',
             'display_name_plural'   => 'Headers',
             'icon'                  => '',
-            'model_name'            => 'App\Header',
+            'model_name'            => 'App\Models\Header',
             'controller'            => '',
             'generate_permissions'  => 1,
             'description'           => '',

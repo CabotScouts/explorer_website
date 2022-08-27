@@ -1,0 +1,338 @@
+#!/bin/bash
+
+# -- INTERNAL CALLS --
+internal_header() {
+  # Nice header
+  echo
+  cat build/header.txt
+  echo
+}
+
+internal_check_valid() {
+  # Check that internal calls don't get run
+  if [[ $1 == internal_* ]]; then
+    echo "[!] Internal calls can only be run internally!"
+    echo
+    exit 1
+  fi
+}
+
+internal_loadenv() {
+  # Test if .env is present and load it (or exit)
+  if [[ -f .env ]]; then
+    if [[ -z $ENVLOADED ]]; then
+      source .env
+      ENVLOADED=true
+    fi
+  else
+    echo "[!] .env file missing - run ${0} init to create"
+    echo
+    exit 1
+  fi
+}
+
+internal_resolve_docker() {
+  # Test for docker/docker-compose executables and save correct calls
+  which docker &> /dev/null
+  if [[ $? -ne 0 ]]; then
+    echo "[!] docker executable not found"
+    echo
+    exit 1
+  fi
+
+  docker compose --help &> /dev/null
+  if [[ $? -eq 0 ]]; then
+    DOCKERCOMPOSE="docker compose"
+  else
+    which docker-compose &> /dev/null
+    if [[ $? -eq 0 ]]; then
+      DOCKERCOMPOSE="docker-compose"
+    else
+      echo "[!] docker compose not available"
+      echo
+      exit 1
+    fi
+  fi
+}
+
+internal_check_openssl() {
+  openssl rand 1 &> /dev/null
+  if [[ $? -ne 0 ]]; then
+    echo "[!] openssl not installed/available"
+  fi
+}
+
+internal_dcfiles() {
+  # Build docker compose files string for current configuration
+  DCFILES="-f build/docker-compose.yml"
+
+  if [[ -z $DOCKER_INGRESS ]] || [[ "${DOCKER_INGRESS}" == "local" ]]; then
+    DCFILES="${DCFILES} -f build/docker-compose.local.yml"
+    echo "[.] Using local ingress configuration"
+  elif [[ "${DOCKER_INGRESS}" == "traefik" ]]; then
+    DCFILES="${DCFILES} -f build/docker-compose.traefik.yml"
+    echo "[.] Using traefik ingress configuration"
+  fi
+}
+
+internal_init() {
+  # Initialise new .env file
+  internal_resolve_docker
+  internal_check_openssl
+
+  if [[ ! -f ".env" ]]; then
+    touch .env
+    echo "DOCKER_UID=$(id -u)" >> .env
+    echo "DOCKER_GID=$(id -g)" >> .env
+    cat build/.env.example >> .env
+    echo "[.] .env file created"
+  fi
+
+  ## TODO: - move this somewhere else
+  if [[ ! -d "redis" ]]; then
+    mkdir redis
+    echo "[.] redis dump directory created"
+  fi
+}
+
+internal_build_env() {
+  # Build full .env file
+  echo "[.] Creating application .env file"
+
+  if [[ -f "src/.env" ]]; then
+    rm src/.env
+  fi
+
+  echo "# AUTO GENERATED - CHANGES NOT PERSISTED" > src/.env
+  cat .env >> src/.env
+  cat build/.env.stub >> src/.env
+}
+
+internal_build_image() {
+  # Build core app docker image
+  echo "[.] Building docker image"
+
+  docker build ./build -t ${DOCKER_TAG}
+  if [[ $? -ne 0 ]]; then
+    echo "[!] image failed to build"
+    echo
+    exit 1
+  fi
+}
+
+internal_run_setup() {
+  # Run setup script (composer install) on core app container
+  echo "[.] Running setup script"
+  internal_isup
+  docker exec ${DOCKER_NAMESPACE}_app /bin/bash setup.sh
+  internal_exec_postcheck
+}
+
+internal_run_cache() {
+  # Run lavarel caching commands on core app container
+  echo "[.] Running cache script"
+  internal_isup
+  docker exec ${DOCKER_NAMESPACE}_app /bin/bash cache.sh
+  internal_exec_postcheck
+}
+
+internal_run_postbuild() {
+  internal_compose_up
+  internal_run_setup
+  internal_run_cache
+  internal_compose_down
+}
+
+internal_compose_up() {
+  # Start docker containers with relevant configurations
+  internal_dcfiles
+  ${DOCKERCOMPOSE} --env-file ./src/.env -p ${DOCKER_NAMESPACE} ${DCFILES} up -d
+
+  if [[ $? -ne 0 ]]; then
+    echo "[!] containers failed to start"
+    echo
+    exit 1
+  fi
+}
+
+internal_compose_down() {
+  # Stop docker containers
+  internal_dcfiles
+  ${DOCKERCOMPOSE} --env-file ./src/.env -p ${DOCKER_NAMESPACE} ${DCFILES} down
+}
+
+internal_isup() {
+  # Check if docker containers are up before continuing
+  internal_loadenv
+
+  docker ps | grep ${DOCKER_NAMESPACE}_app &> /dev/null
+  if [[ $? -ne 0 ]]; then
+    echo "[!] The app is not currently running - run '${0} start' to bring it up first"
+    echo
+    exit 1
+  fi
+}
+
+internal_exec_postcheck() {
+  # Test if docker exec commands failed (normally indicates app isn't running)
+  if [[ $? -ne 0 ]]; then
+    echo "[!] failed - have you started the app?"
+    echo
+    exit 1
+  fi
+}
+
+internal_migrate() {
+  # Run laravel migrations
+  internal_isup
+  docker exec -it ${DOCKER_NAMESPACE}_app php artisan migrate
+  internal_exec_postcheck
+}
+
+internal_migrate_force() {
+  # Run laravel migrations forced (so will run in production without questioning)
+  internal_isup
+  docker exec -it ${DOCKER_NAMESPACE}_app php artisan migrate --force
+  internal_exec_postcheck
+}
+
+internal_migrate_rollback() {
+  # Rollback laravel migrations
+  internal_isup
+  docker exec -it ${DOCKER_NAMESPACE}_app php artisan migrate:rollback
+  internal_exec_postcheck
+}
+
+internal_exit() {
+  echo
+  exit 0
+}
+
+internal_help_message() {
+  # If we get here then first argument wasn't a valid call -> show help message
+  # TODO: write this
+  echo "HELP"
+}
+
+# -- EXTERNAL CALLS --
+init() {
+  # Initialise new app (create .env if it doesn't already exist)
+  echo "[*] Initialising..."
+  internal_init
+  echo "[*] done."
+  internal_exit
+}
+
+build() {
+  # Compile env files and place in app directory; build core app docker image; run setup and cache scripts
+  internal_loadenv
+  internal_resolve_docker
+  
+  echo "[*] Building app..."
+  internal_build_env
+  internal_build_image
+  internal_run_postbuild
+  echo "[*] done."
+  internal_exit
+}
+
+start() {
+  # Start the app
+  internal_loadenv
+  internal_resolve_docker
+
+  echo "[*] Starting app..."
+  internal_compose_up
+  internal_run_cache
+  echo "[*] done."
+  internal_exit
+}
+
+stop() {
+  # Stop the app
+  internal_loadenv
+  internal_resolve_docker
+
+  echo "[*] Stopping app..."
+  internal_compose_down
+  echo "[*] done."
+  internal_exit
+}
+
+update() {
+  # Pull lastest version of repo
+
+  echo "[*] Pulling latest..."
+  git pull
+  echo "[*] done."
+  internal_exit
+}
+
+migrate() {
+  # Run database migrations in core app container
+  internal_loadenv
+  internal_resolve_docker
+
+  OPTION=$1
+
+  if [[ -z $OPTION ]]; then
+    echo "[*] Running migrations..."
+    internal_migrate
+  elif [[ "${OPTION}" == "force" ]]; then
+    echo "[*] Force running migrations..."
+    internal_migrate_force
+  elif [[ "${OPTION}" == "rollback" ]]; then
+    echo "[*] Rolling back migrations..."
+    internal_migrate_rollback
+  fi
+
+  echo "[*] done."
+  internal_exit
+}
+
+add-user() {
+  internal_loadenv
+  internal_resolve_docker
+
+  echo "[*] Adding new user..."
+  internal_isup
+  internal_add_user $1 $2
+
+  echo "[*] done - login at ${APP_URL}/login"
+  internal_exit
+}
+
+exec() {
+  internal_loadenv
+  internal_resolve_docker
+  internal_isup
+  docker exec -it ${DOCKER_NAMESPACE}_app $@
+  internal_exit
+}
+
+tinker() {
+  internal_loadenv
+  internal_resolve_docker
+  internal_isup
+  docker exec -it --env XDG_CONFIG_HOME=storage/psysh ${DOCKER_NAMESPACE}_app php artisan tinker
+  internal_exit
+}
+
+test() {
+  internal_loadenv
+  internal_resolve_docker
+  internal_isup
+  docker exec -it ${DOCKER_NAMESPACE}_app php artisan test
+  internal_exit
+}
+
+help () {
+  internal_help_message
+  internal_exit
+}
+
+# -- RUN --
+internal_header
+internal_check_valid $1
+$@
+internal_help_message

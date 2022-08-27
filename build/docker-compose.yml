@@ -1,0 +1,66 @@
+version: "3"
+
+services:
+  app:
+    image: ${DOCKER_TAG}
+    container_name: ${DOCKER_NAMESPACE}_app
+    user: "${DOCKER_UID}:${DOCKER_GID}"
+    restart: unless-stopped
+    networks:
+      - backend
+      - database
+    volumes:
+      - ../src:/var/www
+      - ../src/apache.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ../src/php.ini:/usr/local/etc/php/conf.d/additional.ini
+
+  queue:
+    image: ${DOCKER_TAG}
+    container_name: ${DOCKER_NAMESPACE}_queue
+    user: "${DOCKER_UID}:${DOCKER_GID}"
+    restart: unless-stopped
+    command: php artisan queue:work --sleep=3 --tries=3 --max-time=3600
+    networks:
+      - backend
+      - database
+    depends_on:
+      - app
+    volumes:
+      - ../src:/var/www
+      - ../src/php.ini:/usr/local/etc/php/conf.d/additional.ini
+
+  scheduler:
+    image: ${DOCKER_TAG}
+    container_name: ${DOCKER_NAMESPACE}_scheduler
+    user: "${DOCKER_UID}:${DOCKER_GID}"
+    restart: unless-stopped
+    command: php artisan schedule:work
+    networks:
+      - backend
+      - database
+    depends_on:
+      - app
+    volumes:
+      - ../src:/var/www
+      - ../src/php.ini:/usr/local/etc/php/conf.d/additional.ini
+
+  redis:
+    image: redis:latest
+    container_name: ${DOCKER_NAMESPACE}_redis
+    user: "${DOCKER_UID}:${DOCKER_GID}"
+    restart: unless-stopped
+    networks:
+      - backend
+    depends_on:
+      - app
+      - queue
+    volumes:
+      - ../redis:/data
+
+networks:
+  backend:
+    name: ${DOCKER_NAMESPACE}_bridge
+    
+  database:
+    name: ${DOCKER_DB_NETWORK}
+    external: true

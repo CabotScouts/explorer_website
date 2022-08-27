@@ -13,10 +13,11 @@ class UnitsBreadSeeder extends Seeder
         return [
             // usually the name of the table
             'name'                  => 'units',
+            'slug'                  => 'units',
             'display_name_singular' => 'Unit',
             'display_name_plural'   => 'Units',
             'icon'                  => '',
-            'model_name'            => 'App\Unit',
+            'model_name'            => 'App\Models\Unit',
             'controller'            => '',
             'generate_permissions'  => 1,
             'description'           => '',
