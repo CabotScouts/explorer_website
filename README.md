@@ -16,3 +16,5 @@ The base for the Cabot District Explorers website.
 ## Special Pages
 * `/` - content overlaid over header image on front page
 * `/front-page` - page content which appears below header image on front page
+* `units` - content above the individual Unit cards (below the map) on the Explorer Units page
+* `units/<unit short tag>` - content that appears on the Unit page (below map, above photos)
