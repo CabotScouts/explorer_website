@@ -64,7 +64,6 @@ Route::domain(config('app.root_domain'))->group(function () {
     Route::get('/delete/{id}', 'ShortlinkController@delete')->name('shortlink.delete');
   });
 
-  Route::view('/calendar', 'page.calendar')->name('calendar');
   Route::post('/search', 'PageController@searchPages');
   Route::get('/sitemap.xml', 'PageController@sitemap');
 
