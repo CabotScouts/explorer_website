@@ -18,7 +18,7 @@ $user = Auth::user();
 			<ul class="navbar-nav navbar-admin">
 				{{-- Units Menu --}}
 				@if($user->hasPermission('browse_units'))
-					<li class="navbar-item dropdown mr-4">
+					<li class="navbar-item dropdown me-4">
 						<a class="navbar-link dropdown-toggle" href="#" id="unitsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Units</a>
 
 						<div class="dropdown-menu" aria-labelledby="unitsDropdown">
@@ -37,7 +37,7 @@ $user = Auth::user();
 
 				{{-- Pages Menu --}}
 				@if($user->hasPermission('browse_pages'))
-				<li class="navbar-item dropdown mr-4">
+				<li class="navbar-item dropdown me-4">
 					<a class="navbar-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
 
 					<div class="dropdown-menu" aria-labelledby="manageDropdown">
