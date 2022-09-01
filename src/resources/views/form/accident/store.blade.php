@@ -16,7 +16,7 @@
 
 					<div class="col-12 mt-2">
 						<div class="alert alert-success">
-							Your accident report (#{{ $id }}) has been submitted, and a copy sent to <strong>{{ $form->reporterEmail }}</strong> - please check you have received this
+							Your accident report (#{{ $id }}) has been submitted, and a copy sent to <strong>{{ $form->reporterEmail }}</strong> - please check you have received this.
 						</div>
 					</div>
 
@@ -26,13 +26,13 @@
 
 					@if($needsParent)
 					<div class="alert alert-warning">
-						If an Explorer was involved in this accident, make sure their parent/carer is notified
+						If an Explorer was involved in this accident, make sure their parent/carer is notified.
 					</div>
 					@endif
 
 					@if($needsHQ)
 					<div class="alert alert-danger">
-						As this accident required further treatment, HQ must be notified. Fill out the <a href="https://app.smartsheet.com/b/form/f16aec805bee49cdbc4d12c82b5e7d2b" target="_blank" rel="noreferrer nofollow">HQ Incident Report Form</a> as soon as possible
+						As this accident required further treatment, HQ must be notified. Please contact the DESC as soon as possible.
 					</div>
 					@endif
 					</div>

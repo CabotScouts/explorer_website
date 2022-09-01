@@ -9,10 +9,10 @@
 @component('mail::panel')
 ## Next Steps
 @if($needsParent)
-* If an Explorer was involved, make sure a parent/carer has been notified of the accident and the treatment given
+* If an Explorer was involved, make sure a parent/carer has been notified of the accident and the treatment given.
 @endif
 @if($needsHQ)
-* As this accident required further treatment, HQ must be notified - [fill out the Scout Incident Form](https://app.smartsheet.com/b/form/f16aec805bee49cdbc4d12c82b5e7d2b) as soon as possible
+* As this accident required further treatment, HQ must be notified. Please contact the DESC as soon as possible.
 @endif
 @endcomponent
 @endif
@@ -44,9 +44,9 @@
 | Needs Reporting to Group   | {{ ($report->groupPremises == "on") ? "Yes" : "No" }}    |
 | Parent/Carer Notified      | {{ ($report->parentNotified == "on") ? "Yes" : "No" }}   |
 | Required Further Treatment | {{ ($report->furtherTreatment == "on") ? "Yes" : "No" }} |
-| HQ Notified                | {{ ($report->hqNotified == "on") ? "Yes" : "No" }}       |
-| Unity Form Completed       | {{ ($report->unityNotified == "on") ? "Yes" : "No" }}    |
+| DESC Notified              | {{ ($report->hqNotified == "on") ? "Yes" : "No" }}       |
+| HQ Notified                | {{ ($report->unityNotified == "on") ? "Yes" : "No" }}    |
 @endcomponent
 
-You have received this email as you are either the designated accident report contact for {{ config('app.name') }}, or you submitted the report.
+You have received this email as you are either a designated accident report contact for {{ config('app.name') }}, or you submitted the report.
 @endcomponent
