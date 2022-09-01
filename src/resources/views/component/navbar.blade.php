@@ -19,7 +19,7 @@ $user = Auth::user();
 				{{-- Units Menu --}}
 				@if($user->hasPermission('browse_units'))
 					<li class="navbar-item dropdown mr-4">
-						<a class="navbar-link dropdown-toggle" href="#" id="unitsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Units</a>
+						<a class="navbar-link dropdown-toggle" href="#" id="unitsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Units</a>
 
 						<div class="dropdown-menu" aria-labelledby="unitsDropdown">
 							@if($unit && $user->hasPermission('edit_units'))
@@ -38,7 +38,7 @@ $user = Auth::user();
 				{{-- Pages Menu --}}
 				@if($user->hasPermission('browse_pages'))
 				<li class="navbar-item dropdown mr-4">
-					<a class="navbar-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+					<a class="navbar-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
 
 					<div class="dropdown-menu" aria-labelledby="manageDropdown">
 					@if($page && $user->hasPermission('edit_pages'))
@@ -56,7 +56,7 @@ $user = Auth::user();
 
 			{{-- Generic Manage Menu --}}
 				<li class="navbar-item dropdown">
-					<a class="navbar-link dropdown-toggle" href="#" id="manageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
+					<a class="navbar-link dropdown-toggle" href="#" id="manageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
 
 					<div class="dropdown-menu" aria-labelledby="manageDropdown">
 						@if($user->hasPermission('browse_admin'))
@@ -71,7 +71,9 @@ $user = Auth::user();
 						@if($user->hasPermission('browse_settings'))
 						<a class="dropdown-item" href="{{ route('voyager.settings.index') }}" target="_blank">Settings</a>
 						@endif
+						@if($user->hasPermission('manage_instagram'))
 						<a class="dropdown-item" href="{{ route('instagram.manage') }}">Instagram Connection</a>
+						@endif
 						<a class="dropdown-item" href="{{ route('shortlink.index') }}">Shortlinks</a>
 						<a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
 					</div>
