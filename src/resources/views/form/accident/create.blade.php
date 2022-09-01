@@ -116,7 +116,7 @@
 			<div class="mb-4">
 				{!! htmlFormSnippet() !!}
 			</div>
-			<input class="form-control btn btn-primary" type="submit" name="submit" value="Submit Accident Report" />
+			<input class="form-control btn btn-primary" type="submit" name="submit" value="Submit accident report" />
 		</div>
 	</div>
 </form>
