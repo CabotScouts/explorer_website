@@ -1,5 +1,10 @@
 @extends('layouts.form')
 @section('title', 'Accident Report')
+
+@section('additional-head')
+{!! htmlScriptTagJsApi() !!}
+@endsection
+
 @section('content')
 	<div class="container">
 		<div class="row justify-content-md-center align-items-center">
@@ -113,6 +118,9 @@
 						</div>
 
 						<div class="form-group col-12 mt-4">
+							<div class="mb-4">
+								{!! htmlFormSnippet() !!}
+							</div>
 							<input class="form-control btn btn-primary" type="submit" name="submit" value="Send Report" />
 						</div>
 					</div>

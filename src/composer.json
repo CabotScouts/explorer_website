@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "biscolab/laravel-recaptcha": "^5.4",
         "doctrine/dbal": "^2.9",
         "evolutap/voyager-bread-generator": "^1.0",
         "fideloper/proxy": "^4.0",

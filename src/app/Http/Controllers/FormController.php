@@ -26,13 +26,15 @@ class FormController extends Controller
 		[
 			'reporterName'  => 'required',
 			'reporterEmail' => 'required|email',
-			'theirName'     => 'required'
+			'theirName'     => 'required',
+			recaptchaFieldName() => recaptchaRuleName()
 		],
 		[
 			'reporterName.required'  => 'You need to enter your name',
 			'reporterEmail.required' => 'You need to enter your email address',
 			'reporterEmail.email'    => 'You need to enter a valid email address',
-			'theirName.required'     => 'You need to enter their name'
+			'theirName.required'     => 'You need to enter their name',
+			'recaptcha'              => 'You need to prove you\'re not a robot'
 		]
 		)->validate();
 

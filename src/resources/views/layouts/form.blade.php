@@ -11,6 +11,7 @@
 		@else
 		<title>Cabot Explorer Scouts</title>
 		@endif
+		@yield('additional-head')
 	</head>
 
 	<body>
