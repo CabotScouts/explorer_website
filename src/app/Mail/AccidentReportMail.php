@@ -27,7 +27,7 @@ class AccidentReportMail extends Mailable
     public function __construct(AccidentReport $report, Request $request)
     {
         $this->id = $report->id;
-				$this->report = $request;
+				$this->report = $request->all();
 				$unit = Unit::where('shortname', $request->theirUnit)->first();
 				$this->unit = $unit ? $unit->name : false;
     }

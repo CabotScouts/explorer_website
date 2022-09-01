@@ -57,10 +57,11 @@ class FormController extends Controller
 		// Future: render email output to PDF to attach to email (for storage)
 
 		// Send out report to accidents email & reporter
-		Mail::to($contact)->send($orig);
+		Mail::to($contact)->queue($orig);
+		
 		if($request->reporterEmail !== $contact) {
 			// Unlikely, but emails are limited so better to check!
-			Mail::to($request->reporterEmail)->send($copy);
+			Mail::to($request->reporterEmail)->queue($copy);
 		}
 
 		return view('form.accident.store', [
