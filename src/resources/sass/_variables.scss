@@ -12,20 +12,14 @@ $pink: #ffb4e5;
 $red: #e22e12;
 $orange: #f6993f;
 $yellow: #ffe627;
-$green: #23a950;
+// $green: #23a950;
 $teal: #00a794;
 $cyan: #6cb2eb;
 
 $body-bg: lighten($navy, 2%);
 $highlight: lighten($navy, 2%);
 
-$theme-colors: (
-	"primary" : $highlight,
-	// "success" : $green,
-	// "danger"  : $red,
-	// "warning" : $yellow,
-	// "info"    : $teal
-);
+$primary: $highlight;
 
 $thumbnail-bg: #f8f9fa;
 
@@ -36,9 +30,10 @@ $navbar-light-color: $highlight;
 $navbar-light-hover-color: $highlight;
 $navbar-light-active-color: $highlight;
 
-$link-hover-color: $highlight;
 $dropdown-link-color: $highlight;
 $dropdown-link-hover-color: $highlight;
+
+$btn-link-color: #ffffff;
 
 $header-overlay-opacity: 0.5;
 
