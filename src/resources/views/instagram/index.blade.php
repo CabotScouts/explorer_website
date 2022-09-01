@@ -10,7 +10,7 @@
     </div>
     <div class="col col-12 col-sm-2 d-none d-sm-block">
       <div class="dropdown mt-2 mr-4 text-right">
-        <a class="navbar-link dropdown-toggle" href="#" id="albumsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Albums</a>
+        <a class="navbar-link dropdown-toggle" href="#" id="albumsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Albums</a>
 
       	<div class="dropdown-menu pre-scrollable" aria-labelledby="albumsDropdown">
           <a class="dropdown-item" href="{{ route('instagram.view') }}">All Photos</a>
