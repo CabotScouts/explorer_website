@@ -3,6 +3,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Spatial;
+use Carbon\Carbon;
 
 use App\Page;
 
@@ -35,6 +36,14 @@ class Unit extends Model
   public function getDayStringAttribute() {
 		$days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 		return ($this->day >= 0 && $this->day < 7) ? $days[$this->day] : '';
+	}
+
+	public function getStartAttribute() {
+		return Carbon::parse($this->start_time)->format("H:i");
+	}
+	
+	public function getEndAttribute() {
+		return Carbon::parse($this->end_time)->format("H:i");
 	}
 
 	public function getUrlAttribute() {

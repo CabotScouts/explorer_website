@@ -11,14 +11,9 @@
 				&nbsp;
 			@endif
 			@if($unit->start_time)
-				<small class="muted">({{ $unit->start_time }} - {{ $unit->end_time }})</small>
+				<small class="muted">({{ $unit->start }} - {{ $unit->end }})</small>
 			@endif
 		</h6>
 		<a href="{{ route('unit.view', $unit->shortname) }}" class="mt-4 btn btn-sm btn-success">See Unit</a>
 	</div>
-	{{-- <ul class="list-group list-group-flush unit-card-links">
-		<li class="list-group-item">
-			<a href="{{ route('view-unit', ['name' => $unit->shortname ]) }}/" class="btn btn-sm btn-outline-primary">See Unit</a>
-		</li>
-	</ul> --}}
 </div>
