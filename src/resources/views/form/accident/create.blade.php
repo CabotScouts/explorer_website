@@ -72,13 +72,9 @@
 		</div>
 
 		<div class="form-group col-12">
-			<div class="form-check mt-2">
+			<div class="form-check">
 				<input class="form-check-input" type="checkbox" name="groupPremises" id="groupPremises" aria-describedby="groupPremises-help"{{ old('groupPremises') == true ? ' checked' : '' }}/>
 				<label class="form-check-label" for="groupPremises">The accident happened at our host Group's premises</label>
-			</div>
-			<div class="form-check mt-2">
-				<input class="form-check-input" type="checkbox" name="parentNotified" id="parentNotified"{{ old('parentNotified') == true ? ' checked' : '' }}/>
-				<label class="form-check-label" for="parentNotified">A parent/carer has been notified of the accident (if an Explorer)</label>
 			</div>
 		</div>
 
@@ -93,6 +89,13 @@
 			<label class="form-label" for="treatment">Treatment Given</label>
 			<textarea rows="6" class="form-control" name="treatment" id="treatment" aria-describedby="treatment-help" placeholder="Treatment">{{ old('treatment') }}</textarea>
 			<small id="treatment-help" class="form-text text-muted">Describe any treatment given to the injured person</small>
+		</div>
+		
+		<div class="form-group col-12">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" name="parentNotified" id="parentNotified"{{ old('parentNotified') == true ? ' checked' : '' }}/>
+				<label class="form-check-label" for="parentNotified">A parent/carer has been notified of the accident (if an Explorer)</label>
+			</div>
 		</div>
 
 		<div class="form-group col-12">
@@ -113,7 +116,7 @@
 		</div>
 
 		<div class="form-group col-12 mt-4">
-			<div class="mb-4">
+			<div class="mb-4 text-center md-text-left">
 				{!! htmlFormSnippet() !!}
 			</div>
 			<input class="form-control btn btn-primary" type="submit" name="submit" value="Submit accident report" />
