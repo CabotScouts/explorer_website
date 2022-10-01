@@ -219,6 +219,47 @@ return [
              'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),
          ],
          'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
-     ],
+    ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Allowed Mimetypes
+    |--------------------------------------------------------------------------
+    |
+    | Which mimetypes are allowed to be uploaded using the media manager
+    |
+    */
+
+    'media' => [
+      'allowed_mimetypes' => [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.ms-excel",
+        "application/vnd.ms-powerpoint",
+        "application/vnd.oasis.opendocument.text",
+        "application/vnd.oasis.opendocument.spreadsheet",
+        "application/vnd.oasis.opendocument.presentation",
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/zip",
+        "audio/aac",
+        "audio/mpeg",
+        "audio/wav",
+        "audio/webm",
+        "image/bmp",
+        "image/gif",
+        "image/jpeg",
+        "image/png",
+        "image/svg+xml",
+        "image/tiff",
+        "image/webp",
+        "text/csv",
+        "text/plain",
+        "video/x-msvideo",
+        "video/mp4",
+        "video/mpeg",
+        "video/webm",
+      ],
+    ],
 ];
