@@ -232,8 +232,8 @@ return [
 
     'media' => [
       'allowed_mimetypes' => [
-        "application/pdf",
         "application/msword",
+        "application/pdf",
         "application/vnd.ms-excel",
         "application/vnd.ms-powerpoint",
         "application/vnd.oasis.opendocument.text",
